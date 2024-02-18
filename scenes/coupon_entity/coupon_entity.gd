@@ -10,6 +10,7 @@ var velocity : Vector2 = Vector2()
 var angular_vel := 0.0
 @onready var gravity := Vector2(0, 60)
 @onready var animation : AnimationPlayer = %AnimationPlayer
+@onready var card_sound : AudioStreamPlayer2D = %CardSound
 @export var hover_offset : Vector2 = Vector2(0, -40)
 @export var throw_range : float = 1400.0
 @export var throw_spin : float = 10.0
@@ -26,6 +27,9 @@ func _ready() -> void:
 func play_error() -> void:
 	animation.play("error")
 
+func play_enter() -> void:
+	animation.play("enter")
+
 func play_discard() -> void:
 	if tween != null:
 		tween.stop()
@@ -37,6 +41,7 @@ func play_discard() -> void:
 	velocity = Vector2(randf_range(-.3, .3), -1).normalized() * throw_range
 	angular_vel = randf_range(throw_spin, -throw_spin)
 	is_thrown = true
+	card_sound.play()
 
 func _process(delta):
 	if is_thrown:

@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://fww6hvm3n2g8"]
+[gd_scene load_steps=14 format=3 uid="uid://fww6hvm3n2g8"]
 
 [ext_resource type="Script" path="res://scenes/coupon_entity/coupon_entity.gd" id="1_ydmks"]
 [ext_resource type="Texture2D" uid="uid://d4nnvlk6folt3" path="res://assets/sprites/coupon-01.png" id="2_50jv8"]
 [ext_resource type="Theme" uid="uid://dosqmxn1b35n3" path="res://main_theme.tres" id="3_e3kq7"]
+[ext_resource type="AudioStream" uid="uid://bkcitp7ahqh15" path="res://assets/sfx/cardSlide4.ogg" id="4_e4elc"]
+[ext_resource type="AudioStream" uid="uid://c3jxf0qocn7sr" path="res://assets/sfx/cardSlide5.ogg" id="5_cynu4"]
+[ext_resource type="AudioStream" uid="uid://k0xwfplydprt" path="res://assets/sfx/cardSlide6.ogg" id="6_hdywd"]
+[ext_resource type="AudioStream" uid="uid://bpib57scnjhlj" path="res://assets/sfx/cardSlide2.ogg" id="7_lc5gb"]
 
 [sub_resource type="Animation" id="Animation_0k4nx"]
 resource_name = "error"
@@ -64,12 +68,55 @@ tracks/1/keys = {
 resource_name = "discard"
 length = 0.5
 
+[sub_resource type="Animation" id="Animation_xea5h"]
+resource_name = "enter"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19),
+"transitions": PackedFloat32Array(0.203063, 0.0358968),
+"update": 0,
+"values": [Vector2(2.08165e-12, 300), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vlny3"]
 _data = {
 "RESET": SubResource("Animation_ouail"),
 "discard": SubResource("Animation_4milr"),
+"enter": SubResource("Animation_xea5h"),
 "error": SubResource("Animation_0k4nx")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1l1k6"]
+streams_count = 4
+stream_0/stream = ExtResource("4_e4elc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_cynu4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_hdywd")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_lc5gb")
+stream_3/weight = 1.0
 
 [node name="Coupon" type="Control"]
 custom_minimum_size = Vector2(200, 288)
@@ -82,21 +129,20 @@ script = ExtResource("1_ydmks")
 hover_offset = Vector2(2.08165e-12, -40)
 
 [node name="Inner" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 288.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Inner"]
 texture_filter = 3
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 102.151
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_50jv8")
@@ -158,3 +204,7 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_vlny3")
 }
+
+[node name="CardSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_1l1k6")

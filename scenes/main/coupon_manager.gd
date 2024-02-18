@@ -57,5 +57,8 @@ func _on_coupon_discarded(coupon : CouponEntity):
 		return
 
 	coupon.queue_free()
+	coupon.get_parent().remove_child(coupon)
+
 	var new_coupon := create_random_coupon()
 	hand.get_child(index).add_child(new_coupon)
+	new_coupon.play_enter()

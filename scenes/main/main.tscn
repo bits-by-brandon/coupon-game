@@ -162,6 +162,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 2
 alignment = 1
 
@@ -169,6 +170,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Slot2" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 2
 alignment = 1
 
@@ -176,6 +178,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Slot3" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 2
 alignment = 1
 
@@ -183,6 +186,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Slot4" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 2
 alignment = 1
 
@@ -190,17 +194,9 @@ alignment = 1
 layout_mode = 2
 
 [node name="Slot5" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
 layout_mode = 2
 alignment = 1
 
 [node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
 layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Discards" type="Label" parent="CanvasLayer/PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Discards: 5"
