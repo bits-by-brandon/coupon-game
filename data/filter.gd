@@ -6,11 +6,7 @@ enum Operator {
   Min
 }
 
-# @export var companies : Array[ItemData.Company]
-@export var shapes : Array[ItemData.Shape]
 @export var colors : Array[ItemData.ItemColor]
-@export var price_value : float
-@export var price_operator : Operator
 @export var seasons : Array[ItemData.Season]
 @export var expiration_value : int
 @export var expiration_operator : Operator

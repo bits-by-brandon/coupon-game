@@ -15,7 +15,7 @@ custom_minimum_size = Vector2(120, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("1_qhbm6")
 theme_type_variation = &"FilterLabel"
-text = "Filter"
+text = "Title"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -25,6 +25,6 @@ custom_minimum_size = Vector2(120, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("1_qhbm6")
 theme_type_variation = &"HeaderSmall"
-text = "Filter"
+text = "Taxonomy"
 horizontal_alignment = 1
 autowrap_mode = 2

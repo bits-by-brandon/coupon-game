@@ -53,9 +53,44 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 100.0
-offset_top = -161.0
+offset_top = -241.0
 offset_right = -100.0
-offset_bottom = 4.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
+
+[node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
+
+[node name="Slot2" type="VBoxContainer" parent="CanvasLayer/Hand"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
+
+[node name="Slot3" type="VBoxContainer" parent="CanvasLayer/Hand"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
+
+[node name="Slot4" type="VBoxContainer" parent="CanvasLayer/Hand"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
+
+[node name="Slot5" type="VBoxContainer" parent="CanvasLayer/Hand"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
