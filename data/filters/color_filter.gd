@@ -9,10 +9,10 @@ static func create_random() -> Filter:
   return filter
 
 func apply(entity: ItemEntity) -> bool:
-  return entity.item.colors.find(color) != -1
+  return entity.data.colors.find(color) != -1
 
 func get_label() -> String:
-  return ItemData.ItemColor.keys()[color].capitalize()
+  return "%s colored items" % ItemData.ItemColor.keys()[color].capitalize()
 
 func get_subtext() -> String:
   return "Colored items"

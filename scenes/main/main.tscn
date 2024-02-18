@@ -1,143 +1,151 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=11 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
-[ext_resource type="Texture2D" uid="uid://cuet1prqrwmfr" path="res://icon.svg" id="2_7bwq3"]
+[ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
+[ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/CHARNOPIXEL.png" id="2_tmmr5"]
 [ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phbqo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y7un"]
-size = Vector2(1083, 122)
+[ext_resource type="Script" path="res://scenes/main/coupon_manager.gd" id="3_yx1u3"]
+[ext_resource type="Script" path="res://scenes/main/register.gd" id="4_4p2by"]
+[ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/customer-display.png" id="5_5y72f"]
+[ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/conveyer.png" id="6_73cg8"]
+[ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/bagBACK.png" id="8_up0lp"]
+[ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/bagFRONT.png" id="9_hchrb"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
 
-[node name="Register" type="Node2D" parent="."]
-position = Vector2(525, 146)
+[node name="Cashier" type="Sprite2D" parent="."]
+position = Vector2(548, 216)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_tmmr5")
 
-[node name="PanelContainer" type="PanelContainer" parent="Register"]
-offset_left = -15.0
-offset_top = -55.0
-offset_right = 259.0
-offset_bottom = 96.0
+[node name="Register" type="Sprite2D" parent="."]
+position = Vector2(837, 276)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("5_5y72f")
+script = ExtResource("4_4p2by")
 
-[node name="MarginContainer" type="MarginContainer" parent="Register/PanelContainer"]
+[node name="Control" type="Control" parent="Register"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -469.5
+offset_top = -277.0
+offset_right = -19.5
+offset_bottom = -148.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Register/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Register/PanelContainer/MarginContainer"]
+[node name="BasePriceLabel" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Base Price"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Register/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Register/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "ItemName"
-
-[node name="Label2" type="Label" parent="Register/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "$10.00"
-
-[node name="Label3" type="Label" parent="Register/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "-$5.00"
-
-[node name="Spacer" type="Control" parent="Register/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="Register/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Register/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="BasePriceValue" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+text = "$10.00"
 
-[node name="Label4" type="Label" parent="Register/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
 layout_mode = 2
-text = "TOTAL"
+theme_override_constants/separation = 20
 
-[node name="Label5" type="Label" parent="Register/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="DiscountPriceLabel" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "-$450"
+text = "Discount Price"
 
-[node name="Cashier" type="Node2D" parent="."]
-position = Vector2(939, 196)
+[node name="Spacer2" type="Control" parent="Register/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Cashier"]
-position = Vector2(-23, -23)
-scale = Vector2(1.35938, 1.35938)
-texture = ExtResource("2_7bwq3")
+[node name="DiscountPriceValue" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-$5.00"
 
-[node name="ConveyerBelt" type="StaticBody2D" parent="."]
-position = Vector2(424, 361)
-physics_material_override = SubResource("PhysicsMaterial_phbqo")
+[node name="ConveyerBelt" type="Sprite2D" parent="."]
+position = Vector2(458, 488)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("6_73cg8")
 
-[node name="Sprite2D" type="Sprite2D" parent="ConveyerBelt"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(91, 54)
-scale = Vector2(8.20312, 1)
-texture = ExtResource("2_7bwq3")
+[node name="Bag" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1106, 484)
+scale = Vector2(0.45, 0.45)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyerBelt"]
-position = Vector2(74.5, 54)
-shape = SubResource("RectangleShape2D_1y7un")
+[node name="BagBack" type="Sprite2D" parent="Bag"]
+texture = ExtResource("8_up0lp")
+
+[node name="BagFront" type="Sprite2D" parent="Bag"]
+texture = ExtResource("9_hchrb")
 
 [node name="Items" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Positions" type="Node2D" parent="."]
-position = Vector2(0, -43)
-
-[node name="Position4" type="Marker2D" parent="Positions"]
+[node name="ScanPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-409, 294)
+position = Vector2(780, 423)
 
-[node name="Position3" type="Marker2D" parent="Positions"]
+[node name="ExitPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(17, 430)
+position = Vector2(1322, 512)
 
-[node name="Position2" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(317, 430)
+[node name="ItemManager" type="Node" parent="."]
+script = ExtResource("2_4rs8w")
 
-[node name="Position1" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(617, 430)
-
-[node name="Position0" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(917, 430)
-
-[node name="ExitPosition" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(1322, 555)
+[node name="CouponManager" type="Node" parent="."]
+script = ExtResource("3_yx1u3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(170, 2.08165e-12)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 48.0
+grow_horizontal = 0
 script = ExtResource("3_l8jti")
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = 1054.0
-offset_top = 20.0
-offset_right = 1113.0
-offset_bottom = 60.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_type_variation = &"FilterLabel"
-text = "6 sec"
+theme_override_font_sizes/font_size = 32
+text = "6 seconds"
+horizontal_alignment = 2
 
 [node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
+wait_time = 10.0
 autostart = true
 
 [node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
@@ -146,13 +154,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 105.0
-offset_top = -236.0
-offset_right = -95.0
-offset_bottom = 37.0
+offset_top = -208.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
 layout_mode = 2
@@ -188,3 +195,12 @@ alignment = 1
 
 [node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
 layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Discards" type="Label" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Discards: 5"

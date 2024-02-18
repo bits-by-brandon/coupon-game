@@ -26,12 +26,16 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*res://event_bus.gd"
+
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=700
-window/size/window_width_override=2400
-window/size/window_height_override=1400
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=2304
+window/size/window_height_override=1296
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -41,6 +45,30 @@ enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 [gui]
 
 theme/custom="res://main_theme.tres"
+
+[importer_defaults]
+
+font_data_dynamic={
+"Compress": null,
+"Fallbacks": null,
+"Rendering": null,
+"allow_system_fallback": true,
+"antialiasing": 0,
+"compress": true,
+"fallbacks": [],
+"force_autohinter": false,
+"generate_mipmaps": false,
+"hinting": 2,
+"language_support": {},
+"msdf_pixel_range": 8,
+"msdf_size": 48,
+"multichannel_signed_distance_field": false,
+"opentype_features": {},
+"oversampling": 4.0,
+"preload": [],
+"script_support": {},
+"subpixel_positioning": 2
+}
 
 [rendering]
 

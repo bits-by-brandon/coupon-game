@@ -9,7 +9,7 @@ static func create_random() -> Filter:
   return filter
 
 func apply(entity: ItemEntity) -> bool:
-  return entity.data.category == category
+  return entity.data.categores.find(category) != -1
 
 func get_subtext() -> String:
   return "Products"

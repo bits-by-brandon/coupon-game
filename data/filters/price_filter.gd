@@ -4,7 +4,7 @@ extends Filter
 var operator : Filter.Operator
 var price : float
 static var value_min = 1
-static var value_max = 50
+static var value_max = 10
 
 static func create_random() -> Filter:
   var filter := PriceFilter.new()
@@ -24,7 +24,10 @@ func apply(entity: ItemEntity) -> bool:
     return entity.current_price >= price
 
 func get_label() -> String:
-  return "Items $" + str(price)
+  if operator == Filter.Operator.Max:
+    return "Items $%s or under" % str(price)
+  else:
+    return "Items $%s or over" % str(price)
 
 func get_subtext() -> String:
   if operator == Filter.Operator.Max:

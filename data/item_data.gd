@@ -2,10 +2,9 @@ class_name ItemData
 extends Resource
 
 enum Category {
-	None,
-	Frozen,
-	Drink,
-	Dessert,
+	FrozenFood,
+	Drinks,
+	Desserts,
 	Fruit,
 	Meat,
 	Clothes,
@@ -55,6 +54,7 @@ enum Season {
 @export var categories : Array[Category] = []
 @export var valid_companies : Array[Company] = []
 @export var colors : Array[ItemColor] = []
+@export var shape : Shape
 @export var seasons : Array[Season] = []
 @export var expiration : int
 @export var texture : Texture2D

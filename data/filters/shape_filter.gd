@@ -9,10 +9,10 @@ static func create_random() -> Filter:
   return filter
 
 func apply(entity: ItemEntity) -> bool:
-  return entity.data.shape == entity.shape
+  return entity.data.shape == shape
 
 func get_label() -> String:
-  return ItemData.Shape.keys()[shape].capitalize()
+  return "%s shaped items" % ItemData.Shape.keys()[shape].capitalize()
 
 func get_subtext() -> String:
   return "Shaped items"

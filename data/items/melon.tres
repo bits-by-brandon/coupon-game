@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://2x4lexyfd2ni"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_jenre"]
-[ext_resource type="Texture2D" uid="uid://cuet1prqrwmfr" path="res://icon.svg" id="2_xlbi2"]
+[ext_resource type="Texture2D" uid="uid://b0fwk3t2vaic2" path="res://assets/sprites/items/orange.png" id="2_jodlc"]
 
 [resource]
 script = ExtResource("1_jenre")
@@ -11,6 +11,7 @@ price_variance = 2.0
 categories = Array[int]([4])
 valid_companies = Array[int]([1, 6, 4])
 colors = Array[int]([2])
+shape = 0
 seasons = Array[int]([])
 expiration = 10
-texture = ExtResource("2_xlbi2")
+texture = ExtResource("2_jodlc")

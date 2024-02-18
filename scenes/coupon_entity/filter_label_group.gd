@@ -6,4 +6,3 @@ extends VBoxContainer
 
 func init(filter: Filter) -> void:
 	filter_name.text = filter.get_label()
-	filter_taxonomy.text = filter.get_subtext()
