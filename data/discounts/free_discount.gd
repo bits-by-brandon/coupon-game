@@ -12,7 +12,7 @@ func get_primary() -> String:
   return "FREE"
 
 func get_super() -> String:
-  return "100%"
+  return ""
 
 func get_sub() -> String:
-  return "OFF"
+  return ""

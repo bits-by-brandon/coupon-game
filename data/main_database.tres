@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Database" load_steps=3 format=3 uid="uid://cpxcqh8cqcvm3"]
+[gd_resource type="Resource" script_class="Database" load_steps=6 format=3 uid="uid://cpxcqh8cqcvm3"]
 
+[ext_resource type="Resource" uid="uid://d271rgnvwnays" path="res://data/items/frozen_food.tres" id="1_453d8"]
 [ext_resource type="Script" path="res://data/database.gd" id="1_eeirb"]
-[ext_resource type="Resource" uid="uid://2x4lexyfd2ni" path="res://data/items/melon.tres" id="1_i48uy"]
+[ext_resource type="Resource" uid="uid://cf6autagkv1ui" path="res://data/items/ice_cream_tub.tres" id="2_8u0br"]
+[ext_resource type="Resource" uid="uid://f733vppujw3k" path="res://data/items/orange.tres" id="3_7dyyq"]
+[ext_resource type="Resource" uid="uid://di80eovbnu7kf" path="res://data/items/pizza_pie.tres" id="4_bq0cq"]
 
 [resource]
 script = ExtResource("1_eeirb")
-items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_i48uy")])
+items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_453d8"), ExtResource("2_8u0br"), ExtResource("3_7dyyq"), ExtResource("4_bq0cq")])

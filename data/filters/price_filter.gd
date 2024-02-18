@@ -19,9 +19,9 @@ static func create_random() -> Filter:
 
 func apply(entity: ItemEntity) -> bool:
   if operator == Filter.Operator.Max:
-    return entity.get_discounted_price() <= price
+    return entity.base_price <= price
   else:
-    return entity.get_discounted_price() >= price
+    return entity.base_price >= price
 
 func get_label() -> String:
   if operator == Filter.Operator.Max:

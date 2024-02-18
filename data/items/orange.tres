@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://f733vppujw3k"]
+
+[ext_resource type="Script" path="res://data/item_data.gd" id="1_i5ga4"]
+[ext_resource type="Texture2D" uid="uid://b0fwk3t2vaic2" path="res://assets/sprites/items/orange.png" id="2_phiks"]
+
+[resource]
+script = ExtResource("1_i5ga4")
+name = "Item"
+base_price = 8.0
+price_variance = 2.0
+categories = Array[int]([3])
+colors = Array[int]([2])
+shape = 0
+seasons = Array[int]([])
+expiration = 10
+texture = ExtResource("2_phiks")
