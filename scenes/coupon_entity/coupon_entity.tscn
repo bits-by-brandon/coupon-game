@@ -1,23 +1,96 @@
-[gd_scene load_steps=6 format=3 uid="uid://fww6hvm3n2g8"]
+[gd_scene load_steps=8 format=3 uid="uid://fww6hvm3n2g8"]
 
 [ext_resource type="Script" path="res://scenes/coupon_entity/coupon_entity.gd" id="1_ydmks"]
 [ext_resource type="Texture2D" uid="uid://d4nnvlk6folt3" path="res://assets/sprites/coupon-01.png" id="2_50jv8"]
 [ext_resource type="Theme" uid="uid://dosqmxn1b35n3" path="res://main_theme.tres" id="3_e3kq7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eif30"]
-bg_color = Color(0.113725, 0.619608, 0, 1)
+[sub_resource type="Animation" id="Animation_0k4nx"]
+resource_name = "error"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 2.08165e-12), Vector2(-5, 2.08165e-12), Vector2(2, 2.08165e-12), Vector2(-2, 2.08165e-12), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inner:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.34902, 0.360784, 1), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcsk0"]
-bg_color = Color(0.74902, 0.141176, 0.243137, 1)
+[sub_resource type="Animation" id="Animation_ouail"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inner:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4milr"]
+resource_name = "discard"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlny3"]
+_data = {
+"RESET": SubResource("Animation_ouail"),
+"discard": SubResource("Animation_4milr"),
+"error": SubResource("Animation_0k4nx")
+}
 
 [node name="Coupon" type="Control"]
 custom_minimum_size = Vector2(200, 288)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 288.0
+pivot_offset = Vector2(100, 144)
 script = ExtResource("1_ydmks")
 hover_offset = Vector2(2.08165e-12, -40)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Inner" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Inner"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 15
@@ -30,7 +103,7 @@ texture = ExtResource("2_50jv8")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Inner"]
 custom_minimum_size = Vector2(120, 2.08165e-12)
 layout_mode = 1
 offset_left = 16.0
@@ -39,34 +112,34 @@ offset_right = 140.0
 offset_bottom = 102.0
 theme_override_constants/separation = 3
 
-[node name="DiscountPrimary" type="Label" parent="HBoxContainer"]
+[node name="DiscountPrimary" type="Label" parent="Inner/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_e3kq7")
 theme_type_variation = &"FilterLabel"
 text = "$20"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Inner/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="DiscountSuper" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="DiscountSuper" type="Label" parent="Inner/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_e3kq7")
 theme_type_variation = &"HeaderSmall"
 text = ".00"
 
-[node name="DiscountSub" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="DiscountSub" type="Label" parent="Inner/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_e3kq7")
 theme_type_variation = &"HeaderSmall"
 text = "OFF"
 
-[node name="Filter" type="Label" parent="."]
+[node name="Filter" type="Label" parent="Inner"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(167, 2.08165e-12)
 layout_mode = 2
@@ -79,28 +152,9 @@ theme_type_variation = &"HeaderMedium"
 text = "Frozen Food"
 autowrap_mode = 3
 
-[node name="Buttons" type="HBoxContainer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Inner"]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -1.0
-offset_bottom = 34.0
-grow_horizontal = 2
-
-[node name="UseButton" type="Button" parent="Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_eif30")
-text = "Use"
-
-[node name="DiscardButton" type="Button" parent="Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_gcsk0")
-text = "Discard"
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vlny3")
+}
