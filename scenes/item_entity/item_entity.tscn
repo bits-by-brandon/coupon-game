@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://7k32wck23s3p"]
+[gd_scene load_steps=4 format=3 uid="uid://7k32wck23s3p"]
 
 [ext_resource type="Script" path="res://scenes/item_entity/item_entity.gd" id="1_hppjc"]
+[ext_resource type="Texture2D" uid="uid://b0fwk3t2vaic2" path="res://assets/sprites/items/orange.png" id="2_h6ce8"]
+[ext_resource type="Texture2D" uid="uid://b8ylp3cnngfnl" path="res://assets/sprites/shadow.png" id="3_pae17"]
 
 [node name="ItemEntity" type="Node2D"]
 script = ExtResource("1_hppjc")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_pae17")
+
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_h6ce8")
+offset = Vector2(2.08165e-12, 2.08165e-12)

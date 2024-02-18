@@ -7,8 +7,6 @@ enum Category {
 	Desserts,
 	Fruit,
 	Meat,
-	Clothes,
-	Tech
 }
 
 enum Shape {

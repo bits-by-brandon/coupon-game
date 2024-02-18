@@ -19,7 +19,10 @@ var current_item : ItemEntity :
 			return
 		
 		current_item = value
-		Events.item_scanned.emit(value)
+
+		if current_item != null:
+			current_item.activate()
+			Events.item_scanned.emit(value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -74,7 +77,7 @@ func _on_item_timer_finished() -> void:
 func _on_coupon_used(coupon : CouponEntity) -> void:
 	for filter : Filter in coupon.data.filters:
 		if filter.apply(current_item):
-			current_item.current_price = coupon.data.discount.apply(current_item)
+			coupon.data.discount.apply(current_item)
 			Events.coupon_applied.emit(coupon, current_item)
 		else:
 			coupon.play_error()

@@ -15,7 +15,7 @@
 script = ExtResource("1_lq2ey")
 
 [node name="Cashier" type="Sprite2D" parent="."]
-position = Vector2(548, 216)
+position = Vector2(632, 216)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("2_tmmr5")
 
@@ -110,7 +110,7 @@ unique_name_in_owner = true
 
 [node name="ScanPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(780, 423)
+position = Vector2(785, 424)
 
 [node name="ExitPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

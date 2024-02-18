@@ -2,18 +2,17 @@ class_name FreeDiscount
 extends Discount
 
 static func create_random() -> Discount:
-  var discount = MultiplyDiscount.new()
-  discount.value = float(randi_range(2, 4))
+  var discount = FreeDiscount.new()
   return discount
 
-func apply(item : ItemEntity) -> float:
-  return max(item.current_price, 0)
+func apply(item : ItemEntity) -> void:
+  item.current_discount += item.base_price
 
 func get_primary() -> String:
   return "FREE"
 
 func get_super() -> String:
-  return ""
+  return "100%"
 
 func get_sub() -> String:
-  return ""
+  return "OFF"

@@ -7,9 +7,8 @@ static func create_random() -> Discount:
   assert(false, "create_random() not implemented yet")
   return Discount.new()
 
-func apply(item : ItemEntity) -> float:
+func apply(item : ItemEntity) -> void:
   assert(false, "apply() not implemented yet")
-  return item.current_price
 
 func get_primary() -> String:
   return "$0"

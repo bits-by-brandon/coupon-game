@@ -12,8 +12,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_item_scanned(item : ItemEntity) -> void:
 	base_price_value.text = "$%.02f" % [item.base_price]
-	discount_price_value.text = "$%.02f" % [item.current_price]
+	discount_price_value.text = "$%.02f" % [item.current_discount]
 
 func _on_coupon_applied(_coupon : CouponEntity, item : ItemEntity) -> void:
 	base_price_value.text = "$%.02f" % [item.base_price]
-	discount_price_value.text = "$%.02f" % [item.current_price]
+	discount_price_value.text = "$%.02f" % [item.current_discount]

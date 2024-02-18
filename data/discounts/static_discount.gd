@@ -6,8 +6,8 @@ static func create_random() -> Discount:
   discount.value = float(randi_range(1, 20))
   return discount
 
-func apply(item : ItemEntity) -> float:
-  return item.current_price - value
+func apply(item : ItemEntity) -> void:
+  item.current_discount += value
 
 func get_primary() -> String:
   return "$%s" % [str(value)]
