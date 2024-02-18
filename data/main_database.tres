@@ -6,4 +6,3 @@
 [resource]
 script = ExtResource("1_eeirb")
 items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_i48uy")])
-coupons = Array[Resource("res://data/coupon_data.gd")]([])

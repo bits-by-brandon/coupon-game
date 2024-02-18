@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=6 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://cuet1prqrwmfr" path="res://icon.svg" id="2_7bwq3"]
+[ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phbqo"]
 
@@ -68,29 +69,6 @@ position = Vector2(-23, -23)
 scale = Vector2(1.35938, 1.35938)
 texture = ExtResource("2_7bwq3")
 
-[node name="Positions" type="Node2D" parent="."]
-position = Vector2(0, -43)
-
-[node name="Position1" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(882, 413)
-
-[node name="Position2" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(584, 413)
-
-[node name="Position3" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(420, 413)
-
-[node name="Position4" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(248, 413)
-
-[node name="EntryPosition" type="Marker2D" parent="Positions"]
-unique_name_in_owner = true
-position = Vector2(-120, 307)
-
 [node name="ConveyerBelt" type="StaticBody2D" parent="."]
 position = Vector2(424, 361)
 physics_material_override = SubResource("PhysicsMaterial_phbqo")
@@ -105,7 +83,62 @@ texture = ExtResource("2_7bwq3")
 position = Vector2(74.5, 54)
 shape = SubResource("RectangleShape2D_1y7un")
 
+[node name="Items" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Positions" type="Node2D" parent="."]
+position = Vector2(0, -43)
+
+[node name="Position4" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(-409, 294)
+
+[node name="Position3" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(17, 430)
+
+[node name="Position2" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(317, 430)
+
+[node name="Position1" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(617, 430)
+
+[node name="Position0" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(917, 430)
+
+[node name="ExitPosition" type="Marker2D" parent="Positions"]
+unique_name_in_owner = true
+position = Vector2(1322, 555)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_l8jti")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Timer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1054.0
+offset_top = 20.0
+offset_right = 1113.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_type_variation = &"FilterLabel"
+text = "6 sec"
+
+[node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
+unique_name_in_owner = true
+autostart = true
 
 [node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true

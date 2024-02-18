@@ -35,13 +35,14 @@ offset_top = 20.0
 offset_right = 60.5
 offset_bottom = 60.0
 grow_horizontal = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="DiscountPrimary" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_e3kq7")
-theme_type_variation = &"HeaderLarge"
+theme_type_variation = &"FilterLabel"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "$20"
 

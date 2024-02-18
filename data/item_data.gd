@@ -50,7 +50,8 @@ enum Season {
 }
 
 @export var name := "Item"
-@export var price := 1.00
+@export var base_price := 1.00
+@export var price_variance := 1.00
 @export var categories : Array[Category] = []
 @export var valid_companies : Array[Company] = []
 @export var colors : Array[ItemColor] = []
