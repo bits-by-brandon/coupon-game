@@ -41,9 +41,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
@@ -53,7 +56,8 @@ theme_override_constants/separation = 20
 [node name="BasePriceLabel" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Base Price"
+theme_type_variation = &"RegisterLabel"
+text = "Price"
 
 [node name="Spacer" type="Control" parent="Register/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -62,6 +66,7 @@ size_flags_horizontal = 3
 [node name="BasePriceValue" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"RegisterLabel"
 text = "$10.00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
@@ -71,7 +76,8 @@ theme_override_constants/separation = 20
 [node name="DiscountPriceLabel" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Discount Price"
+theme_type_variation = &"RegisterLabel"
+text = "Discount"
 
 [node name="Spacer2" type="Control" parent="Register/Control/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -80,7 +86,8 @@ size_flags_horizontal = 3
 [node name="DiscountPriceValue" type="Label" parent="Register/Control/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "-$5.00"
+theme_type_variation = &"RegisterLabel"
+text = "$0.00"
 
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(458, 488)
@@ -145,7 +152,7 @@ horizontal_alignment = 2
 
 [node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 20.0
 autostart = true
 
 [node name="Hand" type="HBoxContainer" parent="CanvasLayer"]

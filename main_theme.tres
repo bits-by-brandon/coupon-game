@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dosqmxn1b35n3"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dosqmxn1b35n3"]
 
 [ext_resource type="FontFile" uid="uid://tv88hacnyyxj" path="res://assets/fonts/pangram/PPPangramSansRounded-CondensedBold.ttf" id="1_tp02n"]
 [ext_resource type="FontFile" uid="uid://c1uch1vyltfs3" path="res://assets/fonts/Editorial New/PPEditorialNew-Bold.ttf" id="2_fettp"]
 [ext_resource type="FontFile" uid="uid://b45rc0jg3ypaa" path="res://assets/fonts/Agrandir/PPAgrandir-NarrowRegular.ttf" id="2_i72yn"]
 [ext_resource type="FontFile" uid="uid://c1vi2j3dkmgk2" path="res://assets/fonts/Agrandir/PPAgrandir-NarrowBlack.ttf" id="2_yvl8h"]
+[ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="5_kj5en"]
 
 [resource]
 Button/font_sizes/font_size = 16
@@ -30,3 +31,7 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/constants/line_spacing = 3
 Label/font_sizes/font_size = 45
 Label/fonts/font = ExtResource("2_i72yn")
+RegisterLabel/base_type = &"Label"
+RegisterLabel/colors/font_color = Color(0.239216, 0.960784, 1, 0.831373)
+RegisterLabel/font_sizes/font_size = 75
+RegisterLabel/fonts/font = ExtResource("5_kj5en")
