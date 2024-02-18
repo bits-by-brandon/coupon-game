@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Database" load_steps=3 format=3 uid="uid://cpxcqh8cqcvm3"]
+
+[ext_resource type="Script" path="res://data/database.gd" id="1_eeirb"]
+[ext_resource type="Resource" uid="uid://2x4lexyfd2ni" path="res://data/items/melon.tres" id="1_i48uy"]
+
+[resource]
+script = ExtResource("1_eeirb")
+items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_i48uy")])
+coupons = Array[Resource("res://data/coupon_data.gd")]([])

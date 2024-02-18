@@ -1,0 +1,24 @@
+{
+  "hidden_columns": {
+    "res://data/coupons/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://data/filters/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://data/items/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    }
+  },
+  "recent_paths": [
+    "res://data/items/",
+    "res://data/coupons/",
+    "res://data/filters/"
+  ],
+  "table_functions": {
+
+  }
+}

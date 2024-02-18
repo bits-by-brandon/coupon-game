@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7k32wck23s3p"]
+
+[ext_resource type="Script" path="res://scenes/item_entity/item_entity.gd" id="1_hppjc"]
+
+[node name="ItemEntity" type="RigidBody2D"]
+script = ExtResource("1_hppjc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true

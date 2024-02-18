@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://2x4lexyfd2ni"]
+
+[ext_resource type="Script" path="res://data/item_data.gd" id="1_jenre"]
+
+[resource]
+script = ExtResource("1_jenre")
+name = "Item"
+price = 1.0
+categories = Array[int]([])
+valid_companies = Array[int]([])
+colors = Array[int]([])
+seasons = Array[int]([])
+expiration = 0
