@@ -79,5 +79,6 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 		if filter.apply(current_item):
 			coupon.data.discount.apply(current_item)
 			Events.coupon_applied.emit(coupon, current_item)
+			coupon.play_use()
 		else:
 			coupon.play_error()

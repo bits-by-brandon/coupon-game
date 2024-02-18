@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=12 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/conveyer.png" id="6_73cg8"]
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/bagFRONT.png" id="9_hchrb"]
+[ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
@@ -116,6 +117,9 @@ position = Vector2(785, 424)
 unique_name_in_owner = true
 position = Vector2(1322, 512)
 
+[node name="ExplosionManager" type="Node2D" parent="."]
+script = ExtResource("10_ujq3y")
+
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
 
@@ -137,23 +141,24 @@ offset_bottom = 48.0
 grow_horizontal = 0
 script = ExtResource("3_l8jti")
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer/Timer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"FilterLabel"
-theme_override_font_sizes/font_size = 32
-text = "6 seconds"
-horizontal_alignment = 2
-
 [node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
 wait_time = 20.0
 autostart = true
+
+[node name="ItemTimerBar" type="ProgressBar" parent="CanvasLayer/Timer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.347
+anchor_top = 0.337
+anchor_right = -0.347
+anchor_bottom = 0.337
+offset_left = -317.01
+offset_top = 117.52
+offset_right = -92.01
+offset_bottom = 188.52
+show_percentage = false
 
 [node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true

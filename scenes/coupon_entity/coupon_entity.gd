@@ -6,6 +6,7 @@ const filter_group_scene := preload("res://scenes/coupon_entity/filter_label_gro
 var tween : Tween
 var data : CouponData
 var is_thrown : bool = false
+var is_used : bool = false
 var velocity : Vector2 = Vector2()
 var angular_vel := 0.0
 @onready var gravity := Vector2(0, 60)
@@ -29,19 +30,29 @@ func play_error() -> void:
 
 func play_enter() -> void:
 	animation.play("enter")
+	
+func play_use() -> void:
+	animation.play("use")
+	is_used = true
 
 func play_discard() -> void:
+	if is_used:
+		return
+
 	if tween != null:
 		tween.stop()
 	
 	if animation.current_animation != "RESET":
 		animation.play("RESET")
-		animation.play("error")
+		animation.play("discard")
 
 	velocity = Vector2(randf_range(-.3, .3), -1).normalized() * throw_range
 	angular_vel = randf_range(throw_spin, -throw_spin)
 	is_thrown = true
 	card_sound.play()
+
+func request_explosion() -> void:
+	Events.explode_requested.emit(%Inner.global_position + %Inner.size / 2)
 
 func _process(delta):
 	if is_thrown:
@@ -50,7 +61,7 @@ func _process(delta):
 		rotation += angular_vel * delta
 
 func _gui_input(event : InputEvent):
-	if is_thrown:
+	if is_thrown || is_used:
 		return
 
 	if event is InputEventMouseButton:
@@ -63,7 +74,7 @@ func _gui_input(event : InputEvent):
 			accept_event()
 
 func _on_mouse_entered() -> void:
-	if is_thrown:
+	if is_thrown || is_used:
 		return
 
 	if tween != null:
@@ -77,7 +88,7 @@ func _on_mouse_entered() -> void:
 	tween.play()
 
 func _on_mouse_exited() -> void:
-	if is_thrown:
+	if is_thrown || is_used:
 		return
 
 	if tween != null:

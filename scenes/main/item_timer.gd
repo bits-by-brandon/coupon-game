@@ -1,8 +1,10 @@
 extends Control
 
 @onready var timer : Timer = %ItemTimer
-@onready var label : Label = %TimerLabel
+@onready var bar : ProgressBar = %ItemTimerBar
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	bar.value = 0.0
+
 func _process(_delta) -> void:
-	label.text = str(ceil(timer.time_left)) + " seconds"
+	bar.value = timer.time_left / timer.wait_time * 100
