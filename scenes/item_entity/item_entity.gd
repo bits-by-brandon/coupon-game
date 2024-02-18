@@ -13,3 +13,6 @@ var texture : Texture2D
 
 func init(item : ItemData):
 	sprite.texture = item.texture
+
+func get_current_discount() -> float:
+	return base_price - current_price

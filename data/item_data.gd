@@ -5,7 +5,7 @@ enum Category {
 	None,
 	Frozen,
 	Drink,
-	Desert,
+	Dessert,
 	Fruit,
 	Meat,
 	Clothes,

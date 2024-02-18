@@ -4,8 +4,12 @@ extends Resource
 var value : float
 
 static func create_random() -> Discount:
-  assert(false, "Not implemented yet")
+  assert(false, "create_random() not implemented yet")
   return Discount.new()
+
+func apply(item : ItemEntity) -> float:
+  assert(false, "apply() not implemented yet")
+  return item.current_price
 
 func get_primary() -> String:
   return "$0"

@@ -1,6 +1,12 @@
 extends Node
 
 @onready var hand : Container = %Hand
+@onready var pos1 : Marker2D = %Position1
+@onready var pos2 : Marker2D = %Position2
+@onready var pos3 : Marker2D = %Position3
+@onready var pos4 : Marker2D = %Position4
+@onready var entry_pos : Marker2D = %EntryPosition
+
 @export var hand_size : int = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +45,9 @@ func create_random_filter() -> Filter:
 func create_random_discount() -> Discount:
 	var discounts := [
 		StaticDiscount,
+		PercentageDiscount,
+		MultiplyDiscount,
+		FreeDiscount,
 	]
 
 	return discounts.pick_random().create_random()
