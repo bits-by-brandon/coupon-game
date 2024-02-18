@@ -12,7 +12,7 @@ var angular_vel := 0.0
 @onready var animation : AnimationPlayer = %AnimationPlayer
 @export var hover_offset : Vector2 = Vector2(0, -40)
 @export var throw_range : float = 1400.0
-@export var throw_spin : float = 1.0
+@export var throw_spin : float = 10.0
 
 func _ready() -> void:
 	%Filter.text = data.filters[0].get_label()
@@ -32,18 +32,17 @@ func play_discard() -> void:
 	
 	if animation.current_animation != "RESET":
 		animation.play("RESET")
+		animation.play("error")
 
 	velocity = Vector2(randf_range(-.3, .3), -1).normalized() * throw_range
 	angular_vel = randf_range(throw_spin, -throw_spin)
 	is_thrown = true
-	# animation.play("discard")
 
 func _process(delta):
 	if is_thrown:
 		velocity += gravity
-		global_position += velocity * delta
+		position += velocity * delta
 		rotation += angular_vel * delta
-
 
 func _gui_input(event : InputEvent):
 	if is_thrown:

@@ -13,6 +13,8 @@ func _ready():
 		var coupon := create_random_coupon()
 		hand.get_child(i).add_child(coupon)
 
+	Events.coupon_discarded.connect(_on_coupon_discarded)
+
 func create_random_coupon() -> CouponEntity:
 	var coupon_entity := preload("res://scenes/coupon_entity/coupon_entity.tscn").instantiate()
 	var coupon_data := preload("res://data/coupon_data.gd").new()
@@ -42,3 +44,18 @@ func create_random_discount() -> Discount:
 
 	return discounts.pick_random().create_random()
 
+func _on_coupon_discarded(coupon : CouponEntity):
+	await get_tree().create_timer(2.0).timeout
+
+	var index = -1
+	for slot in hand.get_children():
+		if slot.get_child(0) == coupon:
+			index = slot.get_index()
+			break
+
+	if index == -1:
+		return
+
+	coupon.queue_free()
+	var new_coupon := create_random_coupon()
+	hand.get_child(index).add_child(new_coupon)
