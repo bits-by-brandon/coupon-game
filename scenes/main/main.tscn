@@ -193,7 +193,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Control" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
+[node name="CouponStatic" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
 [node name="Slot2" type="VBoxContainer" parent="CanvasLayer/Hand"]
@@ -201,7 +201,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Control2" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
+[node name="CouponStatic2" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
 [node name="Slot3" type="VBoxContainer" parent="CanvasLayer/Hand"]
@@ -209,7 +209,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Control3" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
+[node name="CouponStatic3" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
 [node name="Slot4" type="VBoxContainer" parent="CanvasLayer/Hand"]
@@ -217,7 +217,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Control4" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
+[node name="CouponStatic4" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
 [node name="Slot5" type="VBoxContainer" parent="CanvasLayer/Hand"]
@@ -225,5 +225,5 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Control5" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
+[node name="CouponStatic5" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2

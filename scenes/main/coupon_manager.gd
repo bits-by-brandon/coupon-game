@@ -29,19 +29,23 @@ func create_random_weighted_discount() -> Discount:
 		StaticDiscount,
 		StaticDiscount,
 		StaticDiscount,
+		StaticDiscount,
+		StaticDiscount,
+		MultiplyDiscount,
+		MultiplyDiscount,
+		MultiplyDiscount,
+		MultiplyDiscount,
 		PercentageDiscount,
-		MultiplyDiscount,
-		MultiplyDiscount,
 	]
 
 	return discounts.pick_random().create_random()
 
 func _on_coupon_discarded(coupon : CouponEntity):
-	await get_tree().create_timer(.3).timeout
+	await get_tree().create_timer(.2).timeout
 
 	var index = -1
 	for slot in hand.get_children():
-		if slot.get_child(0) == coupon:
+		if slot.get_child_count() > 0 && slot.get_child(0) == coupon:
 			index = slot.get_index()
 			break
 
@@ -52,6 +56,7 @@ func _on_coupon_discarded(coupon : CouponEntity):
 	coupon.get_parent().remove_child(coupon)
 
 	var new_coupon := create_random_coupon()
+	new_coupon.visible = false
 	hand.get_child(index).add_child(new_coupon)
 	new_coupon.play_enter()
 
@@ -76,6 +81,7 @@ func _on_coupon_replenish_requested():
 	for slot in hand.get_children():
 		if slot.get_child_count() == 0:
 			var coupon := create_random_coupon()
+			coupon.visible = false
 			slot.add_child(coupon)
 			coupon.play_enter()
 			await get_tree().create_timer(.3).timeout

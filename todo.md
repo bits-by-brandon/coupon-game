@@ -23,3 +23,4 @@
 [ ] Remove coupon filters
   [ ] Add new coupon art
 [ ] Move to cart animation
+[ ] cycle when all cards used

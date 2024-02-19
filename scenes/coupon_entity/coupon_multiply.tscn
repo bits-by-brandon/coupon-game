@@ -1,0 +1,225 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3q8g0op3lrk5"]
+
+[ext_resource type="Texture2D" uid="uid://brlkylecvnmx7" path="res://assets/sprites/coupons/coupon_back.png" id="1_mtntc"]
+[ext_resource type="Script" path="res://scenes/coupon_entity/coupon_entity.gd" id="1_t16a0"]
+[ext_resource type="Texture2D" uid="uid://ccv7i2hesg1o8" path="res://assets/sprites/coupons/coupon_frame_red.png" id="2_pft7g"]
+[ext_resource type="Texture2D" uid="uid://bqx4i3nsdivnh" path="res://assets/sprites/coupons/coupon_details.png" id="3_lqae0"]
+[ext_resource type="Theme" uid="uid://dosqmxn1b35n3" path="res://main_theme.tres" id="4_201kl"]
+[ext_resource type="FontFile" uid="uid://57yso34pqt8o" path="res://assets/fonts/Agrandir/PPAgrandir-WideBlackItalic.ttf" id="5_tfxw5"]
+[ext_resource type="AnimationLibrary" uid="uid://c2jn0ed8fr44j" path="res://coupon_animations.res" id="7_nmlsp"]
+[ext_resource type="AudioStream" uid="uid://ctic1h0qx1s5a" path="res://assets/sfx/cardSlide3.ogg" id="8_u3iy4"]
+[ext_resource type="AudioStream" uid="uid://k0xwfplydprt" path="res://assets/sfx/cardSlide6.ogg" id="10_vplx2"]
+[ext_resource type="AudioStream" uid="uid://c3jxf0qocn7sr" path="res://assets/sfx/cardSlide5.ogg" id="11_x5lpn"]
+[ext_resource type="AudioStream" uid="uid://bpib57scnjhlj" path="res://assets/sfx/cardSlide2.ogg" id="12_xkb8y"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rlk3x"]
+streams_count = 4
+stream_0/stream = ExtResource("10_vplx2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("11_x5lpn")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_u3iy4")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("12_xkb8y")
+stream_3/weight = 1.0
+
+[node name="CouponPercent" type="Control"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1080.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+script = ExtResource("1_t16a0")
+
+[node name="Inner" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+
+[node name="Bg" type="TextureRect" parent="Inner"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.285706
+offset_bottom = 0.285706
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mtntc")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Inner"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.901961, 0.682353, 0.670588, 0.498039)
+
+[node name="Print" type="Control" parent="Inner"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Inner/Print"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Frame" type="TextureRect" parent="Inner/Print/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_pft7g")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Inner/Print/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Details" type="TextureRect" parent="Inner/Print/MarginContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_lqae0")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Inner/Print"]
+layout_mode = 2
+offset_left = 33.0
+offset_top = 58.0
+offset_right = 166.0
+offset_bottom = 96.0
+rotation = 0.0523599
+pivot_offset = Vector2(71, 32)
+color = Color(1, 0.337255, 0.372549, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inner/Print"]
+custom_minimum_size = Vector2(120, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -53.0
+offset_right = 62.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0523599
+pivot_offset = Vector2(60, 33)
+theme_override_constants/separation = 6
+
+[node name="DiscountPrimary" type="Label" parent="Inner/Print/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_201kl")
+theme_type_variation = &"FilterLabel"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_tfxw5")
+theme_override_font_sizes/font_size = 42
+text = "2x"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inner/Print/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Inner/Print/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 4)
+layout_mode = 2
+
+[node name="DiscountSuper" type="Label" parent="Inner/Print/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_tfxw5")
+theme_override_font_sizes/font_size = 10
+text = "current"
+
+[node name="DiscountSub" type="Label" parent="Inner/Print/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_tfxw5")
+theme_override_font_sizes/font_size = 10
+text = "discount"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Inner/Print"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 172.0
+offset_right = 153.0
+offset_bottom = 179.0
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="BarLeft" type="Label" parent="Inner/Print/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RegisterLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 0.435294)
+theme_override_font_sizes/font_size = 9
+text = "00000"
+
+[node name="BarRight" type="Label" parent="Inner/Print/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RegisterLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 0.435294)
+theme_override_font_sizes/font_size = 9
+text = "00000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"coupon_animations": ExtResource("7_nmlsp")
+}
+
+[node name="CardSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_rlk3x")
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+max_polyphony = 2

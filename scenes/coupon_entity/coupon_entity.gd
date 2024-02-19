@@ -18,24 +18,27 @@ var angular_vel := 0.0
 
 func _ready() -> void:
 	if data:
-		%Print.rotation = deg_to_rad(randf_range(-1, 1))
+		if has_node("Inner/ColorRect"):
+			$Inner/ColorRect.rotation = deg_to_rad(randf_range(-2, 2))
+		%Print.rotation = deg_to_rad(randf_range(-2, 2))
 		%BarLeft.text = str(randi_range(10000, 99999))
 		%BarRight.text = str(randi_range(10000, 99999))
 		%DiscountPrimary.text = data.discount.get_primary()
 		%DiscountSuper.text = data.discount.get_super()
 		%DiscountSub.text = data.discount.get_sub()
 
+	%Inner.rotation = deg_to_rad(randf_range(-3, 3))
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
 func play_error() -> void:
-	animation.play("error")
+	animation.play("coupon_animations/error")
 
 func play_enter() -> void:
-	animation.play("enter")
+	animation.play("coupon_animations/enter")
 	
 func play_use() -> void:
-	animation.play("use")
+	animation.play("coupon_animations/use")
 	is_used = true
 
 func play_discard() -> void:
@@ -45,14 +48,13 @@ func play_discard() -> void:
 	if tween != null:
 		tween.stop()
 	
-	if animation.current_animation != "RESET":
-		animation.play("RESET")
-		animation.play("discard")
+	if animation.current_animation != "coupon_animations/RESET":
+		animation.play("coupon_animations/RESET")
+		animation.play("coupon_animations/discard")
 
 	velocity = Vector2(randf_range(-.3, .3), -1).normalized() * throw_range
 	angular_vel = randf_range(throw_spin, -throw_spin)
 	is_thrown = true
-	card_sound.play()
 
 func request_explosion() -> void:
 	Events.explode_requested.emit(%Inner.global_position + %Inner.size / 2)
