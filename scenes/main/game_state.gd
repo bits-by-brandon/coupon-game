@@ -9,6 +9,7 @@ func add_transaction(item : ItemEntity, coupons : Array[CouponData]) -> void:
   transaction.item = item.data
   transaction.item_price = item.base_price
   transaction.coupons_used = coupons
+  transaction.full_price = item.is_invalid()
   total += item.base_price - item.current_discount
 
   transactions.append(transaction)
@@ -22,3 +23,4 @@ class Transaction:
   var item : ItemData
   var item_price : float
   var coupons_used : Array[CouponData]
+  var full_price : bool

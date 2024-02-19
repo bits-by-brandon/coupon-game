@@ -20,6 +20,12 @@ func _ready():
 func get_discounted_price() -> float:
 	return base_price - current_discount
 
+func is_invalid() -> bool:
+	return current_discount > base_price
+
+func is_full_discount() -> bool:
+	return current_discount == base_price
+
 func activate() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)\

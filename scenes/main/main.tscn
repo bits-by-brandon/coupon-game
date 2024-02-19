@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=28 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -9,10 +9,255 @@
 [ext_resource type="Script" path="res://scenes/main/register.gd" id="4_4p2by"]
 [ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/environment/customer-display.png" id="5_5y72f"]
 [ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/environment/conveyer.png" id="6_73cg8"]
+[ext_resource type="AudioStream" uid="uid://ch84kc87iuvd0" path="res://assets/sfx/beep.wav" id="6_tpj1r"]
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/environment/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/environment/bagFRONT.png" id="9_hchrb"]
 [ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
+[ext_resource type="Script" path="res://scenes/main/sticker_manager.gd" id="11_p4v0v"]
+[ext_resource type="Texture2D" uid="uid://0ewn484320ce" path="res://assets/sprites/star_red.png" id="12_8wm33"]
 [ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/environment/binder-empty.png" id="13_itd6c"]
+[ext_resource type="FontFile" uid="uid://57yso34pqt8o" path="res://assets/fonts/Agrandir/PPAgrandir-WideBlackItalic.ttf" id="13_pgfwo"]
+[ext_resource type="AudioStream" uid="uid://cvdng6q6l7i8c" path="res://assets/sfx/trumpet.mp3" id="14_g0ae0"]
+[ext_resource type="Texture2D" uid="uid://mmot0legjoif" path="res://assets/sprites/star_green.png" id="14_q31jc"]
+[ext_resource type="AudioStream" uid="uid://3k1trd1ttpma" path="res://assets/sfx/register.mp3" id="16_1s6wl"]
+
+[sub_resource type="Animation" id="Animation_tcbgd"]
+resource_name = "scan"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%RegisterAudioPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_tpj1r")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_am416"]
+_data = {
+"scan": SubResource("Animation_tcbgd")
+}
+
+[sub_resource type="Animation" id="Animation_05npn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Busted:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Busted:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Busted:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vryc0"]
+resource_name = "full_price"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Busted:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(2.63902, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Busted:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.22, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StickerAudioPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 2.95723,
+"start_offset": 0.0,
+"stream": ExtResource("14_g0ae0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Busted:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s571t"]
+resource_name = "full_discount"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Discount:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(2.63902, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Discount:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.22, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StickerAudioPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_1s6wl")
+}],
+"times": PackedFloat32Array(0.12)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Discount:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_21nva"]
+resource_name = "good_deal"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Deal:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(2.63902, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Deal:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.22, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StickerAudioPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_1s6wl")
+}],
+"times": PackedFloat32Array(0.12)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Deal:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ng307"]
+_data = {
+"RESET": SubResource("Animation_05npn"),
+"full_discount": SubResource("Animation_s571t"),
+"full_price": SubResource("Animation_vryc0"),
+"good_deal": SubResource("Animation_21nva")
+}
 
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
@@ -97,6 +342,15 @@ layout_mode = 2
 theme_type_variation = &"RegisterLabel"
 text = "$0.00"
 
+[node name="RegisterAudioPlayer" type="AudioStreamPlayer2D" parent="Register"]
+unique_name_in_owner = true
+
+[node name="RegisterAnimationPlayer" type="AnimationPlayer" parent="Register"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_am416")
+}
+
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(458, 488)
 scale = Vector2(0.45, 0.45)
@@ -132,6 +386,100 @@ position = Vector2(1322, 512)
 
 [node name="ExplosionManager" type="Node2D" parent="."]
 script = ExtResource("10_ujq3y")
+
+[node name="StickerManager" type="Node2D" parent="."]
+script = ExtResource("11_p4v0v")
+
+[node name="Busted" type="Sprite2D" parent="StickerManager"]
+visible = false
+position = Vector2(888, 310)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_8wm33")
+
+[node name="Label" type="Label" parent="StickerManager/Busted"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1470.0
+offset_top = -1390.0
+offset_right = -305.999
+offset_bottom = -595.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.18675
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -67
+theme_override_fonts/font = ExtResource("13_pgfwo")
+theme_override_font_sizes/font_size = 246
+text = "FULL
+PRICE"
+horizontal_alignment = 1
+
+[node name="Deal" type="Sprite2D" parent="StickerManager"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(888, 310)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_q31jc")
+
+[node name="Label" type="Label" parent="StickerManager/Deal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1520.0
+offset_top = -1300.0
+offset_right = -355.999
+offset_bottom = -505.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.18675
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -67
+theme_override_fonts/font = ExtResource("13_pgfwo")
+theme_override_font_sizes/font_size = 206
+text = "GOOD
+DEAL"
+horizontal_alignment = 1
+
+[node name="Discount" type="Sprite2D" parent="StickerManager"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(888, 310)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_q31jc")
+
+[node name="Label" type="Label" parent="StickerManager/Discount"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1270.0
+offset_top = -1300.0
+offset_right = -105.999
+offset_bottom = -505.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.18675
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -67
+theme_override_fonts/font = ExtResource("13_pgfwo")
+theme_override_font_sizes/font_size = 224
+text = "100%
+OFF"
+
+[node name="StickerAnimationPlayer" type="AnimationPlayer" parent="StickerManager"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ng307")
+}
+
+[node name="StickerAudioPlayer" type="AudioStreamPlayer2D" parent="StickerManager"]
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")

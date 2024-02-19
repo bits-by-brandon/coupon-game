@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dosqmxn1b35n3"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dosqmxn1b35n3"]
 
-[ext_resource type="FontFile" uid="uid://tv88hacnyyxj" path="res://assets/fonts/pangram/PPPangramSansRounded-CondensedBold.ttf" id="1_tp02n"]
 [ext_resource type="FontFile" uid="uid://c1uch1vyltfs3" path="res://assets/fonts/Editorial New/PPEditorialNew-Bold.ttf" id="2_fettp"]
 [ext_resource type="FontFile" uid="uid://b45rc0jg3ypaa" path="res://assets/fonts/Agrandir/PPAgrandir-NarrowRegular.ttf" id="2_i72yn"]
 [ext_resource type="FontFile" uid="uid://c1vi2j3dkmgk2" path="res://assets/fonts/Agrandir/PPAgrandir-NarrowBlack.ttf" id="2_yvl8h"]
@@ -18,7 +17,7 @@ corner_radius_bottom_left = 1
 
 [resource]
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("1_tp02n")
+Button/fonts/font = null
 FilterLabel/base_type = &"Label"
 FilterLabel/colors/font_color = Color(0.835294, 0.145098, 0.227451, 1)
 FilterLabel/constants/line_spacing = 0

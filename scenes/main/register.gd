@@ -1,6 +1,7 @@
 class_name Register
 extends Node2D
 
+@onready var animation_player : AnimationPlayer = %RegisterAnimationPlayer
 @onready var base_price_value : Label = %BasePriceValue
 @onready var discount_price_value : Label = %DiscountPriceValue
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_item_scanned(item : ItemEntity) -> void:
+	animation_player.play("scan")
 	base_price_value.text = "$%.02f" % [item.base_price]
 	discount_price_value.text = "$%.02f" % [item.current_discount]
 
