@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://r6icqd7eig14"]
+[gd_scene load_steps=20 format=3 uid="uid://r6icqd7eig14"]
 
 [ext_resource type="Script" path="res://scenes/coupon_entity/coupon_entity.gd" id="1_65u13"]
 [ext_resource type="Texture2D" uid="uid://brlkylecvnmx7" path="res://assets/sprites/coupons/coupon_back.png" id="2_jyour"]
 [ext_resource type="Theme" uid="uid://dosqmxn1b35n3" path="res://main_theme.tres" id="3_1h4d5"]
-[ext_resource type="Texture2D" uid="uid://cev76nv8iyorx" path="res://assets/sprites/coupons/coupon_front.png" id="3_4ioe2"]
+[ext_resource type="Texture2D" uid="uid://bpe8swd4dqtho" path="res://assets/sprites/coupons/coupon_frame_black.png" id="3_5n3en"]
 [ext_resource type="AudioStream" uid="uid://868v4xfaawap" path="res://assets/sfx/minimize_008.ogg" id="4_4302q"]
+[ext_resource type="Texture2D" uid="uid://bqx4i3nsdivnh" path="res://assets/sprites/coupons/coupon_details.png" id="4_wddco"]
 [ext_resource type="AudioStream" uid="uid://clnicwuxuqpy2" path="res://assets/sfx/error_006.ogg" id="5_81ag7"]
 [ext_resource type="AudioStream" uid="uid://ctic1h0qx1s5a" path="res://assets/sfx/cardSlide3.ogg" id="6_o6qyp"]
 [ext_resource type="AudioStream" uid="uid://bf04ufgj0q1rj" path="res://assets/sfx/367217__daalvinz__bubble-pop.wav" id="7_umq5n"]
@@ -268,7 +269,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(100, 144)
+pivot_offset = Vector2(100, 100)
 mouse_filter = 2
 
 [node name="Bg" type="TextureRect" parent="Inner"]
@@ -284,11 +285,23 @@ grow_vertical = 2
 texture = ExtResource("2_jyour")
 expand_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="Inner"]
+[node name="Print" type="Control" parent="Inner"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Inner/Print"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -296,14 +309,28 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="Inner/MarginContainer"]
+[node name="Frame" type="TextureRect" parent="Inner/Print/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("3_4ioe2")
+texture = ExtResource("3_5n3en")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Inner"]
+[node name="MarginContainer" type="MarginContainer" parent="Inner/Print/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Details" type="TextureRect" parent="Inner/Print/MarginContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_wddco")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inner/Print"]
 custom_minimum_size = Vector2(120, 2.08165e-12)
 layout_mode = 1
 offset_left = 16.0
@@ -312,32 +339,57 @@ offset_right = 140.0
 offset_bottom = 102.0
 theme_override_constants/separation = 3
 
-[node name="DiscountPrimary" type="Label" parent="Inner/HBoxContainer"]
+[node name="DiscountPrimary" type="Label" parent="Inner/Print/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_1h4d5")
 theme_type_variation = &"FilterLabel"
 text = "$20"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Inner/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Inner/Print/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="DiscountSuper" type="Label" parent="Inner/HBoxContainer/VBoxContainer"]
+[node name="DiscountSuper" type="Label" parent="Inner/Print/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_1h4d5")
 theme_type_variation = &"HeaderSmall"
 text = ".00"
 
-[node name="DiscountSub" type="Label" parent="Inner/HBoxContainer/VBoxContainer"]
+[node name="DiscountSub" type="Label" parent="Inner/Print/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_1h4d5")
 theme_type_variation = &"HeaderSmall"
 text = "OFF"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Inner/Print"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 172.0
+offset_right = 153.0
+offset_bottom = 179.0
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="BarLeft" type="Label" parent="Inner/Print/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RegisterLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 0.435294)
+theme_override_font_sizes/font_size = 9
+text = "00000"
+
+[node name="BarRight" type="Label" parent="Inner/Print/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RegisterLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 0.435294)
+theme_override_font_sizes/font_size = 9
+text = "00000"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

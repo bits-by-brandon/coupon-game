@@ -17,9 +17,13 @@ var angular_vel := 0.0
 @export var throw_spin : float = 10.0
 
 func _ready() -> void:
-	%DiscountPrimary.text = data.discount.get_primary()
-	%DiscountSuper.text = data.discount.get_super()
-	%DiscountSub.text = data.discount.get_sub()
+	if data:
+		%Print.rotation = deg_to_rad(randf_range(-1, 1))
+		%BarLeft.text = str(randi_range(10000, 99999))
+		%BarRight.text = str(randi_range(10000, 99999))
+		%DiscountPrimary.text = data.discount.get_primary()
+		%DiscountSuper.text = data.discount.get_super()
+		%DiscountSub.text = data.discount.get_sub()
 
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
