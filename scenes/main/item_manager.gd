@@ -76,9 +76,6 @@ func _on_item_timer_finished() -> void:
 
 func _on_coupon_used(coupon : CouponEntity) -> void:
 	for filter : Filter in coupon.data.filters:
-		if filter.apply(current_item):
-			coupon.data.discount.apply(current_item)
-			Events.coupon_applied.emit(coupon, current_item)
-			coupon.play_use()
-		else:
-			coupon.play_error()
+		coupon.data.discount.apply(current_item)
+		Events.coupon_applied.emit(coupon, current_item)
+		coupon.play_use()

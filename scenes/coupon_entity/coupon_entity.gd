@@ -12,18 +12,22 @@ var angular_vel := 0.0
 @onready var gravity := Vector2(0, 60)
 @onready var animation : AnimationPlayer = %AnimationPlayer
 @onready var card_sound : AudioStreamPlayer2D = %CardSound
+@onready var left_button : CardButton = %LeftButton
+@onready var right_button : CardButton = %RightButton
 @export var hover_offset : Vector2 = Vector2(0, -40)
 @export var throw_range : float = 1400.0
 @export var throw_spin : float = 10.0
 
 func _ready() -> void:
-	%Filter.text = data.filters[0].get_label()
-	%DiscountPrimary.text = data.discount.get_primary()
-	%DiscountSuper.text = data.discount.get_super()
-	%DiscountSub.text = data.discount.get_sub()
+	if data != null:
+		%DiscountPrimary.text = data.discount.get_primary()
+		%DiscountSuper.text = data.discount.get_super()
+		%DiscountSub.text = data.discount.get_sub()
 
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	left_button.clicked.connect(func (): Events.coupon_moved.emit(self, false))
+	right_button.clicked.connect(func (): Events.coupon_moved.emit(self, true))
 
 func play_error() -> void:
 	animation.play("error")
@@ -76,6 +80,8 @@ func _gui_input(event : InputEvent):
 func _on_mouse_entered() -> void:
 	if is_thrown || is_used:
 		return
+	
+	%Buttons.visible = true
 
 	if tween != null:
 		tween.stop()
@@ -90,6 +96,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	if is_thrown || is_used:
 		return
+
+	%Buttons.visible = false
 
 	if tween != null:
 		tween.stop()
