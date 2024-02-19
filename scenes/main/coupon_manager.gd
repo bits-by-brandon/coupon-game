@@ -15,6 +15,7 @@ func _ready():
 
 	Events.coupon_discarded.connect(_on_coupon_discarded)
 	Events.coupon_applied.connect(_on_coupon_applied)
+	Events.coupon_replenish_requested.connect(_on_coupon_replenish_requested)
 
 func create_random_coupon() -> CouponEntity:
 	var coupon_entity := preload("res://scenes/coupon_entity/coupon_entity.tscn").instantiate()
@@ -72,7 +73,7 @@ func _on_coupon_applied(coupon : CouponEntity, _item : ItemEntity):
 
 	var index = -1
 	for slot in hand.get_children():
-		if slot.get_child(0) == coupon:
+		if slot.get_child_count() > 0 && slot.get_child(0) == coupon:
 			index = slot.get_index()
 			break
 
@@ -82,6 +83,14 @@ func _on_coupon_applied(coupon : CouponEntity, _item : ItemEntity):
 	coupon.queue_free()
 	coupon.get_parent().remove_child(coupon)
 
-	var new_coupon := create_random_coupon()
-	hand.get_child(index).add_child(new_coupon)
-	new_coupon.play_enter()
+func _on_coupon_replenish_requested():
+	await get_tree().create_timer(1.0).timeout
+
+	for slot in hand.get_children():
+		if slot.get_child_count() == 0:
+			var coupon := create_random_coupon()
+			slot.add_child(coupon)
+			coupon.play_enter()
+			await get_tree().create_timer(.3).timeout
+	
+	Events.coupons_replenished.emit()

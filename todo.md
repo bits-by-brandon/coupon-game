@@ -6,6 +6,16 @@
   [x] if filters pass apply discount to item 
   [x] create error animation
 
-[ ] Player busts and removes item if goes over
+[x] Player busts and removes item if goes over
+  [ ] Player bust animation
+[x] on blackjack, cycle to next
+[x] on timer complete, tally total
+[ ] Replenish cards on cycle
+[x] Change discounts
+[ ] Intro screen
+[ ] Game over screen
+[ ] Background art
+[ ] Animate register number on coupon_applied
 [ ] Remove coupon filters
-[ ] Change discounts
+  [ ] Add new coupon art
+[ ] Move to cart animation

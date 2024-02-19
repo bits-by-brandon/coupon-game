@@ -143,7 +143,8 @@ script = ExtResource("3_l8jti")
 
 [node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
-wait_time = 20.0
+wait_time = 6.0
+one_shot = true
 autostart = true
 
 [node name="ItemTimerBar" type="ProgressBar" parent="CanvasLayer/Timer"]

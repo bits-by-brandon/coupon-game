@@ -23,6 +23,7 @@ var current_item : ItemEntity :
 		if current_item != null:
 			current_item.activate()
 			Events.item_scanned.emit(value)
+var used_coupons : Array[CouponData] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,20 +48,22 @@ func cycle() -> void:
 	if items.size() == 0:
 		return
 
-	# Animate current_item to exit position
+	# TODO: Animate current_item to exit position
 	var finished_item := items.pop_front() as ItemEntity
 	finished_item.queue_free()
-	# TODO: trigger animation
 
 	for i in range(items.size()):
 		var item = items[i]
 		tween_item(item, scan_pos.global_position - Vector2(i * item_offset, 0))
 
+	used_coupons.clear()
+
 	if items.size() > 0:
 		current_item = items[0]
+		item_timer.start()
 	else:
 		# Stop the cycle
-		# TODO End game
+		# TODO: End game
 		return
 
 func tween_item(item : ItemEntity, target : Vector2) -> void:
@@ -72,10 +75,33 @@ func tween_item(item : ItemEntity, target : Vector2) -> void:
 	tween.play()
 
 func _on_item_timer_finished() -> void:
+	item_timer.stop()
+	tally()
+	Events.coupon_replenish_requested.emit()
+	await Events.coupons_replenished
 	cycle()
+
+
+func tally() -> void:
+	State.add_transaction(current_item, used_coupons)
+
 
 func _on_coupon_used(coupon : CouponEntity) -> void:
 	coupon.data.discount.apply(current_item)
-	# TODO: discard item if user busts
 	Events.coupon_applied.emit(coupon, current_item)
+	used_coupons.append(coupon.data)
 	coupon.play_use()
+
+	if current_item.current_discount > current_item.base_price:
+		item_timer.stop()
+		Events.busted.emit()
+		Events.coupon_replenish_requested.emit()
+		await Events.coupons_replenished
+		cycle()
+	
+	if current_item.current_discount == current_item.base_price:
+		item_timer.stop()
+		tally()
+		Events.coupon_replenish_requested.emit()
+		await Events.coupons_replenished
+		cycle()
