@@ -6,7 +6,6 @@ const database := preload("res://data/main_database.tres")
 
 @export var item_offset := 300
 @export var item_count := 12
-@onready var item_timer : Timer = %ItemTimer
 @onready var items_container : Node2D = %Items
 
 var items : Array[ItemEntity]= []
@@ -34,7 +33,6 @@ func _ready():
 	
 	current_item = items[0]
 
-	item_timer.timeout.connect(_on_item_timer_finished)
 	Events.coupon_used.connect(_on_coupon_used)
 
 
@@ -71,11 +69,7 @@ func tween_item(item : ItemEntity, target : Vector2) -> void:
 
 	tween.play()
 
-func _on_item_timer_finished() -> void:
-	cycle()
-
 func _on_coupon_used(coupon : CouponEntity) -> void:
-	for filter : Filter in coupon.data.filters:
-		coupon.data.discount.apply(current_item)
-		Events.coupon_applied.emit(coupon, current_item)
-		coupon.play_use()
+	coupon.data.discount.apply(current_item)
+	Events.coupon_applied.emit(coupon, current_item)
+	coupon.play_use()

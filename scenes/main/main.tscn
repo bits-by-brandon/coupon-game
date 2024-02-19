@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=11 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
 [ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/CHARNOPIXEL.png" id="2_tmmr5"]
-[ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
 [ext_resource type="Script" path="res://scenes/main/coupon_manager.gd" id="3_yx1u3"]
 [ext_resource type="Script" path="res://scenes/main/register.gd" id="4_4p2by"]
 [ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/customer-display.png" id="5_5y72f"]
@@ -128,37 +127,14 @@ script = ExtResource("3_yx1u3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Timer" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(170, 2.08165e-12)
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -89.0
-offset_top = 8.0
-offset_right = -9.0
-offset_bottom = 48.0
-grow_horizontal = 0
-script = ExtResource("3_l8jti")
-
-[node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
+[node name="CheckoutButton" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
-wait_time = 20.0
-autostart = true
-
-[node name="ItemTimerBar" type="ProgressBar" parent="CanvasLayer/Timer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.347
-anchor_top = 0.337
-anchor_right = -0.347
-anchor_bottom = 0.337
-offset_left = -317.01
-offset_top = 117.52
-offset_right = -92.01
-offset_bottom = 188.52
-show_percentage = false
+custom_minimum_size = Vector2(110, 80)
+offset_left = 567.0
+offset_top = 46.0
+offset_right = 677.0
+offset_bottom = 126.0
+text = "Checkout"
 
 [node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -212,3 +188,16 @@ alignment = 1
 
 [node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Discards-> "
+
+[node name="DiscardCount" type="Label" parent="CanvasLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "xxx"

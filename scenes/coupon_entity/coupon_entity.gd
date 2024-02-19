@@ -69,10 +69,7 @@ func _gui_input(event : InputEvent):
 		return
 
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			Events.coupon_used.emit(self)
-			accept_event()
-		elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
 			Events.coupon_discarded.emit(self)
 			play_discard()
 			accept_event()
