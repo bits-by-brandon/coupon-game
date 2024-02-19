@@ -10,8 +10,9 @@
   [ ] Player bust animation
 [x] on blackjack, cycle to next
 [x] on timer complete, tally total
-[ ] Replenish cards on cycle
+[x] Replenish cards on cycle
 [x] Change discounts
+[x] Prevent cards from being played during thing
 [ ] Intro screen
 [ ] Game over screen
 [ ] Background art

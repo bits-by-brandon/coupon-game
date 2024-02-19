@@ -50,7 +50,7 @@ func create_random_weighted_discount() -> Discount:
 	return discounts.pick_random().create_random()
 
 func _on_coupon_discarded(coupon : CouponEntity):
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(.3).timeout
 
 	var index = -1
 	for slot in hand.get_children():

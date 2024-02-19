@@ -9,6 +9,8 @@ const database := preload("res://data/main_database.tres")
 @onready var item_timer : Timer = %ItemTimer
 @onready var items_container : Node2D = %Items
 
+var ready_to_play : bool = false
+
 var items : Array[ItemEntity]= []
 @onready var scan_pos : Node2D = %ScanPosition
 @onready var exit_pos : Node2D =	%ExitPosition
@@ -38,6 +40,8 @@ func _ready():
 	item_timer.timeout.connect(_on_item_timer_finished)
 	Events.coupon_used.connect(_on_coupon_used)
 
+	play()
+
 
 func create_random_item() -> ItemEntity:
 	var item = item_entity.instantiate()
@@ -61,6 +65,7 @@ func cycle() -> void:
 	if items.size() > 0:
 		current_item = items[0]
 		item_timer.start()
+		ready_to_play = true
 	else:
 		# Stop the cycle
 		# TODO: End game
@@ -75,10 +80,9 @@ func tween_item(item : ItemEntity, target : Vector2) -> void:
 	tween.play()
 
 func _on_item_timer_finished() -> void:
-	item_timer.stop()
+	pause()
 	tally()
-	Events.coupon_replenish_requested.emit()
-	await Events.coupons_replenished
+	await replenish_coupons()
 	cycle()
 
 
@@ -87,21 +91,34 @@ func tally() -> void:
 
 
 func _on_coupon_used(coupon : CouponEntity) -> void:
+	if not ready_to_play:
+		return
+
 	coupon.data.discount.apply(current_item)
 	Events.coupon_applied.emit(coupon, current_item)
 	used_coupons.append(coupon.data)
 	coupon.play_use()
 
 	if current_item.current_discount > current_item.base_price:
-		item_timer.stop()
+		pause()
 		Events.busted.emit()
-		Events.coupon_replenish_requested.emit()
-		await Events.coupons_replenished
+		await replenish_coupons()
 		cycle()
 	
 	if current_item.current_discount == current_item.base_price:
-		item_timer.stop()
+		pause()
 		tally()
-		Events.coupon_replenish_requested.emit()
-		await Events.coupons_replenished
+		await replenish_coupons()
 		cycle()
+	
+func pause() -> void:
+	item_timer.stop()
+	ready_to_play = false
+
+func play() -> void:
+	item_timer.start()
+	ready_to_play = true
+
+func replenish_coupons() -> void:
+	Events.coupon_replenish_requested.emit()
+	await Events.coupons_replenished
