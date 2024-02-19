@@ -9,10 +9,13 @@
 [x] Player busts and removes item if goes over
   [ ] Player bust animation
 [x] on blackjack, cycle to next
+  [ ] on bust, charge full price
 [x] on timer complete, tally total
 [x] Replenish cards on cycle
 [x] Change discounts
 [x] Prevent cards from being played during thing
+[ ] Divider
+[ ] Facial expressions
 [ ] Intro screen
 [ ] Game over screen
 [ ] Background art

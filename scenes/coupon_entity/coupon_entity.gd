@@ -17,7 +17,6 @@ var angular_vel := 0.0
 @export var throw_spin : float = 10.0
 
 func _ready() -> void:
-	%Filter.text = data.filters[0].get_label()
 	%DiscountPrimary.text = data.discount.get_primary()
 	%DiscountSuper.text = data.discount.get_super()
 	%DiscountSub.text = data.discount.get_sub()

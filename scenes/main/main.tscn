@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=14 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
+[ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/bg.png" id="2_1jvhu"]
 [ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
 [ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/CHARNOPIXEL.png" id="2_tmmr5"]
 [ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
@@ -11,12 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/bagFRONT.png" id="9_hchrb"]
 [ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
+[ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/binder-empty.png" id="13_itd6c"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
 
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(792, 316)
+scale = Vector2(0.723929, 0.723929)
+texture = ExtResource("2_1jvhu")
+
 [node name="Cashier" type="Sprite2D" parent="."]
-position = Vector2(632, 216)
+position = Vector2(644, 216)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("2_tmmr5")
 
@@ -97,8 +104,8 @@ texture = ExtResource("6_73cg8")
 
 [node name="Bag" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1106, 484)
-scale = Vector2(0.45, 0.45)
+position = Vector2(1239, 646)
+scale = Vector2(0.8, 0.8)
 
 [node name="BagBack" type="Sprite2D" parent="Bag"]
 texture = ExtResource("8_up0lp")
@@ -108,6 +115,12 @@ texture = ExtResource("9_hchrb")
 
 [node name="Items" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Binder" type="Sprite2D" parent="."]
+position = Vector2(523, 1452)
+rotation = 1.5708
+scale = Vector2(0.860466, 0.860466)
+texture = ExtResource("13_itd6c")
 
 [node name="ScanPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -143,7 +156,7 @@ script = ExtResource("3_l8jti")
 
 [node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
 unique_name_in_owner = true
-wait_time = 6.0
+wait_time = 8.0
 one_shot = true
 
 [node name="ItemTimerBar" type="ProgressBar" parent="CanvasLayer/Timer"]
@@ -166,11 +179,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -208.0
-offset_bottom = 80.0
+offset_left = 2.0
+offset_top = -202.0
+offset_right = -227.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]

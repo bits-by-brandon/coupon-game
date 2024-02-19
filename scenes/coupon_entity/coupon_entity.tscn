@@ -320,19 +320,6 @@ theme = ExtResource("3_e3kq7")
 theme_type_variation = &"HeaderSmall"
 text = "OFF"
 
-[node name="Filter" type="Label" parent="Inner"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(167, 2.08165e-12)
-layout_mode = 2
-offset_left = 16.0
-offset_top = 110.0
-offset_right = 183.0
-offset_bottom = 140.0
-theme = ExtResource("3_e3kq7")
-theme_type_variation = &"HeaderMedium"
-text = "Frozen Food"
-autowrap_mode = 3
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -346,3 +333,12 @@ stream = SubResource("AudioStreamRandomizer_wuo8u")
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 max_polyphony = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 84.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.890196, 0.898039, 0.843137, 1)
