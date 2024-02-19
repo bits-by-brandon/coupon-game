@@ -21,7 +21,7 @@ func create_random_coupon() -> CouponEntity:
 	var coupon_data := preload("res://data/coupon_data.gd").new()
 	# TODO Multiple filters
 	coupon_data.filters = [create_random_filter()]
-	coupon_data.discount = create_random_discount()
+	coupon_data.discount = create_random_weighted_discount()
 	coupon_entity.data = coupon_data
 	return coupon_entity
 
@@ -35,12 +35,15 @@ func create_random_filter() -> Filter:
 
 	return filters.pick_random().create_random()
 
-func create_random_discount() -> Discount:
+func create_random_weighted_discount() -> Discount:
 	var discounts := [
+		StaticDiscount,
+		StaticDiscount,
+		StaticDiscount,
 		StaticDiscount,
 		PercentageDiscount,
 		MultiplyDiscount,
-		FreeDiscount,
+		MultiplyDiscount,
 	]
 
 	return discounts.pick_random().create_random()

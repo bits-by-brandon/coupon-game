@@ -3,7 +3,7 @@ extends Discount
 
 static func create_random() -> Discount:
   var discount = MultiplyDiscount.new()
-  discount.value = float(randi_range(2, 4))
+  discount.value = float(randi_range(2, 3))
   return discount
 
 func apply(item : ItemEntity) -> void:
