@@ -28,6 +28,8 @@ func _ready() -> void:
 	mouse_exited.connect(_on_mouse_exited)
 	left_button.clicked.connect(func (): Events.coupon_moved.emit(self, false))
 	right_button.clicked.connect(func (): Events.coupon_moved.emit(self, true))
+	Events.coupon_discarded.connect(func (coupon: CouponEntity): 
+		if coupon == self: play_discard())
 
 func play_error() -> void:
 	animation.play("error")
@@ -70,38 +72,17 @@ func _gui_input(event : InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
-			Events.coupon_discarded.emit(self)
-			play_discard()
+			Events.coupon_discard_requested.emit(self)
 			accept_event()
 
 func _on_mouse_entered() -> void:
 	if is_thrown || is_used:
 		return
-	
+
 	%Buttons.visible = true
-
-	if tween != null:
-		tween.stop()
-
-	tween = get_tree().create_tween()
-	tween.tween_property(self, "position", hover_offset, .6)\
-		.set_trans(Tween.TRANS_ELASTIC)\
-		.set_ease(Tween.EASE_OUT)
-
-	tween.play()
 
 func _on_mouse_exited() -> void:
 	if is_thrown || is_used:
 		return
 
 	%Buttons.visible = false
-
-	if tween != null:
-		tween.stop()
-
-	tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(), .3)\
-		.set_trans(Tween.TRANS_QUART)\
-		.set_ease(Tween.EASE_IN_OUT)
-
-	tween.play()

@@ -146,7 +146,7 @@ offset_top = -208.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
@@ -189,15 +189,23 @@ alignment = 1
 [node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
 layout_mode = 2
 
+[node name="Slot6" type="VBoxContainer" parent="CanvasLayer/Hand"]
+custom_minimum_size = Vector2(200, 288)
+layout_mode = 2
+alignment = 1
+
+[node name="Coupon" parent="CanvasLayer/Hand/Slot6" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
-text = "Discards-> "
+text = "Discards "
 
 [node name="DiscardCount" type="Label" parent="CanvasLayer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "xxx"
+text = "3"

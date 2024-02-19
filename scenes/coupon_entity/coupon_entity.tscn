@@ -285,14 +285,14 @@ texture = ExtResource("2_50jv8")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Inner"]
+[node name="HBoxContainer" type="VBoxContainer" parent="Inner"]
 custom_minimum_size = Vector2(120, 2.08165e-12)
 layout_mode = 1
 offset_left = 16.0
 offset_top = 44.0
 offset_right = 140.0
 offset_bottom = 102.0
-theme_override_constants/separation = 3
+theme_override_constants/separation = 16
 
 [node name="DiscountPrimary" type="Label" parent="Inner/HBoxContainer"]
 unique_name_in_owner = true
@@ -345,6 +345,7 @@ script = ExtResource("4_opc1r")
 [node name="Control" type="Control" parent="Inner/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="RightButton" type="Button" parent="Inner/Buttons"]
 unique_name_in_owner = true

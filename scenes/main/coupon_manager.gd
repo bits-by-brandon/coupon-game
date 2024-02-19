@@ -1,11 +1,15 @@
 class_name CouponManager
 extends Node
 
-@export var hand_size : int = 5
+@export var max_discards : int = 3
 @onready var hand : Container = %Hand
+var hand_size : int
+var discards : int = max_discards
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hand_size = hand.get_child_count()
+
 	for slot in hand.get_children():
 		slot.get_child(0).queue_free()
 
@@ -14,6 +18,7 @@ func _ready():
 		hand.get_child(i).add_child(coupon)
 
 	Events.coupon_discarded.connect(_on_coupon_discarded)
+	Events.coupon_discard_requested.connect(_on_coupon_discard_requested)
 	Events.coupon_applied.connect(_on_coupon_applied)
 	Events.coupon_moved.connect(_on_coupon_moved)
 	%CheckoutButton.pressed.connect(_on_checkout_pressed)
@@ -89,7 +94,7 @@ func _on_coupon_moved(coupon : CouponEntity, right: bool):
 
 func find_index_of_coupon(coupon : CouponEntity) -> int:
 	for slot in hand.get_children():
-		if slot.get_child(0) == coupon:
+		if slot.get_child_count() > 0 and slot.get_child(0) == coupon:
 			return slot.get_index()
 	return -1
 
@@ -104,3 +109,21 @@ func _on_checkout_pressed() -> void:
 	for coupon in get_coupons():
 		Events.coupon_used.emit(coupon)
 		await get_tree().create_timer(.4).timeout
+	
+	Events.all_coupons_applied.emit()
+	await get_tree().create_timer(.4).timeout
+
+	discards = max_discards
+	%DiscardCount.text = str(discards)
+
+	for i in range(hand_size):
+		var coupon := create_random_coupon()
+		hand.get_child(i).add_child(coupon)
+		coupon.play_enter()
+		await get_tree().create_timer(.2).timeout
+
+func _on_coupon_discard_requested(coupon : CouponEntity):
+	if discards > 0:
+		discards -= 1
+		%DiscardCount.text = str(discards)
+		Events.coupon_discarded.emit(coupon)

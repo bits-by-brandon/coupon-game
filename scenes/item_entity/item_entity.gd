@@ -17,7 +17,6 @@ func _ready():
 	sprite.offset = Vector2(0, -size.y * 2)
 
 	base_price = data.base_price + round(randf_range(-data.price_variance, data.price_variance))
-	# company = data.valid_companies.pick_random()
 
 func get_discounted_price() -> float:
 	return base_price - current_discount

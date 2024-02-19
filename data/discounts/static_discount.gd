@@ -10,10 +10,10 @@ func apply(item : ItemEntity) -> void:
   item.current_discount += value
 
 func get_primary() -> String:
-  return "$%s" % [str(value)]
+  return "+$%.2f" % [value]
 
 func get_super() -> String:
-  return ".00"
+  return "Discount"
 
 func get_sub() -> String:
-  return "OFF"
+  return ""

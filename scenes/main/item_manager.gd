@@ -34,6 +34,7 @@ func _ready():
 	current_item = items[0]
 
 	Events.coupon_used.connect(_on_coupon_used)
+	Events.all_coupons_applied.connect(cycle)
 
 
 func create_random_item() -> ItemEntity:
