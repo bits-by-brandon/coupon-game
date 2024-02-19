@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqke6qsqft8nl"
-path="res://.godot/imported/coupon_sprite.png-6537e4d56822a41e14142a8f40a6ba8a.ctex"
+uid="uid://d4nnvlk6folt3"
+path="res://.godot/imported/coupon-01.png-e3bf68091572c98da7b4021c5ebcdca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/coupon_sprite.png"
-dest_files=["res://.godot/imported/coupon_sprite.png-6537e4d56822a41e14142a8f40a6ba8a.ctex"]
+source_file="res://assets/sprites/coupons/coupon-01.png"
+dest_files=["res://.godot/imported/coupon-01.png-e3bf68091572c98da7b4021c5ebcdca9.ctex"]
 
 [params]
 

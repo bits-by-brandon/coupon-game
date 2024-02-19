@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c71sbrqsqjqlt"
-path="res://.godot/imported/CHAR.png-898592e7df3533a25a9d42d9bcb7bb5f.ctex"
+uid="uid://duvxkpksd4hua"
+path="res://.godot/imported/CHARNOPIXEL.png-1468c013b0d06209d50d119bf06f8fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/CHAR.png"
-dest_files=["res://.godot/imported/CHAR.png-898592e7df3533a25a9d42d9bcb7bb5f.ctex"]
+source_file="res://assets/sprites/char/CHARNOPIXEL.png"
+dest_files=["res://.godot/imported/CHARNOPIXEL.png-1468c013b0d06209d50d119bf06f8fcc.ctex"]
 
 [params]
 

@@ -38,6 +38,8 @@ window/size/viewport_height=720
 window/size/window_width_override=2304
 window/size/window_height_override=1296
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/sprites/cursorHand.png"
+mouse_cursor/custom_image_hotspot=Vector2(12, 8)
 
 [editor_plugins]
 

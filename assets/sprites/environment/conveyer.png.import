@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4nnvlk6folt3"
-path="res://.godot/imported/coupon-01.png-e7c87131ae2d32c9aea077a6555a1d77.ctex"
+uid="uid://l8s5sdnuiv56"
+path="res://.godot/imported/conveyer.png-6cac8e52879d2b69f74c00a0499ad143.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/coupon-01.png"
-dest_files=["res://.godot/imported/coupon-01.png-e7c87131ae2d32c9aea077a6555a1d77.ctex"]
+source_file="res://assets/sprites/environment/conveyer.png"
+dest_files=["res://.godot/imported/conveyer.png-6cac8e52879d2b69f74c00a0499ad143.ctex"]
 
 [params]
 

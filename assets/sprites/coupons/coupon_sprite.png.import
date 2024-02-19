@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3gdsodf6jvk5"
-path="res://.godot/imported/bagFRONT.png-1f7dd74d0a9711914f8662fae8d2dc0b.ctex"
+uid="uid://dqke6qsqft8nl"
+path="res://.godot/imported/coupon_sprite.png-ce619fcf9c154711a6961dbc49da2145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bagFRONT.png"
-dest_files=["res://.godot/imported/bagFRONT.png-1f7dd74d0a9711914f8662fae8d2dc0b.ctex"]
+source_file="res://assets/sprites/coupons/coupon_sprite.png"
+dest_files=["res://.godot/imported/coupon_sprite.png-ce619fcf9c154711a6961dbc49da2145.ctex"]
 
 [params]
 

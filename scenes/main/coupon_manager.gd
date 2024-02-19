@@ -9,32 +9,19 @@ func _ready():
 	for slot in hand.get_children():
 		slot.get_child(0).queue_free()
 
-	for i in range(hand_size):
-		var coupon := create_random_coupon()
-		hand.get_child(i).add_child(coupon)
-
 	Events.coupon_discarded.connect(_on_coupon_discarded)
 	Events.coupon_applied.connect(_on_coupon_applied)
 	Events.coupon_replenish_requested.connect(_on_coupon_replenish_requested)
+	_on_coupon_replenish_requested()
 
 func create_random_coupon() -> CouponEntity:
-	var coupon_entity := preload("res://scenes/coupon_entity/coupon_entity.tscn").instantiate()
 	var coupon_data := preload("res://data/coupon_data.gd").new()
-	# TODO Multiple filters
-	coupon_data.filters = [create_random_filter()]
-	coupon_data.discount = create_random_weighted_discount()
+	var discount := create_random_weighted_discount()
+	var coupon_entity := discount.get_entity()
+
+	coupon_data.discount = discount
 	coupon_entity.data = coupon_data
 	return coupon_entity
-
-func create_random_filter() -> Filter:
-	var filters := [
-		CategoryFilter,
-		ColorFilter,
-		ShapeFilter,
-		PriceFilter,
-	]
-
-	return filters.pick_random().create_random()
 
 func create_random_weighted_discount() -> Discount:
 	var discounts := [

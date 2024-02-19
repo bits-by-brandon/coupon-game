@@ -7,6 +7,10 @@ static func create_random() -> Discount:
   assert(false, "create_random() not implemented yet")
   return Discount.new()
 
+func get_entity() -> CouponEntity:
+  assert(false, "get_entity() not implemented yet")
+  return preload("res://scenes/coupon_entity/coupon_entity.tscn").instantiate()
+
 func apply(item : ItemEntity) -> void:
   assert(false, "apply() not implemented yet")
 

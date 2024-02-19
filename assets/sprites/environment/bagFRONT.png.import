@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0b85s2vmuejh"
-path="res://.godot/imported/printer.png-b8a3e7c0c106547a7016ca9cf814760a.ctex"
+uid="uid://b3gdsodf6jvk5"
+path="res://.godot/imported/bagFRONT.png-e66c12f5015874e87a4816d438f73fe6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/printer.png"
-dest_files=["res://.godot/imported/printer.png-b8a3e7c0c106547a7016ca9cf814760a.ctex"]
+source_file="res://assets/sprites/environment/bagFRONT.png"
+dest_files=["res://.godot/imported/bagFRONT.png-e66c12f5015874e87a4816d438f73fe6.ctex"]
 
 [params]
 

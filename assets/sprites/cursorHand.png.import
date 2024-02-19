@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfxt6c31tv1kf"
-path="res://.godot/imported/bagBACK.png-3f0f5782d16b55c99464f5ef96208b30.ctex"
+uid="uid://dtfwrig6n5glr"
+path="res://.godot/imported/cursorHand.png-c8ec1ea4d5f3e33710681f4cba0482bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bagBACK.png"
-dest_files=["res://.godot/imported/bagBACK.png-3f0f5782d16b55c99464f5ef96208b30.ctex"]
+source_file="res://assets/sprites/cursorHand.png"
+dest_files=["res://.godot/imported/cursorHand.png-c8ec1ea4d5f3e33710681f4cba0482bc.ctex"]
 
 [params]
 

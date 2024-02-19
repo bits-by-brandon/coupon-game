@@ -102,6 +102,8 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 	if current_item.current_discount > current_item.base_price:
 		pause()
 		Events.busted.emit()
+		current_item.current_discount = 0
+		State.add_transaction(current_item, used_coupons)
 		await replenish_coupons()
 		cycle()
 	

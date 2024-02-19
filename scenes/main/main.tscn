@@ -1,18 +1,18 @@
 [gd_scene load_steps=14 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
-[ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/bg.png" id="2_1jvhu"]
+[ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
 [ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
-[ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/CHARNOPIXEL.png" id="2_tmmr5"]
+[ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/char/CHARNOPIXEL.png" id="2_tmmr5"]
 [ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
 [ext_resource type="Script" path="res://scenes/main/coupon_manager.gd" id="3_yx1u3"]
 [ext_resource type="Script" path="res://scenes/main/register.gd" id="4_4p2by"]
-[ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/customer-display.png" id="5_5y72f"]
-[ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/conveyer.png" id="6_73cg8"]
-[ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/bagBACK.png" id="8_up0lp"]
-[ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/bagFRONT.png" id="9_hchrb"]
+[ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/environment/customer-display.png" id="5_5y72f"]
+[ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/environment/conveyer.png" id="6_73cg8"]
+[ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/environment/bagBACK.png" id="8_up0lp"]
+[ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/environment/bagFRONT.png" id="9_hchrb"]
 [ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
-[ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/binder-empty.png" id="13_itd6c"]
+[ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/environment/binder-empty.png" id="13_itd6c"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
@@ -179,51 +179,51 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -202.0
-offset_right = -227.0
-offset_bottom = 86.0
+offset_left = 16.0
+offset_top = -175.0
+offset_right = -224.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
-custom_minimum_size = Vector2(200, 288)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Coupon" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+[node name="Control" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
 layout_mode = 2
 
 [node name="Slot2" type="VBoxContainer" parent="CanvasLayer/Hand"]
-custom_minimum_size = Vector2(200, 288)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Coupon" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+[node name="Control2" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
 layout_mode = 2
 
 [node name="Slot3" type="VBoxContainer" parent="CanvasLayer/Hand"]
-custom_minimum_size = Vector2(200, 288)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Coupon" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+[node name="Control3" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
 layout_mode = 2
 
 [node name="Slot4" type="VBoxContainer" parent="CanvasLayer/Hand"]
-custom_minimum_size = Vector2(200, 288)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Coupon" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+[node name="Control4" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
 layout_mode = 2
 
 [node name="Slot5" type="VBoxContainer" parent="CanvasLayer/Hand"]
-custom_minimum_size = Vector2(200, 288)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Coupon" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_entity.tscn"]
+[node name="Control5" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon-static.tscn"]
 layout_mode = 2

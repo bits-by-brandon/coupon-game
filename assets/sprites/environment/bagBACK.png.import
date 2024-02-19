@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cndikrn4jeyib"
-path="res://.godot/imported/orange-2.png-101b21d716e97a1a0b17ff3064982f8d.ctex"
+uid="uid://dfxt6c31tv1kf"
+path="res://.godot/imported/bagBACK.png-35b3ce710511fb90e60b98e56e8d304f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/orange-2.png"
-dest_files=["res://.godot/imported/orange-2.png-101b21d716e97a1a0b17ff3064982f8d.ctex"]
+source_file="res://assets/sprites/environment/bagBACK.png"
+dest_files=["res://.godot/imported/bagBACK.png-35b3ce710511fb90e60b98e56e8d304f.ctex"]
 
 [params]
 
