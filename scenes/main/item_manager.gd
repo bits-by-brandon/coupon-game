@@ -36,11 +36,15 @@ func _ready():
 		items_container.add_child(item)
 		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
 	
-	current_item = items[0]
 
 	item_timer.timeout.connect(_on_item_timer_finished)
 	Events.coupon_used.connect(_on_coupon_used)
+	Events.game_started.connect(_on_game_started)
 
+
+func _on_game_started() -> void:
+	await Events.coupons_replenished
+	current_item = items[0]
 	play()
 
 
@@ -83,8 +87,10 @@ func tween_item(item : ItemEntity, target : Vector2) -> void:
 	tween.play()
 
 func _on_item_timer_finished() -> void:
+	Events.item_purchased.emit(current_item)
 	pause()
 	tally()
+	await get_tree().create_timer(1.0).timeout
 	await replenish_coupons()
 	cycle()
 
@@ -102,16 +108,11 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 	used_coupons.append(coupon.data)
 	coupon.play_use()
 
-	if current_item.current_discount > current_item.base_price:
-		pause()
+	if current_item.current_discount > current_item.base_price ||\
+			current_item.current_discount == current_item.base_price:
 		Events.item_purchased.emit(current_item)
-		await replenish_coupons()
-		cycle()
-	
-	if current_item.current_discount == current_item.base_price:
 		pause()
-		tally()
-		Events.item_purchased.emit(current_item)
+		await get_tree().create_timer(1.0).timeout
 		await replenish_coupons()
 		cycle()
 	

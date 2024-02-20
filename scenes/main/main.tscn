@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=33 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ch84kc87iuvd0" path="res://assets/sfx/beep.wav" id="6_tpj1r"]
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/environment/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/environment/bagFRONT.png" id="9_hchrb"]
+[ext_resource type="Texture2D" uid="uid://hgj2iqlyb1e1" path="res://assets/sprites/environment/binderBG.png" id="10_8deja"]
 [ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
 [ext_resource type="Script" path="res://scenes/main/sticker_manager.gd" id="11_p4v0v"]
 [ext_resource type="Texture2D" uid="uid://0ewn484320ce" path="res://assets/sprites/star_red.png" id="12_8wm33"]
@@ -20,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cvdng6q6l7i8c" path="res://assets/sfx/trumpet.mp3" id="14_g0ae0"]
 [ext_resource type="Texture2D" uid="uid://mmot0legjoif" path="res://assets/sprites/star_green.png" id="14_q31jc"]
 [ext_resource type="AudioStream" uid="uid://3k1trd1ttpma" path="res://assets/sfx/register.mp3" id="16_1s6wl"]
+[ext_resource type="Script" path="res://scenes/main/intro.gd" id="21_s3edp"]
 
 [sub_resource type="Animation" id="Animation_tcbgd"]
 resource_name = "scan"
@@ -259,6 +261,153 @@ _data = {
 "good_deal": SubResource("Animation_21nva")
 }
 
+[sub_resource type="Animation" id="Animation_raftw"]
+resource_name = "start_game"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.723929, 0.723929)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/DoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.615572, 1),
+"update": 0,
+"values": [Vector2(1744, 360), Vector2(2454, 360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro/DoorLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.615572, 1),
+"update": 0,
+"values": [Vector2(-525, 362), Vector2(-1184, 362)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Binder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2, 1.6),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(575.795, 942), Vector2(575.795, 593.914)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Intro/StartButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qr5by"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.723929, 0.723929)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/DoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1744, 360)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro/DoorLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-525, 362)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Binder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(575.795, 593.914)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro/StartButton:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlgew"]
+_data = {
+"RESET": SubResource("Animation_qr5by"),
+"start_game": SubResource("Animation_raftw")
+}
+
 [node name="Node" type="Node"]
 script = ExtResource("1_lq2ey")
 
@@ -320,7 +469,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"RegisterLabel"
-text = "$10.00"
+text = "$0.00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
 layout_mode = 2
@@ -371,10 +520,9 @@ texture = ExtResource("9_hchrb")
 unique_name_in_owner = true
 
 [node name="Binder" type="Sprite2D" parent="."]
-position = Vector2(523, 1452)
-rotation = 1.5708
-scale = Vector2(0.860466, 0.860466)
-texture = ExtResource("13_itd6c")
+position = Vector2(575.795, 593.914)
+scale = Vector2(0.459022, 0.459022)
+texture = ExtResource("10_8deja")
 
 [node name="ScanPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -487,27 +635,25 @@ script = ExtResource("2_4rs8w")
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Timer" type="Control" parent="CanvasLayer"]
+[node name="Timer" type="Control" parent="."]
 custom_minimum_size = Vector2(170, 2.08165e-12)
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -89.0
+offset_left = -179.0
 offset_top = 8.0
 offset_right = -9.0
 offset_bottom = 48.0
 grow_horizontal = 0
 script = ExtResource("3_l8jti")
 
-[node name="ItemTimer" type="Timer" parent="CanvasLayer/Timer"]
+[node name="ItemTimer" type="Timer" parent="Timer"]
 unique_name_in_owner = true
 wait_time = 8.0
 one_shot = true
 
-[node name="ItemTimerBar" type="ProgressBar" parent="CanvasLayer/Timer"]
+[node name="ItemTimerBar" type="ProgressBar" parent="Timer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -521,7 +667,7 @@ offset_right = -92.01
 offset_bottom = 188.52
 show_percentage = false
 
-[node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
+[node name="Hand" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 12
 anchor_top = 1.0
@@ -536,42 +682,70 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Slot1" type="VBoxContainer" parent="CanvasLayer/Hand"]
+[node name="Slot1" type="VBoxContainer" parent="Hand"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="CouponStatic" parent="CanvasLayer/Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
+[node name="CouponStatic" parent="Hand/Slot1" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
-[node name="Slot2" type="VBoxContainer" parent="CanvasLayer/Hand"]
+[node name="Slot2" type="VBoxContainer" parent="Hand"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="CouponStatic2" parent="CanvasLayer/Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
+[node name="CouponStatic2" parent="Hand/Slot2" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
-[node name="Slot3" type="VBoxContainer" parent="CanvasLayer/Hand"]
+[node name="Slot3" type="VBoxContainer" parent="Hand"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="CouponStatic3" parent="CanvasLayer/Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
+[node name="CouponStatic3" parent="Hand/Slot3" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
-[node name="Slot4" type="VBoxContainer" parent="CanvasLayer/Hand"]
+[node name="Slot4" type="VBoxContainer" parent="Hand"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="CouponStatic4" parent="CanvasLayer/Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
+[node name="CouponStatic4" parent="Hand/Slot4" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
 
-[node name="Slot5" type="VBoxContainer" parent="CanvasLayer/Hand"]
+[node name="Slot5" type="VBoxContainer" parent="Hand"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="CouponStatic5" parent="CanvasLayer/Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
+[node name="CouponStatic5" parent="Hand/Slot5" instance_placeholder="res://scenes/coupon_entity/coupon_static.tscn"]
 layout_mode = 2
+
+[node name="Intro" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("21_s3edp")
+
+[node name="DoorRight" type="Sprite2D" parent="Intro"]
+position = Vector2(1744, 360)
+texture = ExtResource("13_itd6c")
+
+[node name="DoorLeft" type="Sprite2D" parent="Intro"]
+position = Vector2(-525, 362)
+texture = ExtResource("13_itd6c")
+
+[node name="StartButton" type="Button" parent="Intro"]
+unique_name_in_owner = true
+offset_left = 127.0
+offset_top = 205.0
+offset_right = 1224.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 120
+text = "Start Game"
+
+[node name="IntroAnimationPlayer" type="AnimationPlayer" parent="Intro"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tlgew")
+}

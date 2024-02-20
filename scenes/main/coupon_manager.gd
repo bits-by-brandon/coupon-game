@@ -12,7 +12,11 @@ func _ready():
 	Events.coupon_discarded.connect(_on_coupon_discarded)
 	Events.coupon_applied.connect(_on_coupon_applied)
 	Events.coupon_replenish_requested.connect(_on_coupon_replenish_requested)
+	Events.game_started.connect(_on_game_started)
+
+func _on_game_started() -> void:
 	_on_coupon_replenish_requested()
+
 
 func create_random_coupon() -> CouponEntity:
 	var coupon_data := preload("res://data/coupon_data.gd").new()
@@ -76,8 +80,6 @@ func _on_coupon_applied(coupon : CouponEntity, _item : ItemEntity):
 	coupon.get_parent().remove_child(coupon)
 
 func _on_coupon_replenish_requested():
-	await get_tree().create_timer(1.0).timeout
-
 	for slot in hand.get_children():
 		if slot.get_child_count() == 0:
 			var coupon := create_random_coupon()
