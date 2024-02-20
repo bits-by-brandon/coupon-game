@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cluod3uo7s8kp"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cluod3uo7s8kp"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_oo3ll"]
+[ext_resource type="Texture2D" uid="uid://cle5100qi1hwh" path="res://assets/sprites/items/soda.png" id="2_8upxy"]
 
 [resource]
 script = ExtResource("1_oo3ll")
-name = "Item"
-base_price = 1.0
+name = "Soda"
+base_price = 3.0
 price_variance = 1.0
+texture = ExtResource("2_8upxy")

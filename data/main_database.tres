@@ -1,11 +1,26 @@
-[gd_resource type="Resource" script_class="Database" load_steps=6 format=3 uid="uid://cpxcqh8cqcvm3"]
+[gd_resource type="Resource" script_class="Database" load_steps=21 format=3 uid="uid://cpxcqh8cqcvm3"]
 
 [ext_resource type="Resource" uid="uid://d271rgnvwnays" path="res://data/items/frozen_food.tres" id="1_453d8"]
+[ext_resource type="Resource" uid="uid://7f4b8jxbkjsr" path="res://data/items/bread.tres" id="1_a0aab"]
 [ext_resource type="Script" path="res://data/database.gd" id="1_eeirb"]
 [ext_resource type="Resource" uid="uid://cf6autagkv1ui" path="res://data/items/ice_cream_tub.tres" id="2_8u0br"]
+[ext_resource type="Resource" uid="uid://datyikt56cn8h" path="res://data/items/chicken.tres" id="2_ab1xt"]
 [ext_resource type="Resource" uid="uid://f733vppujw3k" path="res://data/items/orange.tres" id="3_7dyyq"]
-[ext_resource type="Resource" uid="uid://di80eovbnu7kf" path="res://data/items/pizza_pie.tres" id="4_bq0cq"]
+[ext_resource type="Resource" uid="uid://cei2xtox6rwet" path="res://data/items/grapes.tres" id="4_oky2a"]
+[ext_resource type="Resource" uid="uid://dxr6osh6biodd" path="res://data/items/gun.tres" id="5_a2p3f"]
+[ext_resource type="Resource" uid="uid://ckvpks067ge15" path="res://data/items/hoodie.tres" id="6_ay0tl"]
+[ext_resource type="Resource" uid="uid://bagn5pee2hsy" path="res://data/items/laptop.tres" id="8_lkhnu"]
+[ext_resource type="Resource" uid="uid://3pf741jnew6r" path="res://data/items/melon.tres" id="9_8q5u2"]
+[ext_resource type="Resource" uid="uid://bgc14gjs5r6y5" path="res://data/items/milk.tres" id="10_ujyay"]
+[ext_resource type="Resource" uid="uid://88gw4gqt1e4l" path="res://data/items/pants.tres" id="12_nh8ad"]
+[ext_resource type="Resource" uid="uid://bx5fbwj4h1n7s" path="res://data/items/pie.tres" id="13_10klf"]
+[ext_resource type="Resource" uid="uid://1xrrhjyw8hx3" path="res://data/items/pizza.tres" id="14_cfuiv"]
+[ext_resource type="Resource" uid="uid://3baqbgkhqqxa" path="res://data/items/sausage.tres" id="15_jomsa"]
+[ext_resource type="Resource" uid="uid://cu2c84l3sop3e" path="res://data/items/shoes.tres" id="16_wukc7"]
+[ext_resource type="Resource" uid="uid://cluod3uo7s8kp" path="res://data/items/soda.tres" id="17_pbxfu"]
+[ext_resource type="Resource" uid="uid://dcqxlnuot3lm4" path="res://data/items/toilet_paper.tres" id="18_p8dde"]
+[ext_resource type="Resource" uid="uid://dlfwqdc23nv5n" path="res://data/items/top_hat.tres" id="19_bfekx"]
 
 [resource]
 script = ExtResource("1_eeirb")
-items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_453d8"), ExtResource("2_8u0br"), ExtResource("3_7dyyq"), ExtResource("4_bq0cq")])
+items = Array[Resource("res://data/item_data.gd")]([ExtResource("1_a0aab"), ExtResource("2_ab1xt"), ExtResource("1_453d8"), ExtResource("4_oky2a"), ExtResource("5_a2p3f"), ExtResource("6_ay0tl"), ExtResource("2_8u0br"), ExtResource("8_lkhnu"), ExtResource("8_lkhnu"), ExtResource("9_8q5u2"), ExtResource("10_ujyay"), ExtResource("3_7dyyq"), ExtResource("12_nh8ad"), ExtResource("13_10klf"), ExtResource("14_cfuiv"), ExtResource("15_jomsa"), ExtResource("16_wukc7"), ExtResource("17_pbxfu"), ExtResource("18_p8dde"), ExtResource("19_bfekx")])

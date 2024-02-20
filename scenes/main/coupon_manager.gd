@@ -88,4 +88,4 @@ func _on_coupon_replenish_requested():
 			coupon.play_enter()
 			await get_tree().create_timer(.3).timeout
 	
-	Events.coupons_replenished.emit()
+	(func(): Events.coupons_replenished.emit()).call_deferred()

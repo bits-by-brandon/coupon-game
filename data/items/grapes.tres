@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cei2xtox6rwet"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cei2xtox6rwet"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_4to4n"]
+[ext_resource type="Texture2D" uid="uid://b71jrbtk2aama" path="res://assets/sprites/items/grapes.png" id="2_baaxv"]
 
 [resource]
 script = ExtResource("1_4to4n")
-name = "Item"
-base_price = 1.0
-price_variance = 1.0
+name = "Grapes"
+base_price = 7.0
+price_variance = 3.0
+texture = ExtResource("2_baaxv")

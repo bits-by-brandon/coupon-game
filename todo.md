@@ -14,14 +14,15 @@
 [x] Replenish cards on cycle
 [x] Change discounts
 [x] Prevent cards from being played during thing
-[ ] Facial expressions
+[x] Facial expressions
+[ ] fix bug when no coupons applied
 [ ] Game over screen
 [ ] Intro screen
 [ ] Divider
 [ ] streak counter
-[ ] Background art
+[x] Background art
 [ ] Animate register number on coupon_applied
-[ ] Remove coupon filters
-  [ ] Add new coupon art
+[x] Remove coupon filters
+  [x] Add new coupon art
 [ ] Move to cart animation
-[ ] cycle when all cards used
+[x] cycle when all cards used

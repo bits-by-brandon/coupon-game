@@ -3,7 +3,7 @@ extends Node2D
 const print_sound = preload("res://assets/sfx/print.mp3")
 const receipt_list_item_scene = preload("res://scenes/receipt_list_item/receipt_list_item.tscn")
 
-@export var scroll_speed : float = 0.0015
+@export var scroll_speed : float = 0.002
 
 @onready var audio_player : AudioStreamPlayer = %GameAudioPlayer
 @onready var animation_player : AnimationPlayer = %GameAnimationPlayer
@@ -39,7 +39,7 @@ func animate_receipt():
 		receipt_scroll, 
 		"scroll_vertical", 
 		inner_height - scroll_height, 
-		scroll_speed * inner_height)
+		5)
 	tween.play()
 
 	tween.finished.connect(func(): 

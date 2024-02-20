@@ -362,6 +362,89 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_2b82o"]
+resource_name = "free"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Free:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(2.63902, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Free:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.22, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StickerAudioPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.145007,
+"stream": ExtResource("16_1s6wl")
+}],
+"times": PackedFloat32Array(0.37)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Free:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StickerAudioPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_kste7")
+}],
+"times": PackedFloat32Array(0.38)
+}
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.39),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_s571t"]
 resource_name = "full_discount"
 length = 1.5
@@ -548,89 +631,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_2b82o"]
-resource_name = "free"
-length = 1.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Free:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.39),
-"transitions": PackedFloat32Array(2.63902, 1),
-"update": 0,
-"values": [Vector2(0.6, 0.6), Vector2(0.4, 0.4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Free:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.39, 1.22, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StickerAudioPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.145007,
-"stream": ExtResource("16_1s6wl")
-}],
-"times": PackedFloat32Array(0.37)
-}
-tracks/2/use_blend = true
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Free:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StickerAudioPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("24_kste7")
-}],
-"times": PackedFloat32Array(0.38)
-}
-tracks/4/use_blend = true
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("GPUParticles2D:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.39),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ng307"]
@@ -877,7 +877,7 @@ tracks/3/path = NodePath("Binder:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.2, 1.6),
+"times": PackedFloat32Array(1, 1.4),
 "transitions": PackedFloat32Array(0.378929, 1),
 "update": 0,
 "values": [Vector2(575.795, 942), Vector2(575.795, 593.914)]
@@ -889,7 +889,7 @@ tracks/4/path = NodePath("Intro")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.9),
+"times": PackedFloat32Array(1.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1063,7 +1063,7 @@ script = ExtResource("10_ujq3y")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 10
+item_count = 15
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")

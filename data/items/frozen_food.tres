@@ -1,16 +1,11 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d271rgnvwnays"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_b6nb0"]
-[ext_resource type="Texture2D" uid="uid://cij6865uv3nb1" path="res://assets/sprites/frozen-food.png" id="2_am3qd"]
+[ext_resource type="Texture2D" uid="uid://cij6865uv3nb1" path="res://assets/sprites/items/frozen-food.png" id="2_am3qd"]
 
 [resource]
 script = ExtResource("1_b6nb0")
-name = "Item"
+name = "Frozen Dinner"
 base_price = 5.0
 price_variance = 3.0
-categories = Array[int]([0])
-colors = Array[int]([])
-shape = 2
-seasons = Array[int]([])
-expiration = 0
 texture = ExtResource("2_am3qd")

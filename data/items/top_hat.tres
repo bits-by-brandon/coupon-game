@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dlfwqdc23nv5n"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dlfwqdc23nv5n"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_8u5u7"]
+[ext_resource type="Texture2D" uid="uid://covdukr7h3kp0" path="res://assets/sprites/items/tophat.png" id="2_p7q2y"]
 
 [resource]
 script = ExtResource("1_8u5u7")
-name = "Item"
-base_price = 1.0
-price_variance = 1.0
+name = "Top Hat"
+base_price = 40.0
+price_variance = 0.0
+texture = ExtResource("2_p7q2y")

@@ -1,16 +1,11 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cf6autagkv1ui"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_5bv1q"]
-[ext_resource type="Texture2D" uid="uid://rdpksq5q04ma" path="res://assets/sprites/ice-cream.png" id="2_yxcqx"]
+[ext_resource type="Texture2D" uid="uid://3sjaxdx0qr2v" path="res://assets/sprites/items/ice-cream.png" id="2_yxcqx"]
 
 [resource]
 script = ExtResource("1_5bv1q")
-name = "Item"
+name = "Ice Cream"
 base_price = 10.0
 price_variance = 5.0
-categories = Array[int]([0, 2])
-colors = Array[int]([])
-shape = 2
-seasons = Array[int]([])
-expiration = 0
 texture = ExtResource("2_yxcqx")

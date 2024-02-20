@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dcqxlnuot3lm4"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dcqxlnuot3lm4"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_uos4h"]
+[ext_resource type="Texture2D" uid="uid://dt3qefms6t11" path="res://assets/sprites/items/toilet-paper.png" id="2_51avl"]
 
 [resource]
 script = ExtResource("1_uos4h")
-name = "Item"
-base_price = 1.0
-price_variance = 1.0
+name = "Toilet Paper"
+base_price = 3.0
+price_variance = 2.0
+texture = ExtResource("2_51avl")
