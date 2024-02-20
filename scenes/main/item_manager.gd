@@ -30,19 +30,18 @@ var coupons_used : Array[CouponData] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in item_count:
-		var item := create_random_item()
-		items.append(item)
-		items_container.add_child(item)
-		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
-	
-
 	item_timer.timeout.connect(_on_item_timer_finished)
 	Events.coupon_used.connect(_on_coupon_used)
 	Events.game_started.connect(_on_game_started)
 
 
 func _on_game_started() -> void:
+	for i in item_count:
+		var item := create_random_item()
+		items.append(item)
+		items_container.add_child(item)
+		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
+
 	await Events.coupons_replenished
 	current_item = items[0]
 	play()

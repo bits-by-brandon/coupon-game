@@ -7,6 +7,7 @@ const receipt_list_item_scene = preload("res://scenes/receipt_list_item/receipt_
 
 @onready var audio_player : AudioStreamPlayer = %GameAudioPlayer
 @onready var animation_player : AnimationPlayer = %GameAnimationPlayer
+@onready var retry_button : Button = %RetryButton
 @onready var receipt_list := %ReceiptList
 @onready var receipt_scroll : ScrollContainer = %ReceiptScroll
 @onready var receipt_scroll_inner : Container = %ReceiptScrollInner 
@@ -14,6 +15,12 @@ const receipt_list_item_scene = preload("res://scenes/receipt_list_item/receipt_
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.game_over.connect(_on_game_over)
+	retry_button.pressed.connect(_on_retry_pressed)
+
+func _on_retry_pressed():
+	animation_player.play("close_score")
+	await animation_player.animation_finished
+	animation_player.play("intro")
 
 func _on_game_over():
 	var total_base := 0.0

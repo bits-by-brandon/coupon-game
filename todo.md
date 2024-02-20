@@ -15,8 +15,8 @@
 [x] Change discounts
 [x] Prevent cards from being played during thing
 [x] Facial expressions
-[ ] fix bug when no coupons applied
-[ ] Game over screen
+[x] fix bug when no coupons applied
+[x] Game over screen
 [ ] Intro screen
 [ ] Divider
 [ ] streak counter
