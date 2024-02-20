@@ -1,14 +1,16 @@
-[gd_scene load_steps=45 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=51 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
 [ext_resource type="Script" path="res://scenes/main/item_manager.gd" id="2_4rs8w"]
-[ext_resource type="Texture2D" uid="uid://duvxkpksd4hua" path="res://assets/sprites/char/CHARNOPIXEL.png" id="2_tmmr5"]
 [ext_resource type="Script" path="res://scenes/main/item_timer.gd" id="3_l8jti"]
+[ext_resource type="Script" path="res://scenes/main/cashier.gd" id="3_rfhtn"]
 [ext_resource type="Script" path="res://scenes/main/coupon_manager.gd" id="3_yx1u3"]
 [ext_resource type="Script" path="res://scenes/main/register.gd" id="4_4p2by"]
-[ext_resource type="Texture2D" uid="uid://f6w4m3yda5e4" path="res://assets/sprites/environment/customer-display.png" id="5_5y72f"]
+[ext_resource type="Texture2D" uid="uid://buj0e0e8gmrv2" path="res://assets/sprites/char_sprite_sheet.png" id="4_uit2n"]
+[ext_resource type="Texture2D" uid="uid://c4yvxwb0tkf2u" path="res://assets/sprites/environment/charFRONT.png" id="5_6lqub"]
 [ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/environment/conveyer.png" id="6_73cg8"]
+[ext_resource type="Texture2D" uid="uid://bylmnh826h7ct" path="res://assets/sprites/environment/customerDisplay.png" id="6_sgyg5"]
 [ext_resource type="AudioStream" uid="uid://ch84kc87iuvd0" path="res://assets/sfx/beep.wav" id="6_tpj1r"]
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/environment/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/environment/bagFRONT.png" id="9_hchrb"]
@@ -33,17 +35,43 @@
 
 [sub_resource type="Animation" id="Animation_t7xkk"]
 resource_name = "good_deal"
+length = 0.7
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cashier:texture")
+tracks/0/path = NodePath("Cashier:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_tmmr5")]
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
 }
 
 [sub_resource type="Animation" id="Animation_k7uj7"]
@@ -51,20 +79,212 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cashier:texture")
+tracks/0/path = NodePath("Cashier:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tmmr5")]
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_r8p8v"]
+resource_name = "great_deal"
+length = 0.7
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cashier:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.69),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_o2duq"]
+resource_name = "full_discount"
+length = 1.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cashier:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.28, 0.36, 0.44, 0.53, 0.61, 0.85, 1.4),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2, 1, -2, -2, 1, -2, -2),
+"update": 0,
+"values": [Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.28, 0.36, 0.44, 0.53, 0.61, 0.85, 1.4),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2, 1, -2, -2, 1, -2, -2),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_dsrcg"]
+resource_name = "smug"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cashier:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.39),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 1.39, 1.45, 1.5),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, 1, -2, -2),
+"update": 0,
+"values": [Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -175.962), Vector2(-204.44, -166.292), Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 1.39, 1.45, 1.5),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, 1, -2, -2),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.569807, 0.616213), Vector2(0.621608, 0.590324), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_72y8e"]
+resource_name = "idle"
+length = 0.7
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cashier:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(-204.44, -169.906), Vector2(-204.44, -166.292), Vector2(-204.44, -175.962), Vector2(-204.44, -169.906), Vector2(-204.44, -169.906)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.21, 0.7),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, -2),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.621608, 0.590324), Vector2(0.569807, 0.616213), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t7l7v"]
 _data = {
 "RESET": SubResource("Animation_k7uj7"),
-"good_deal": SubResource("Animation_t7xkk")
+"full_discount": SubResource("Animation_o2duq"),
+"good_deal": SubResource("Animation_t7xkk"),
+"great_deal": SubResource("Animation_r8p8v"),
+"idle": SubResource("Animation_72y8e"),
+"smug": SubResource("Animation_dsrcg")
 }
 
 [sub_resource type="Animation" id="Animation_tcbgd"]
@@ -554,23 +774,31 @@ scale = Vector2(0.723929, 0.723929)
 texture = ExtResource("2_1jvhu")
 
 [node name="Cashier" type="Node2D" parent="."]
-position = Vector2(792, 316)
+position = Vector2(615, 316)
 scale = Vector2(0.723929, 0.723929)
+script = ExtResource("3_rfhtn")
 
 [node name="Cashier" type="Sprite2D" parent="Cashier"]
-position = Vector2(-204.44, -138.135)
-scale = Vector2(0.663048, 0.663048)
-texture = ExtResource("2_tmmr5")
+position = Vector2(-204.44, -169.906)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_uit2n")
+hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cashier"]
+[node name="CharFront" type="Sprite2D" parent="Cashier"]
+position = Vector2(-200.296, -156.093)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_6lqub")
+
+[node name="CashierAnimationPlayer" type="AnimationPlayer" parent="Cashier"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_t7l7v")
 }
 
 [node name="Register" type="Sprite2D" parent="."]
-position = Vector2(837, 276)
-scale = Vector2(0.48, 0.48)
-texture = ExtResource("5_5y72f")
+position = Vector2(758.34, 290.926)
+scale = Vector2(0.677546, 0.677546)
+texture = ExtResource("6_sgyg5")
 script = ExtResource("4_4p2by")
 
 [node name="Control" type="Control" parent="Register"]
@@ -809,10 +1037,10 @@ anchor_left = -0.347
 anchor_top = 0.337
 anchor_right = -0.347
 anchor_bottom = 0.337
-offset_left = -317.01
-offset_top = 117.52
-offset_right = -92.01
-offset_bottom = 188.52
+offset_left = -442.01
+offset_top = 78.52
+offset_right = -123.01
+offset_bottom = 176.52
 show_percentage = false
 
 [node name="Hand" type="HBoxContainer" parent="."]
