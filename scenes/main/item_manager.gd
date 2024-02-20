@@ -43,6 +43,7 @@ func _on_game_started() -> void:
 		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
 
 	await Events.coupons_replenished
+	await get_tree().create_timer(.7).timeout
 	current_item = items[0]
 	play()
 
@@ -96,7 +97,7 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 	coupons_used.append(coupon.data)
 	coupon.play_use()
 
-	if current_item.current_discount >= current_item.base_price:
+	if current_item.current_discount >= current_item.base_price || coupons_used.size() >= 5:
 		purchase_item()
 
 func purchase_item() -> void:

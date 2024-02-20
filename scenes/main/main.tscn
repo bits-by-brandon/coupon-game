@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=74 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -34,6 +34,7 @@
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
 [ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="29_71hv4"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
+[ext_resource type="Texture2D" uid="uid://cvhcdeehvybdt" path="res://assets/sprites/environment/binder.png" id="30_hso3t"]
 [ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
 [ext_resource type="AudioStream" uid="uid://dth8ujikjyqf7" path="res://assets/sfx/door-closing.wav" id="36_uklnr"]
 [ext_resource type="Texture2D" uid="uid://ddpd673mgtfhc" path="res://assets/sprites/char/grandma.png" id="36_wqr2w"]
@@ -42,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://dkh8ipsif6i7s" path="res://assets/sprites/environment/poster.png" id="37_qg2kh"]
 [ext_resource type="AudioStream" uid="uid://dh18kxq0eqbv6" path="res://assets/sfx/bookFlip2.ogg" id="38_8kiky"]
 [ext_resource type="AudioStream" uid="uid://c8ocq6gl1ftqu" path="res://assets/sfx/door_open.wav" id="38_et4e5"]
+[ext_resource type="AudioStream" uid="uid://cnbe3enp3pah7" path="res://assets/sfx/bookFlip3.ogg" id="43_3fykq"]
 
 [sub_resource type="Animation" id="Animation_k7uj7"]
 length = 0.001
@@ -806,6 +808,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(1641, 394)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Outro/Printer/ReceiptScroll:scroll_vertical")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Intro/Instructions:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(625, 1030)]
+}
 
 [sub_resource type="Animation" id="Animation_gap4x"]
 resource_name = "close_score"
@@ -990,6 +1016,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [-80.0, 0.0, 0.0, -80.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Outro/Printer/ReceiptScroll:scroll_vertical")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_raftw"]
 resource_name = "start_game"
@@ -1127,11 +1165,73 @@ tracks/9/keys = {
 }
 tracks/9/use_blend = true
 
+[sub_resource type="Animation" id="Animation_obg0b"]
+resource_name = "show_instructions"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/Instructions:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.203063, 1),
+"update": 0,
+"values": [Vector2(625, 1030), Vector2(625, 363)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameAudioPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("38_8kiky")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_gaq4i"]
+resource_name = "close_instructions"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/Instructions:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(4.59479, 0.203063),
+"update": 0,
+"values": [Vector2(625, 363), Vector2(625, 1030)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameAudioPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("43_3fykq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlgew"]
 _data = {
 "RESET": SubResource("Animation_qr5by"),
+"close_instructions": SubResource("Animation_gaq4i"),
 "close_score": SubResource("Animation_gap4x"),
 "intro": SubResource("Animation_04ixj"),
+"show_instructions": SubResource("Animation_obg0b"),
 "show_score": SubResource("Animation_u4cq0"),
 "start_game": SubResource("Animation_raftw")
 }
@@ -1472,6 +1572,20 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_wqr2w")
 region_enabled = true
 region_rect = Rect2(1372, 48, 1028, 1352)
+
+[node name="Instructions" type="Sprite2D" parent="Intro"]
+position = Vector2(625, 1030)
+scale = Vector2(0.455714, 0.455714)
+texture = ExtResource("30_hso3t")
+
+[node name="CloseInstructionsButton" type="Button" parent="Intro/Instructions"]
+unique_name_in_owner = true
+offset_left = 422.279
+offset_top = 463.067
+offset_right = 532.279
+offset_bottom = 510.067
+scale = Vector2(2, 2)
+text = "Close"
 
 [node name="Outro" type="Node2D" parent="."]
 script = ExtResource("23_4hygw")

@@ -23,6 +23,9 @@ func _on_retry_pressed():
 	animation_player.play("intro")
 
 func _on_game_over():
+	for child in receipt_list.get_children():
+		child.queue_free()
+
 	var total_base := 0.0
 	for transaction in State.transactions:
 		var list_item = receipt_list_item_scene.instantiate()

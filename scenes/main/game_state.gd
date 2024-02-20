@@ -26,7 +26,7 @@ func add_transaction(item : ItemEntity, coupons : Array[CouponData]) -> void:
 
 func reset() -> void:
   total = 0
-  transactions = []
+  transactions.clear()
 
 class Transaction:
   var item : ItemData
