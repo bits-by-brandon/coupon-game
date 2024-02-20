@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://clnicwuxuqpy2" path="res://assets/sfx/error_006.ogg" id="4_lj1d5"]
 [ext_resource type="AudioStream" uid="uid://ctic1h0qx1s5a" path="res://assets/sfx/cardSlide3.ogg" id="4_wdnbh"]
 [ext_resource type="AudioStream" uid="uid://c3jxf0qocn7sr" path="res://assets/sfx/cardSlide5.ogg" id="5_cynu4"]
-[ext_resource type="AudioStream" uid="uid://bf04ufgj0q1rj" path="res://assets/sfx/367217__daalvinz__bubble-pop.wav" id="5_nykqq"]
+[ext_resource type="AudioStream" uid="uid://bf04ufgj0q1rj" path="res://assets/sfx/pop.wav" id="5_nykqq"]
 [ext_resource type="AudioStream" uid="uid://k0xwfplydprt" path="res://assets/sfx/cardSlide6.ogg" id="6_hdywd"]
 [ext_resource type="AudioStream" uid="uid://868v4xfaawap" path="res://assets/sfx/minimize_008.ogg" id="7_2ricb"]
 [ext_resource type="AudioStream" uid="uid://bpib57scnjhlj" path="res://assets/sfx/cardSlide2.ogg" id="7_lc5gb"]

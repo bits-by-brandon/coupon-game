@@ -2,6 +2,7 @@ class_name EventBus
 extends Node
 
 signal game_started()
+signal game_over()
 signal item_scanned(item: ItemEntity)
 signal item_purchased(item: ItemEntity)
 signal coupon_used(coupon: CouponEntity)

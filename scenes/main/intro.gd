@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var start_button : Button = %StartButton
-@onready var animation_player : AnimationPlayer = %IntroAnimationPlayer
+@onready var animation_player : AnimationPlayer = %GameAnimationPlayer
 
 func _ready():
 	start_button.pressed.connect(func(): 

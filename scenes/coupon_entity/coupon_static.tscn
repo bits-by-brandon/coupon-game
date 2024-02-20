@@ -72,6 +72,7 @@ offset_top = -0.285706
 offset_bottom = 0.285706
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_jyour")
 expand_mode = 5
 
@@ -93,6 +94,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -101,12 +103,14 @@ theme_override_constants/margin_bottom = 8
 [node name="Frame" type="TextureRect" parent="Inner/Print/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_5n3en")
 expand_mode = 5
 stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Inner/Print/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -115,6 +119,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Details" type="TextureRect" parent="Inner/Print/MarginContainer/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("4_wddco")
 expand_mode = 5
 stretch_mode = 4
@@ -133,6 +138,7 @@ offset_right = 62.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 6
 
 [node name="DiscountPrimary" type="Label" parent="Inner/Print/HBoxContainer"]
@@ -145,6 +151,7 @@ text = "$20"
 [node name="VBoxContainer" type="VBoxContainer" parent="Inner/Print/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -167,6 +174,7 @@ offset_left = 111.0
 offset_top = 172.0
 offset_right = 153.0
 offset_bottom = 179.0
+mouse_filter = 2
 theme_override_constants/separation = 2
 alignment = 1
 

@@ -42,8 +42,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 300.0
-offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
@@ -59,6 +57,7 @@ offset_top = -0.285706
 offset_bottom = 0.285706
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_mtntc")
 expand_mode = 5
 
@@ -77,6 +76,7 @@ offset_right = 90.0
 offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.901961, 0.682353, 0.670588, 0.498039)
 
 [node name="Print" type="Control" parent="Inner"]
@@ -97,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -105,12 +106,14 @@ theme_override_constants/margin_bottom = 8
 [node name="Frame" type="TextureRect" parent="Inner/Print/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_pft7g")
 expand_mode = 5
 stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Inner/Print/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -119,6 +122,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Details" type="TextureRect" parent="Inner/Print/MarginContainer/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_lqae0")
 expand_mode = 5
 stretch_mode = 4
@@ -131,6 +135,7 @@ offset_right = 166.0
 offset_bottom = 96.0
 rotation = 0.0523599
 pivot_offset = Vector2(71, 32)
+mouse_filter = 2
 color = Color(1, 0.337255, 0.372549, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inner/Print"]
@@ -149,6 +154,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0523599
 pivot_offset = Vector2(60, 33)
+mouse_filter = 2
 theme_override_constants/separation = 6
 
 [node name="DiscountPrimary" type="Label" parent="Inner/Print/HBoxContainer"]
@@ -164,12 +170,14 @@ text = "2x"
 [node name="VBoxContainer" type="VBoxContainer" parent="Inner/Print/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/separation = 1
 alignment = 1
 
 [node name="Spacer" type="Control" parent="Inner/Print/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 4)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="DiscountSuper" type="Label" parent="Inner/Print/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -191,6 +199,7 @@ offset_left = 111.0
 offset_top = 172.0
 offset_right = 153.0
 offset_bottom = 179.0
+mouse_filter = 2
 theme_override_constants/separation = 2
 alignment = 1
 

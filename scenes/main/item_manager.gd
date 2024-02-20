@@ -74,8 +74,7 @@ func cycle() -> void:
 		item_timer.start()
 		ready_to_play = true
 	else:
-		# Stop the cycle
-		# TODO: End game
+		Events.game_over.emit()
 		return
 
 func tween_item(item : ItemEntity, target : Vector2) -> void:
