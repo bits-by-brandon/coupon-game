@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_2md3e")
 name = "Bread"
-base_price = 1.0
-price_variance = 1.0
+base_price = 8.0
+price_variance = 2.0
 texture = ExtResource("2_6pfex")

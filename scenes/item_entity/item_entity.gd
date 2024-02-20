@@ -11,8 +11,9 @@ var base_price : float = 0.0
 var current_discount : float = 0.0
 
 func _ready():
+	var sprite_scale := size.y / data.texture.get_size().y
 	sprite.texture = data.texture
-	sprite.scale = size / data.texture.get_size()
+	sprite.scale = Vector2(sprite_scale, sprite_scale)
 	sprite.offset = Vector2(0, -size.y * 2)
 
 	base_price = data.base_price + round(randf_range(-data.price_variance, data.price_variance))

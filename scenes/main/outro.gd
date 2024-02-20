@@ -16,10 +16,15 @@ func _ready():
 	Events.game_over.connect(_on_game_over)
 
 func _on_game_over():
+	var total_base := 0.0
 	for transaction in State.transactions:
 		var list_item = receipt_list_item_scene.instantiate()
 		receipt_list.add_child(list_item)
 		list_item.init(transaction)
+		total_base += transaction.item_price
+	
+	%TotalPrice.text = str(State.total)
+	%TotalSaved.text = str(total_base - State.total)
 
 	animation_player.play("show_score")
 	await animation_player.animation_finished
@@ -39,7 +44,7 @@ func animate_receipt():
 		receipt_scroll, 
 		"scroll_vertical", 
 		inner_height - scroll_height, 
-		5)
+		8)
 	tween.play()
 
 	tween.finished.connect(func(): 
