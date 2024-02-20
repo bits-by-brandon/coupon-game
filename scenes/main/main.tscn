@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=45 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -29,6 +29,7 @@
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
 [ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="29_71hv4"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
+[ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
 
 [sub_resource type="Animation" id="Animation_t7xkk"]
 resource_name = "good_deal"
@@ -777,7 +778,7 @@ libraries = {
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 8
+item_count = 10
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
@@ -1029,3 +1030,7 @@ libraries = {
 [node name="GameAudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 max_polyphony = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_okq6x")
+autoplay = true
