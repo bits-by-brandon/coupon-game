@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=44 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -25,6 +25,8 @@
 [ext_resource type="Script" path="res://scenes/main/outro.gd" id="23_4hygw"]
 [ext_resource type="Texture2D" uid="uid://d0b85s2vmuejh" path="res://assets/sprites/environment/printer.png" id="24_w8mhg"]
 [ext_resource type="Texture2D" uid="uid://kkd3vrvywbl" path="res://assets/sprites/cheapco.png" id="25_yapeh"]
+[ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="27_27wp7"]
+[ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
 [ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="29_71hv4"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
 
@@ -775,7 +777,7 @@ libraries = {
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 2
+item_count = 8
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
@@ -900,6 +902,7 @@ texture = ExtResource("24_w8mhg")
 metadata/_edit_lock_ = true
 
 [node name="ReceiptScroll" type="ScrollContainer" parent="Outro/Printer"]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -915,32 +918,33 @@ size_flags_horizontal = 4
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="Container" type="PanelContainer" parent="Outro/Printer/ReceiptScroll"]
+[node name="ReceiptScrollInner" type="PanelContainer" parent="Outro/Printer/ReceiptScroll"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="Outro/Printer/ReceiptScroll/Container"]
+[node name="ColorRect" type="ColorRect" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Outro/Printer/ReceiptScroll/Container"]
+[node name="MarginContainer" type="MarginContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_bottom = 60
 
-[node name="Receipt" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/Container/MarginContainer"]
+[node name="Receipt" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Logo" type="TextureRect" parent="Outro/Printer/ReceiptScroll/Container/MarginContainer/Receipt"]
+[node name="Logo" type="TextureRect" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
 texture = ExtResource("25_yapeh")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="RichTextLabel" type="Label" parent="Outro/Printer/ReceiptScroll/Container/MarginContainer/Receipt"]
+[node name="RichTextLabel" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.564706)
 theme_override_fonts/font = ExtResource("29_71hv4")
@@ -950,9 +954,63 @@ Our loyalty program is simple: the more you save, the more we smile (and wonder 
 We reserve the right to substitute your savings for a sense of overwhelming achievement. Keep this receipt—it might be worth something someday (but probably not). Thank you for choosing CheapCO GoodSales, where the deals are so great, you'll need a magnifying glass to read the savings!"
 autowrap_mode = 2
 
-[node name="ReceiptList" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/Container/MarginContainer/Receipt"]
+[node name="ReceiptList" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label2" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 45
+text = "final cart total"
+
+[node name="Control" type="Control" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt/Label2"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 160.0
+offset_right = 416.0
+offset_bottom = 160.0
+
+[node name="TotalPrice" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 100
+text = "$10.00"
+
+[node name="Control2" type="Control" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 45
+text = "amount saved"
+
+[node name="TotalSaved" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 100
+text = "$10.00"
+
+[node name="TotalSaved2" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_8puqr")
+theme_override_font_sizes/font_size = 30
+text = "have a nice day :)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+text = "Play again?"
 
 [node name="PrinterFront" type="Sprite2D" parent="Outro/Printer"]
 position = Vector2(0, 103)

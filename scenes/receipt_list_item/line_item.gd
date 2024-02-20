@@ -4,5 +4,5 @@ extends HBoxContainer
 func set_label(string : String):
 	%Label.text = string
 
-func set_value(value : float):
-	%DiscountsAppliedLabel.text = "$%.2f" % [value]
+func set_value(value : String):
+	%DiscountsAppliedLabel.text = value

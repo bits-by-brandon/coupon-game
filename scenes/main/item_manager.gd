@@ -26,7 +26,7 @@ var current_item : ItemEntity :
 		if current_item != null:
 			current_item.activate()
 			Events.item_scanned.emit(value)
-var used_coupons : Array[CouponData] = []
+var coupons_used : Array[CouponData] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,7 +57,7 @@ func cycle() -> void:
 	if items.size() == 0:
 		return
 
-	used_coupons.clear()
+	coupons_used.clear()
 
 	# TODO: Animate current_item to exit position
 	var finished_item := items.pop_front() as ItemEntity
@@ -94,14 +94,14 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 
 	coupon.data.discount.apply(current_item)
 	Events.coupon_applied.emit(coupon, current_item)
-	used_coupons.append(coupon.data)
+	coupons_used.append(coupon.data)
 	coupon.play_use()
 
 	if current_item.current_discount >= current_item.base_price:
 		purchase_item()
 
 func purchase_item() -> void:
-	Events.item_purchased.emit(current_item, used_coupons)
+	Events.item_purchased.emit(current_item, coupons_used)
 	pause()
 	await get_tree().create_timer(1.0).timeout
 	await replenish_coupons()

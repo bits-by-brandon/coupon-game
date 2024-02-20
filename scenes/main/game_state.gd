@@ -16,14 +16,13 @@ func add_transaction(item : ItemEntity, coupons : Array[CouponData]) -> void:
   transaction.item = item.data
   transaction.item_price = item.base_price
   transaction.total = item.base_price - item.current_discount
-  transaction.coupons_used = coupons
+  transaction.coupons_used = coupons.duplicate()
   transaction.full_price = item.is_invalid()
+  print(transaction.coupons_used)
 
   total += transaction.total
 
   transactions.append(transaction)
-  print("Added transaction: ", transaction.item.name, " for ", transaction.item_price, " with ", transaction.total, " total")
-  print(transactions)
 
 func reset() -> void:
   total = 0
