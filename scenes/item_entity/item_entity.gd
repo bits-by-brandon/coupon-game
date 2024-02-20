@@ -30,12 +30,12 @@ func is_full_discount() -> bool:
 func activate() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)\
-		.tween_property(sprite, "position", Vector2(0, -40), 3)\
+		.tween_property(sprite, "position", Vector2(0, -40), 2)\
 		.set_trans(Tween.TRANS_ELASTIC)\
-		.set_ease(Tween.EASE_IN_OUT)
+		.set_ease(Tween.EASE_OUT)
 
-	tween.tween_property(shadow, "scale", Vector2(0.3, 0.3), 3)\
+	tween.tween_property(shadow, "scale", Vector2(0.3, 0.3), 2)\
 		.set_trans(Tween.TRANS_ELASTIC)\
-		.set_ease(Tween.EASE_IN_OUT)
+		.set_ease(Tween.EASE_OUT)
 
 	tween.play()

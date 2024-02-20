@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dxr6osh6biodd"]
 
 [ext_resource type="Script" path="res://data/item_data.gd" id="1_chk6b"]
-[ext_resource type="Texture2D" uid="uid://x6kvb7ewkhki" path="res://assets/sprites/items/gun.png" id="2_ektfj"]
+[ext_resource type="Texture2D" uid="uid://dt3qefms6t11" path="res://assets/sprites/items/toilet-paper.png" id="2_kdvrn"]
 
 [resource]
 script = ExtResource("1_chk6b")
 name = "Rifle"
 base_price = 100.0
 price_variance = 20.0
-texture = ExtResource("2_ektfj")
+texture = ExtResource("2_kdvrn")
