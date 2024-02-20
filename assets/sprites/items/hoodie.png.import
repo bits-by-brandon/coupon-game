@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3sjaxdx0qr2v"
-path="res://.godot/imported/ice-cream.png-01b939ad3bba8af94a157679511b5b54.ctex"
+uid="uid://ccmo20ngw46u4"
+path="res://.godot/imported/hoodie.png-653b3433e499f8bb621fcc6c31cfed6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/ice-cream.png"
-dest_files=["res://.godot/imported/ice-cream.png-01b939ad3bba8af94a157679511b5b54.ctex"]
+source_file="res://assets/sprites/items/hoodie.png"
+dest_files=["res://.godot/imported/hoodie.png-653b3433e499f8bb621fcc6c31cfed6b.ctex"]
 
 [params]
 

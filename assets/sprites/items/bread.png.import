@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3sjaxdx0qr2v"
-path="res://.godot/imported/ice-cream.png-01b939ad3bba8af94a157679511b5b54.ctex"
+uid="uid://b6x7a5e2gbb4k"
+path="res://.godot/imported/bread.png-1c6e429bb948d9db604e4f54db356e15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/ice-cream.png"
-dest_files=["res://.godot/imported/ice-cream.png-01b939ad3bba8af94a157679511b5b54.ctex"]
+source_file="res://assets/sprites/items/bread.png"
+dest_files=["res://.godot/imported/bread.png-1c6e429bb948d9db604e4f54db356e15.ctex"]
 
 [params]
 

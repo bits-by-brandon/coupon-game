@@ -12,7 +12,7 @@ func _on_item_purchased(item : ItemEntity, _coupons):
 	if percent_off > 1:
 		animation_player.play("full_price")
 	elif percent_off == 1:
-		animation_player.play("full_discount")
+		animation_player.play("free")
 	elif percent_off > .7:
 		animation_player.play("great_deal")
 	elif percent_off > .5:

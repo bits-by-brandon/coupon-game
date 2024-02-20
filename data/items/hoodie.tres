@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://ckvpks067ge15"]
+
+[ext_resource type="Script" path="res://data/item_data.gd" id="1_m0jtp"]
+
+[resource]
+script = ExtResource("1_m0jtp")
+name = "Item"
+base_price = 1.0
+price_variance = 1.0
