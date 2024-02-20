@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mmot0legjoif"
-path="res://.godot/imported/star_green.png-ef36e2373c8e6502e52d43a651db75f3.ctex"
+uid="uid://0ewn484320ce"
+path="res://.godot/imported/star_red.png-f4a7d244a3887410797c2c11c9a4661c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/star_green.png"
-dest_files=["res://.godot/imported/star_green.png-ef36e2373c8e6502e52d43a651db75f3.ctex"]
+source_file="res://assets/sprites/stickers/star_red.png"
+dest_files=["res://.godot/imported/star_red.png-f4a7d244a3887410797c2c11c9a4661c.ctex"]
 
 [params]
 
