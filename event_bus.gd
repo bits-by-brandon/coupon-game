@@ -4,7 +4,7 @@ extends Node
 signal game_started()
 signal game_over()
 signal item_scanned(item: ItemEntity)
-signal item_purchased(item: ItemEntity)
+signal item_purchased(item: ItemEntity, coupons_used : Array[CouponData])
 signal coupon_used(coupon: CouponEntity)
 signal coupon_discarded(coupon: CouponEntity)
 signal coupon_applied(coupon: CouponEntity, item : ItemEntity)

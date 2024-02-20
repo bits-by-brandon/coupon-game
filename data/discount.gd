@@ -11,7 +11,7 @@ func get_entity() -> CouponEntity:
   assert(false, "get_entity() not implemented yet")
   return preload("res://scenes/coupon_entity/coupon_entity.tscn").instantiate()
 
-func apply(item : ItemEntity) -> void:
+func apply(_item : ItemEntity) -> void:
   assert(false, "apply() not implemented yet")
 
 func get_primary() -> String:
