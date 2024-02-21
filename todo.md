@@ -17,12 +17,16 @@
 [x] Facial expressions
 [x] fix bug when no coupons applied
 [x] Game over screen
-[ ] Intro screen
+[x] Intro screen
 [ ] Divider
-[ ] streak counter
 [x] Background art
-[ ] Animate register number on coupon_applied
 [x] Remove coupon filters
   [x] Add new coupon art
-[ ] Move to cart animation
 [x] cycle when all cards used
+[ ] Bad deal sticker
+[ ] different sounds
+[ ] Improve instructions
+   [ ]
+[ ] streak counter
+[ ] Animate register number on coupon_applied
+[ ] Move to cart animation

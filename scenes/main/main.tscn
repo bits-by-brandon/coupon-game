@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=81 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -33,15 +33,21 @@
 [ext_resource type="Texture2D" uid="uid://d3kf7bim4pgd6" path="res://assets/sprites/environment/door_left.png" id="27_dvchq"]
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
 [ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="29_71hv4"]
+[ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/environment/binder-empty.png" id="30_6hsmy"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
-[ext_resource type="Texture2D" uid="uid://cvhcdeehvybdt" path="res://assets/sprites/environment/binder.png" id="30_hso3t"]
 [ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
+[ext_resource type="Texture2D" uid="uid://bfqul1rtvp4hm" path="res://assets/sprites/good_deal_example.png" id="33_4s0oc"]
+[ext_resource type="Texture2D" uid="uid://2sq7aj0bqalq" path="res://assets/sprites/great_deal_example.png" id="34_tmrtk"]
+[ext_resource type="Texture2D" uid="uid://cfx367e07my5d" path="res://assets/sprites/free_example.png" id="35_tvgfa"]
+[ext_resource type="Texture2D" uid="uid://db5wflkpbxdbc" path="res://assets/sprites/full_price_example.png" id="36_406u4"]
 [ext_resource type="AudioStream" uid="uid://dth8ujikjyqf7" path="res://assets/sfx/door-closing.wav" id="36_uklnr"]
 [ext_resource type="Texture2D" uid="uid://ddpd673mgtfhc" path="res://assets/sprites/char/grandma.png" id="36_wqr2w"]
 [ext_resource type="AudioStream" uid="uid://da7dc4f7rcuy3" path="res://assets/sfx/paper_rip.wav" id="37_f55oa"]
 [ext_resource type="AudioStream" uid="uid://br8tv0hxqmngk" path="res://assets/sfx/doorbell.wav" id="37_l8bbl"]
+[ext_resource type="Texture2D" uid="uid://q7dn5qyn1fsj" path="res://assets/sprites/right_click.png" id="37_lp0ax"]
 [ext_resource type="Texture2D" uid="uid://dkh8ipsif6i7s" path="res://assets/sprites/environment/poster.png" id="37_qg2kh"]
 [ext_resource type="AudioStream" uid="uid://dh18kxq0eqbv6" path="res://assets/sfx/bookFlip2.ogg" id="38_8kiky"]
+[ext_resource type="Texture2D" uid="uid://cnywutrmq7j8m" path="res://assets/sprites/left_click.png" id="38_58f3g"]
 [ext_resource type="AudioStream" uid="uid://c8ocq6gl1ftqu" path="res://assets/sfx/door_open.wav" id="38_et4e5"]
 [ext_resource type="AudioStream" uid="uid://cnbe3enp3pah7" path="res://assets/sfx/bookFlip3.ogg" id="43_3fykq"]
 
@@ -455,26 +461,6 @@ tracks/5/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_s571t"]
-resource_name = "full_discount"
-length = 1.5
-step = 0.01
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StickerAudioPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("16_1s6wl")
-}],
-"times": PackedFloat32Array(0.12)
-}
-tracks/0/use_blend = true
-
 [sub_resource type="Animation" id="Animation_vryc0"]
 resource_name = "full_price"
 length = 1.5
@@ -647,7 +633,6 @@ tracks/3/keys = {
 _data = {
 "RESET": SubResource("Animation_05npn"),
 "free": SubResource("Animation_2b82o"),
-"full_discount": SubResource("Animation_s571t"),
 "full_price": SubResource("Animation_vryc0"),
 "good_deal": SubResource("Animation_h5m03"),
 "great_deal": SubResource("Animation_rioco")
@@ -685,6 +670,12 @@ scale_curve = SubResource("CurveTexture_yrwc8")
 alpha_curve = SubResource("CurveTexture_likac")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0iycj"]
+bg_color = Color(1, 1, 1, 0.772549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02sfa"]
+bg_color = Color(0.835294, 0.145098, 0.227451, 1)
 
 [sub_resource type="Animation" id="Animation_qr5by"]
 length = 0.001
@@ -1267,10 +1258,42 @@ libraries = {
 }
 
 [node name="Register" type="Sprite2D" parent="."]
-position = Vector2(549.66, 290.926)
+position = Vector2(414, 290.926)
 scale = Vector2(0.677546, 0.677546)
 texture = ExtResource("6_sgyg5")
 script = ExtResource("4_4p2by")
+
+[node name="Timer" type="Control" parent="Register"]
+custom_minimum_size = Vector2(170, 2.08165e-12)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -329.5
+offset_top = -324.5
+offset_right = -159.5
+offset_bottom = -284.5
+grow_horizontal = 2
+script = ExtResource("3_l8jti")
+
+[node name="ItemTimer" type="Timer" parent="Register/Timer"]
+unique_name_in_owner = true
+wait_time = 8.0
+one_shot = true
+
+[node name="ItemTimerBar" type="ProgressBar" parent="Register/Timer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.347
+anchor_top = 0.337
+anchor_right = -0.347
+anchor_bottom = 0.337
+offset_left = -89.01
+offset_top = 30.52
+offset_right = 376.99
+offset_bottom = 173.52
+show_percentage = false
 
 [node name="Control" type="Control" parent="Register"]
 layout_mode = 3
@@ -1315,7 +1338,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"RegisterLabel"
-text = "$0.00"
+text = "$12.00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Register/Control/VBoxContainer"]
 layout_mode = 2
@@ -1335,7 +1358,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"RegisterLabel"
-text = "$0.00"
+text = "$15.00"
 
 [node name="RegisterAudioPlayer" type="AudioStreamPlayer2D" parent="Register"]
 unique_name_in_owner = true
@@ -1383,42 +1406,10 @@ script = ExtResource("10_ujq3y")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 2
+item_count = 14
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
-
-[node name="Timer" type="Control" parent="."]
-custom_minimum_size = Vector2(170, 2.08165e-12)
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -179.0
-offset_top = 8.0
-offset_right = -9.0
-offset_bottom = 48.0
-grow_horizontal = 0
-script = ExtResource("3_l8jti")
-
-[node name="ItemTimer" type="Timer" parent="Timer"]
-unique_name_in_owner = true
-wait_time = 8.0
-one_shot = true
-
-[node name="ItemTimerBar" type="ProgressBar" parent="Timer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.347
-anchor_top = 0.337
-anchor_right = -0.347
-anchor_bottom = 0.337
-offset_left = -650.69
-offset_top = 78.52
-offset_right = -331.69
-offset_bottom = 176.52
-show_percentage = false
 
 [node name="StickerManager" type="Node2D" parent="."]
 script = ExtResource("11_p4v0v")
@@ -1430,16 +1421,17 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_uek0l")
 
 [node name="Free" type="Sprite2D" parent="StickerManager"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(873, 299)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("19_mfvib")
 
 [node name="GreatDeal" type="Sprite2D" parent="StickerManager"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(873, 299)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("19_qt7ao")
 
 [node name="GoodDeal" type="Sprite2D" parent="StickerManager"]
@@ -1576,15 +1568,325 @@ region_rect = Rect2(1372, 48, 1028, 1352)
 [node name="Instructions" type="Sprite2D" parent="Intro"]
 position = Vector2(625, 1030)
 scale = Vector2(0.455714, 0.455714)
-texture = ExtResource("30_hso3t")
+texture = ExtResource("30_6hsmy")
+
+[node name="PanelContainer" type="PanelContainer" parent="Intro/Instructions"]
+offset_left = -936.991
+offset_top = -524.452
+offset_right = -172.991
+offset_bottom = 529.548
+rotation = -0.0174533
+theme_override_styles/panel = SubResource("StyleBoxFlat_0iycj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 100
+text = "How to play"
+
+[node name="Title2" type="RichTextLabel" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("28_8puqr")
+theme_override_fonts/bold_font = ExtResource("27_27wp7")
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "Use coupons to get the highest discount [b]without[/b] going over the price."
+fit_content = true
+
+[node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("33_4s0oc")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 257.0
+offset_bottom = 231.0
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.288
+offset_top = -128.309
+offset_right = 30.7119
+offset_bottom = 42.6914
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("20_qis34")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("34_tmrtk")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 257.0
+offset_bottom = 231.0
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.288
+offset_top = -128.309
+offset_right = 30.7119
+offset_bottom = 42.6914
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("19_qt7ao")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control2" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("35_tvgfa")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 257.0
+offset_bottom = 231.0
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.288
+offset_top = -128.309
+offset_right = 30.7119
+offset_bottom = 42.6914
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("19_mfvib")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("36_406u4")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect2"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 257.0
+offset_bottom = 231.0
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -109.962
+offset_right = 12.0
+offset_bottom = 24.0385
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("18_uek0l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="Intro/Instructions"]
+offset_left = 204.075
+offset_top = -548.59
+offset_right = 968.075
+offset_bottom = 505.41
+rotation = 0.0349066
+theme_override_styles/panel = SubResource("StyleBoxFlat_0iycj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Title" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 100
+text = "Controls"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(81, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("37_lp0ax")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title2" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 70
+text = "Use coupon"
+
+[node name="Title3" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("28_8puqr")
+theme_override_font_sizes/font_size = 70
+text = "Increases your discount.
+You will get a new coupon
+on the next item."
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(491, 4)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 0.823529)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(81, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("38_58f3g")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Title2" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 70
+text = "Replace coupon"
+
+[node name="Title3" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+theme_override_fonts/font = ExtResource("28_8puqr")
+theme_override_font_sizes/font_size = 70
+text = "Immedieatly receive
+a new random coupon"
+
+[node name="ColorRect2" type="ColorRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 270)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Title3" type="RichTextLabel" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/ColorRect2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("28_8puqr")
+theme_override_fonts/bold_font = ExtResource("27_27wp7")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]Tip:[/b] Replacing a coupon is free! If you're stuck you can always replace an unhelpful coupon."
+fit_content = true
 
 [node name="CloseInstructionsButton" type="Button" parent="Intro/Instructions"]
 unique_name_in_owner = true
-offset_left = 422.279
-offset_top = 463.067
-offset_right = 532.279
-offset_bottom = 510.067
-scale = Vector2(2, 2)
+offset_left = 796.552
+offset_top = 502.508
+offset_right = 1088.55
+offset_bottom = 595.508
+rotation = -0.122173
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_02sfa")
 text = "Close"
 
 [node name="Outro" type="Node2D" parent="."]

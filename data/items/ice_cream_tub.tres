@@ -7,5 +7,5 @@
 script = ExtResource("1_5bv1q")
 name = "Ice Cream"
 base_price = 10.0
-price_variance = 5.0
+price_variance = 0.0
 texture = ExtResource("2_yxcqx")

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_uos4h")
 name = "Toilet Paper"
-base_price = 3.0
-price_variance = 2.0
+base_price = 2.0
+price_variance = 0.0
 texture = ExtResource("2_51avl")
