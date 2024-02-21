@@ -8,12 +8,12 @@ func _ready():
 func _on_item_purchased(item : ItemEntity, _coupons):
 	await get_tree().create_timer(.2).timeout
 
-	var percent_off := item.current_discount / item.base_price
-	if percent_off > 1 || percent_off == 0:
-		animation_player.play("full_price")
-	elif percent_off == 1:
-		animation_player.play("free")
-	elif percent_off > .7:
-		animation_player.play("great_deal")
-	else:
-		animation_player.play("good_deal")
+	match item.get_discount_rating():
+		ItemEntity.DISCOUNT_RATING.FULL_PRICE:
+			animation_player.play("full_price")
+		ItemEntity.DISCOUNT_RATING.FREE:
+			animation_player.play("free")
+		ItemEntity.DISCOUNT_RATING.GREAT:
+			animation_player.play("great_deal")
+		ItemEntity.DISCOUNT_RATING.GOOD:
+			animation_player.play("good_deal")
