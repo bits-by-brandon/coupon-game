@@ -36,6 +36,8 @@ State="*res://scenes/main/game_state.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/extend_to_title=true
+window/size/window_width_override=2560
+window/size/window_height_override=1440
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image_hotspot=Vector2(12, 8)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=80 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -20,9 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://cvdng6q6l7i8c" path="res://assets/sfx/trumpet.mp3" id="14_g0ae0"]
 [ext_resource type="AudioStream" uid="uid://3k1trd1ttpma" path="res://assets/sfx/register.mp3" id="16_1s6wl"]
 [ext_resource type="Texture2D" uid="uid://cqqx5lgn4a11" path="res://assets/sprites/stickers/sticker_full_price.png" id="18_uek0l"]
-[ext_resource type="Texture2D" uid="uid://c55bpig056hfb" path="res://assets/sprites/stickers/sticker_free.png" id="19_mfvib"]
 [ext_resource type="Texture2D" uid="uid://dyn7kqj1lm6px" path="res://assets/sprites/stickers/sticker_great_deal.png" id="19_qt7ao"]
-[ext_resource type="Texture2D" uid="uid://dyqgt1vr2fpyv" path="res://assets/sprites/stickers/sticker_goo_deal.png" id="20_qis34"]
 [ext_resource type="Script" path="res://scenes/main/intro.gd" id="21_s3edp"]
 [ext_resource type="Script" path="res://scenes/main/outro.gd" id="23_4hygw"]
 [ext_resource type="AudioStream" uid="uid://cf2o5dsjdurxw" path="res://assets/sfx/720897__hyperglosss__gloss-stomp-sub-firm.wav" id="24_kste7"]
@@ -37,11 +35,13 @@
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
 [ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
 [ext_resource type="Texture2D" uid="uid://bfqul1rtvp4hm" path="res://assets/sprites/good_deal_example.png" id="33_4s0oc"]
+[ext_resource type="Texture2D" uid="uid://oen0dq34mte5" path="res://assets/sprites/stickers/stickerDEAL.png" id="34_1m0dr"]
 [ext_resource type="Texture2D" uid="uid://2sq7aj0bqalq" path="res://assets/sprites/great_deal_example.png" id="34_tmrtk"]
 [ext_resource type="Texture2D" uid="uid://cfx367e07my5d" path="res://assets/sprites/free_example.png" id="35_tvgfa"]
 [ext_resource type="Texture2D" uid="uid://db5wflkpbxdbc" path="res://assets/sprites/full_price_example.png" id="36_406u4"]
 [ext_resource type="AudioStream" uid="uid://dth8ujikjyqf7" path="res://assets/sfx/door-closing.wav" id="36_uklnr"]
 [ext_resource type="Texture2D" uid="uid://ddpd673mgtfhc" path="res://assets/sprites/char/grandma.png" id="36_wqr2w"]
+[ext_resource type="Texture2D" uid="uid://bwan2inmc4k4a" path="res://assets/sprites/stickers/stickerRAINBOW.png" id="37_2yuck"]
 [ext_resource type="AudioStream" uid="uid://da7dc4f7rcuy3" path="res://assets/sfx/paper_rip.wav" id="37_f55oa"]
 [ext_resource type="AudioStream" uid="uid://br8tv0hxqmngk" path="res://assets/sfx/doorbell.wav" id="37_l8bbl"]
 [ext_resource type="Texture2D" uid="uid://q7dn5qyn1fsj" path="res://assets/sprites/right_click.png" id="37_lp0ax"]
@@ -674,9 +674,6 @@ hue_variation_max = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0iycj"]
 bg_color = Color(1, 1, 1, 0.772549)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02sfa"]
-bg_color = Color(0.835294, 0.145098, 0.227451, 1)
-
 [sub_resource type="Animation" id="Animation_qr5by"]
 length = 0.001
 tracks/0/type = "value"
@@ -1231,6 +1228,7 @@ _data = {
 script = ExtResource("1_lq2ey")
 
 [node name="BG" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(792, 316)
 scale = Vector2(0.723929, 0.723929)
 texture = ExtResource("2_1jvhu")
@@ -1258,7 +1256,7 @@ libraries = {
 }
 
 [node name="Register" type="Sprite2D" parent="."]
-position = Vector2(414, 290.926)
+position = Vector2(562, 284)
 scale = Vector2(0.677546, 0.677546)
 texture = ExtResource("6_sgyg5")
 script = ExtResource("4_4p2by")
@@ -1425,7 +1423,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(873, 299)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("19_mfvib")
+texture = ExtResource("37_2yuck")
 
 [node name="GreatDeal" type="Sprite2D" parent="StickerManager"]
 visible = false
@@ -1435,11 +1433,10 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("19_qt7ao")
 
 [node name="GoodDeal" type="Sprite2D" parent="StickerManager"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(873, 299)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("20_qis34")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("34_1m0dr")
 
 [node name="StickerAnimationPlayer" type="AnimationPlayer" parent="StickerManager"]
 unique_name_in_owner = true
@@ -1602,10 +1599,10 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 10
 theme_override_fonts/normal_font = ExtResource("28_8puqr")
 theme_override_fonts/bold_font = ExtResource("27_27wp7")
-theme_override_font_sizes/normal_font_size = 80
-theme_override_font_sizes/bold_font_size = 80
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
-text = "Use coupons to get the highest discount [b]without[/b] going over the price."
+text = "Use coupons to try get the highest discount. [b]Don't go over the price[/b], or you will have to pay [b]full price[/b]."
 fit_content = true
 
 [node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
@@ -1643,7 +1640,7 @@ offset_right = 30.7119
 offset_bottom = 42.6914
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("20_qis34")
+texture = ExtResource("34_1m0dr")
 expand_mode = 1
 stretch_mode = 4
 
@@ -1718,7 +1715,7 @@ offset_right = 30.7119
 offset_bottom = 42.6914
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("19_mfvib")
+texture = ExtResource("37_2yuck")
 expand_mode = 1
 stretch_mode = 4
 
@@ -1846,8 +1843,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("28_8puqr")
 theme_override_font_sizes/font_size = 70
-text = "Immedieatly receive
-a new random coupon"
+text = "Immediately receive
+a new random coupon."
 
 [node name="ColorRect2" type="ColorRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 270)
@@ -1875,18 +1872,17 @@ theme_override_fonts/bold_font = ExtResource("27_27wp7")
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
-text = "[b]Tip:[/b] Replacing a coupon is free! If you're stuck you can always replace an unhelpful coupon."
+text = "[b]Tip:[/b] Replacing a coupon is free! If you're stuck, you can always replace an unhelpful coupon."
 fit_content = true
 
 [node name="CloseInstructionsButton" type="Button" parent="Intro/Instructions"]
 unique_name_in_owner = true
-offset_left = 796.552
-offset_top = 502.508
-offset_right = 1088.55
-offset_bottom = 595.508
+offset_left = 785.58
+offset_top = 509.091
+offset_right = 926.58
+offset_bottom = 554.091
 rotation = -0.122173
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_02sfa")
+scale = Vector2(2, 2)
 text = "Close"
 
 [node name="Outro" type="Node2D" parent="."]

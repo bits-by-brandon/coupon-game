@@ -3,6 +3,7 @@ extends Node
 
 var total := 0.0
 var transactions : Array[Transaction] = []
+var streak := 0
 
 func _ready():
   Events.game_started.connect(reset)
@@ -18,7 +19,7 @@ func add_transaction(item : ItemEntity, coupons : Array[CouponData]) -> void:
   transaction.total = item.base_price - item.current_discount
   transaction.coupons_used = coupons.duplicate()
   transaction.full_price = item.is_invalid()
-  print(transaction.coupons_used)
+  transaction.streak = streak
 
   total += transaction.total
 
@@ -34,3 +35,4 @@ class Transaction:
   var total : float
   var coupons_used : Array[CouponData]
   var full_price : bool
+  var streak : int

@@ -38,6 +38,12 @@ func _ready():
 func _on_game_started() -> void:
 	for i in item_count:
 		var item := create_random_item()
+
+		if i < 3 && item.data.base_price > 15.0:
+			# Ensure the first 5 items are not expensive items
+			while item.data.base_price > 15.0:
+				item.data = database.items.pick_random()
+
 		items.append(item)
 		items_container.add_child(item)
 		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
