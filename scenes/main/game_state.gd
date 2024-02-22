@@ -34,6 +34,7 @@ func _on_item_purchased(item : ItemEntity, coupons : Array[CouponData]) -> void:
   transaction.item_price = item.base_price
   transaction.coupons_used = coupons.duplicate()
   transaction.full_price = is_full_price
+  transaction.discount_rating = discount_rating
   transaction.total = item.base_price if is_full_price else item.base_price - item.current_discount
   transaction.score = calculate_score(item)
   total += transaction.total
@@ -70,3 +71,4 @@ class Transaction:
   var coupons_used : Array[CouponData]
   var full_price : bool
   var score : float
+  var discount_rating : ItemEntity.DISCOUNT_RATING

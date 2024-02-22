@@ -70,6 +70,9 @@ theme_override_constants/separation = 50
 [node name="ReceiptListItem" parent="ReceiptScrollInner/MarginContainer/Receipt/ReceiptList" instance_placeholder="res://scenes/receipt_list_item/receipt_list_item.tscn"]
 layout_mode = 2
 
+[node name="ReceiptListItem2" parent="ReceiptScrollInner/MarginContainer/Receipt/ReceiptList" instance_placeholder="res://scenes/receipt_list_item/receipt_list_item.tscn"]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
 

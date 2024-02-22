@@ -305,6 +305,21 @@ _data = {
 "smug": SubResource("Animation_dsrcg")
 }
 
+[sub_resource type="Animation" id="Animation_c12ei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Multiplier:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_anu6a"]
 resource_name = "multiplier_increased"
 length = 0.4
@@ -319,21 +334,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.466516, 1),
 "update": 0,
 "values": [Vector2(1.4, 1.4), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_c12ei"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Multiplier:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_201im"]
@@ -353,36 +353,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="Animation" id="Animation_tcbgd"]
-resource_name = "scan"
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%RegisterAudioPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("6_tpj1r")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.239216, 0.960784, 1, 0.831373), Color(0.239216, 0.960784, 1, 0.831373)]
-}
 
 [sub_resource type="Animation" id="Animation_75gw4"]
 length = 0.001
@@ -431,12 +401,57 @@ tracks/0/keys = {
 "values": [Color(0.835294, 0.145098, 0.227451, 1), Color(0.835294, 0.145098, 0.227451, 1), Color(0.239216, 0.960784, 1, 0.831373)]
 }
 
+[sub_resource type="Animation" id="Animation_tcbgd"]
+resource_name = "scan"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%RegisterAudioPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_tpj1r")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.239216, 0.960784, 1, 0.831373), Color(0.239216, 0.960784, 1, 0.831373)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_am416"]
 _data = {
 "RESET": SubResource("Animation_75gw4"),
 "coupon_deal": SubResource("Animation_av81d"),
 "coupon_full": SubResource("Animation_w85kn"),
 "scan": SubResource("Animation_tcbgd")
+}
+
+[sub_resource type="Animation" id="Animation_6lypk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_y3klf"]
@@ -453,21 +468,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(0.89282, 0.771833), Vector2(0.741612, 0.887577), Vector2(0.8, 0.8)]
-}
-
-[sub_resource type="Animation" id="Animation_6lypk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af0l2"]
@@ -957,6 +957,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_gaq4i"]
 resource_name = "close_instructions"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
