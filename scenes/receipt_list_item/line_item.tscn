@@ -12,8 +12,8 @@ custom_minimum_size = Vector2(320, 2.08165e-12)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_tlkf1")
-theme_override_font_sizes/font_size = 45
-text = "An old lady's version of a good time"
+theme_override_font_sizes/font_size = 30
+text = "Probably fake coupon"
 autowrap_mode = 2
 
 [node name="Control" type="Control" parent="."]
@@ -26,5 +26,5 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_tlkf1")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 30
 text = "$10.00"

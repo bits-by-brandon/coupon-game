@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://da62hbsm2m711"]
+
+[ext_resource type="Script" path="res://scenes/receipt_scroll/receipt_scroll.gd" id="1_nykyn"]
+[ext_resource type="Texture2D" uid="uid://kkd3vrvywbl" path="res://assets/sprites/cheapco.png" id="1_xuf35"]
+[ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="2_a6bsp"]
+[ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="3_nt4d3"]
+[ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="4_vjmq8"]
+[ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="6_667ch"]
+
+[node name="ReceiptScroll" type="ScrollContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -206.0
+offset_right = 256.0
+offset_bottom = 1189.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("1_nykyn")
+
+[node name="ReceiptScrollInner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="ReceiptScrollInner"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ReceiptScrollInner"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 60
+
+[node name="Receipt" type="VBoxContainer" parent="ReceiptScrollInner/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Logo" type="TextureRect" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+texture = ExtResource("1_xuf35")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="RichTextLabel" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.564706)
+theme_override_fonts/font = ExtResource("2_a6bsp")
+theme_override_font_sizes/font_size = 24
+text = "At CheapCO GoodSales, we believe in savings so big, they barely fit in your wallet. Our prices are so low, we occasionally have to dig them out from the basement. Remember, if you've saved enough to consider buying a yacht, consult a professional – or just buy more coupons.
+
+Our loyalty program is simple: the more you save, the more we smile (and wonder how we're still in business). By shopping with us, you agree to our terms: any emotional distress caused by excessive deals is to be celebrated, not litigated.
+
+We reserve the right to substitute your savings for a sense of overwhelming achievement. Keep this receipt—it might be worth something someday (but probably not). Thank you for choosing CheapCO GoodSales, where the deals are so great, you'll need a magnifying glass to read the savings!"
+autowrap_mode = 2
+
+[node name="ReceiptList" type="VBoxContainer" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ReceiptListItem" parent="ReceiptScrollInner/MarginContainer/Receipt/ReceiptList" instance_placeholder="res://scenes/receipt_list_item/receipt_list_item.tscn"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 45
+text = "savings"
+
+[node name="Control" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer/Label2"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 160.0
+offset_right = 416.0
+offset_bottom = 160.0
+
+[node name="Control3" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalSaved" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 30
+text = "$10.00/$200"
+
+[node name="Control2" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 45
+text = "final score"
+
+[node name="FinalScore" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 100
+text = "$10.00"
+
+[node name="HaveANiceDay" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vjmq8")
+theme_override_font_sizes/font_size = 30
+text = "have a nice day :)"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play again?"
+
+[node name="ReceiptAudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_667ch")

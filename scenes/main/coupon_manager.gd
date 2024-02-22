@@ -72,8 +72,6 @@ func _on_coupon_discarded(coupon : CouponEntity):
 	new_coupon.play_enter()
 
 func _on_coupon_applied(coupon : CouponEntity, _item : ItemEntity):
-	await get_tree().create_timer(.6).timeout
-
 	var index = -1
 	for slot in hand.get_children():
 		if slot.get_child_count() > 0 && slot.get_child(0) == coupon:
@@ -83,16 +81,25 @@ func _on_coupon_applied(coupon : CouponEntity, _item : ItemEntity):
 	if index == -1:
 		return
 
+	await get_tree().create_timer(.6).timeout
 	coupon.queue_free()
 	coupon.get_parent().remove_child(coupon)
+	replenish_coupon(index)
+
+func replenish_coupon(index : int) -> bool:
+	var slot = hand.get_child(index)
+	if slot.get_child_count() == 0:
+		var coupon := create_random_coupon()
+		coupon.visible = false
+		slot.add_child(coupon)
+		coupon.play_enter()
+		return true
+
+	return false
 
 func _on_coupon_replenish_requested():
-	for slot in hand.get_children():
-		if slot.get_child_count() == 0:
-			var coupon := create_random_coupon()
-			coupon.visible = false
-			slot.add_child(coupon)
-			coupon.play_enter()
+	for i in hand.get_child_count():
+		if replenish_coupon(i):
 			await get_tree().create_timer(.15).timeout
 	
 	(func(): Events.coupons_replenished.emit()).call_deferred()

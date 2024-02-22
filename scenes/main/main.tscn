@@ -26,12 +26,10 @@
 [ext_resource type="Script" path="res://scenes/main/outro.gd" id="23_4hygw"]
 [ext_resource type="AudioStream" uid="uid://cf2o5dsjdurxw" path="res://assets/sfx/720897__hyperglosss__gloss-stomp-sub-firm.wav" id="24_kste7"]
 [ext_resource type="Texture2D" uid="uid://d0b85s2vmuejh" path="res://assets/sprites/environment/printer.png" id="24_w8mhg"]
-[ext_resource type="Texture2D" uid="uid://kkd3vrvywbl" path="res://assets/sprites/cheapco.png" id="25_yapeh"]
 [ext_resource type="Texture2D" uid="uid://bl6re81x7ee8c" path="res://assets/sprites/environment/door_right.png" id="26_6kwdt"]
 [ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="27_27wp7"]
 [ext_resource type="Texture2D" uid="uid://d3kf7bim4pgd6" path="res://assets/sprites/environment/door_left.png" id="27_dvchq"]
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
-[ext_resource type="FontFile" uid="uid://co127luqmmmfx" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.woff2" id="29_71hv4"]
 [ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/environment/binder-empty.png" id="30_6hsmy"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
 [ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
@@ -50,7 +48,9 @@
 [ext_resource type="AudioStream" uid="uid://dh18kxq0eqbv6" path="res://assets/sfx/bookFlip2.ogg" id="38_8kiky"]
 [ext_resource type="Texture2D" uid="uid://cnywutrmq7j8m" path="res://assets/sprites/left_click.png" id="38_58f3g"]
 [ext_resource type="AudioStream" uid="uid://c8ocq6gl1ftqu" path="res://assets/sfx/door_open.wav" id="38_et4e5"]
+[ext_resource type="PackedScene" uid="uid://da62hbsm2m711" path="res://scenes/receipt_scroll/receipt_scroll.tscn" id="42_qdk0r"]
 [ext_resource type="AudioStream" uid="uid://cnbe3enp3pah7" path="res://assets/sfx/bookFlip3.ogg" id="43_3fykq"]
+[ext_resource type="AudioStream" uid="uid://bgnd522bbxkxb" path="res://assets/sfx/cackle_01.mp3" id="48_nolrj"]
 
 [sub_resource type="Animation" id="Animation_k7uj7"]
 length = 0.001
@@ -1049,6 +1049,18 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.01, 0.54)
 }
 tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GameAudioPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.66533e-15]
+}
 
 [sub_resource type="Animation" id="Animation_04ixj"]
 resource_name = "intro"
@@ -1090,6 +1102,17 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1641, 394), Vector2(1046, 394)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameAudioPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_obg0b"]
 resource_name = "show_instructions"
@@ -1100,7 +1123,7 @@ tracks/0/path = NodePath("Intro/Instructions:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.203063, 1),
 "update": 0,
 "values": [Vector2(625, 1030), Vector2(625, 363)]
@@ -1324,6 +1347,21 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 tracks/9/use_blend = true
+tracks/10/type = "audio"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("GameAudioPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("48_nolrj")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/10/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlgew"]
 _data = {
@@ -1395,6 +1433,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8x5pc")
 
 [node name="Multiplier" type="Label" parent="Score"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -1.0
 offset_top = 6.0
 offset_right = 87.0
@@ -1568,7 +1607,7 @@ script = ExtResource("10_ujq3y")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 15
+item_count = 16
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
@@ -1766,7 +1805,7 @@ theme_override_fonts/bold_font = ExtResource("27_27wp7")
 theme_override_font_sizes/normal_font_size = 70
 theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
-text = "Use coupons to try get the highest discount. [b]Don't go over the price[/b], or you will have to pay [b]full price[/b]."
+text = "Use coupons to get the item for free. [b]Don't go over the price[/b], or you will loose all discounts."
 fit_content = true
 
 [node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
@@ -2060,116 +2099,9 @@ scale = Vector2(0.42, 0.42)
 texture = ExtResource("24_w8mhg")
 metadata/_edit_lock_ = true
 
-[node name="ReceiptScroll" type="ScrollContainer" parent="Outro/Printer"]
+[node name="ReceiptScroll" parent="Outro/Printer" instance=ExtResource("42_qdk0r")]
 unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -228.0
-offset_top = -206.0
-offset_right = 256.0
 offset_bottom = 344.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="ReceiptScrollInner" type="PanelContainer" parent="Outro/Printer/ReceiptScroll"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ColorRect" type="ColorRect" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 60
-
-[node name="Receipt" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Logo" type="TextureRect" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-texture = ExtResource("25_yapeh")
-expand_mode = 5
-stretch_mode = 4
-
-[node name="RichTextLabel" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.564706)
-theme_override_fonts/font = ExtResource("29_71hv4")
-theme_override_font_sizes/font_size = 24
-text = "At CheapCO GoodSales, we believe in savings so big, they barely fit in your wallet. Our prices are so low, we occasionally have to dig them out from the basement. Remember, if you've saved enough to consider buying a yacht, consult a professional – or just buy more coupons.
-Our loyalty program is simple: the more you save, the more we smile (and wonder how we're still in business). By shopping with us, you agree to our terms: any emotional distress caused by excessive deals is to be celebrated, not litigated.
-We reserve the right to substitute your savings for a sense of overwhelming achievement. Keep this receipt—it might be worth something someday (but probably not). Thank you for choosing CheapCO GoodSales, where the deals are so great, you'll need a magnifying glass to read the savings!"
-autowrap_mode = 2
-
-[node name="ReceiptList" type="VBoxContainer" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Label2" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 45
-text = "final cart total"
-
-[node name="Control" type="Control" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt/Label2"]
-layout_mode = 2
-anchors_preset = 0
-offset_top = 160.0
-offset_right = 416.0
-offset_bottom = 160.0
-
-[node name="TotalPrice" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 100
-text = "$10.00"
-
-[node name="Control2" type="Control" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 45
-text = "amount saved"
-
-[node name="TotalSaved" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 100
-text = "$10.00"
-
-[node name="HaveANiceDay" type="Label" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("28_8puqr")
-theme_override_font_sizes/font_size = 30
-text = "have a nice day :)"
-horizontal_alignment = 1
-
-[node name="RetryButton" type="Button" parent="Outro/Printer/ReceiptScroll/ReceiptScrollInner/MarginContainer/Receipt"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Play again?"
 
 [node name="PrinterFront" type="Sprite2D" parent="Outro/Printer"]
 position = Vector2(0, 103)

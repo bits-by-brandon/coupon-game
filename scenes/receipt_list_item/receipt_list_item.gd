@@ -6,8 +6,9 @@ const line_item_scene := preload("res://scenes/receipt_list_item/line_item.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func init(transaction : GameState.Transaction):
-	print("Transaction: ", transaction)
-	print("Transaction coupons: ", transaction.coupons_used)
+	for line_item in line_item_container.get_children():
+		line_item.queue_free()
+
 	for coupon in transaction.coupons_used:
 		var line_item = line_item_scene.instantiate()
 		line_item_container.add_child(line_item)
@@ -15,12 +16,12 @@ func init(transaction : GameState.Transaction):
 			"Expired coupon",
 			"Crumpled coupon",
 			"Smelly coupon",
-			"Coupon with lipstick smudge",
+			"Smudged coupon",
 			"Probably fake coupon",
 			"Loyalty card",
 			"Photocopied coupon",
 			"Newspaper cutout",
-			"Baked goods magazine cutout",
+			"Magazine cutout",
 			"Online promo code",
 			"Bribe"
 		].pick_random())
@@ -36,10 +37,10 @@ func init(transaction : GameState.Transaction):
 	
 	%ItemIcon.texture = transaction.item.texture
 	%ItemNameLabel.text = transaction.item.name
-	%DiscountsAppliedLabel.text = "NO" if transaction.full_price else "YES"
 	%BasePriceLabel.text = "$%.2f" % [transaction.item.base_price]
 	%FinalPriceLabel.text = "$%.2f" % [
 		transaction.item.base_price\
 		if transaction.full_price else\
 		transaction.total]
+	%ItemScoreLabel.text = str(transaction.score)
 
