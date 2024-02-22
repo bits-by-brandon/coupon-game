@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=88 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://l8s5sdnuiv56" path="res://assets/sprites/environment/conveyer.png" id="6_73cg8"]
 [ext_resource type="Texture2D" uid="uid://bylmnh826h7ct" path="res://assets/sprites/environment/customerDisplay.png" id="6_sgyg5"]
 [ext_resource type="AudioStream" uid="uid://ch84kc87iuvd0" path="res://assets/sfx/beep.wav" id="6_tpj1r"]
+[ext_resource type="Script" path="res://scenes/main/score.gd" id="6_ylw6g"]
 [ext_resource type="Texture2D" uid="uid://dfxt6c31tv1kf" path="res://assets/sprites/environment/bagBACK.png" id="8_up0lp"]
 [ext_resource type="Texture2D" uid="uid://b3gdsodf6jvk5" path="res://assets/sprites/environment/bagFRONT.png" id="9_hchrb"]
 [ext_resource type="Texture2D" uid="uid://hgj2iqlyb1e1" path="res://assets/sprites/environment/binderBG.png" id="10_8deja"]
@@ -304,6 +305,55 @@ _data = {
 "smug": SubResource("Animation_dsrcg")
 }
 
+[sub_resource type="Animation" id="Animation_anu6a"]
+resource_name = "multiplier_increased"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Multiplier:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.466516, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c12ei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Multiplier:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_201im"]
+_data = {
+"RESET": SubResource("Animation_c12ei"),
+"multiplier_increased": SubResource("Animation_anu6a")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8x5pc"]
+bg_color = Color(0.835294, 0.145098, 0.227451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="Animation" id="Animation_tcbgd"]
 resource_name = "scan"
 tracks/0/type = "audio"
@@ -321,9 +371,71 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.239216, 0.960784, 1, 0.831373), Color(0.239216, 0.960784, 1, 0.831373)]
+}
+
+[sub_resource type="Animation" id="Animation_75gw4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.960784, 1, 0.831373)]
+}
+
+[sub_resource type="Animation" id="Animation_av81d"]
+resource_name = "coupon_deal"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.239216, 0.960784, 1, 0.831373)]
+}
+
+[sub_resource type="Animation" id="Animation_w85kn"]
+resource_name = "coupon_full"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%DiscountPriceValue:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.835294, 0.145098, 0.227451, 1), Color(0.835294, 0.145098, 0.227451, 1), Color(0.239216, 0.960784, 1, 0.831373)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_am416"]
 _data = {
+"RESET": SubResource("Animation_75gw4"),
+"coupon_deal": SubResource("Animation_av81d"),
+"coupon_full": SubResource("Animation_w85kn"),
 "scan": SubResource("Animation_tcbgd")
 }
 
@@ -1255,6 +1367,57 @@ libraries = {
 "": SubResource("AnimationLibrary_t7l7v")
 }
 
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 207.0
+offset_top = 80.0
+offset_right = 305.0
+offset_bottom = 194.0
+rotation = -0.0837758
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 0
+script = ExtResource("6_ylw6g")
+
+[node name="ScoreAnimationPlayer" type="AnimationPlayer" parent="Score"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_201im")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Score"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 4.0
+offset_right = 111.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8x5pc")
+
+[node name="Multiplier" type="Label" parent="Score"]
+unique_name_in_owner = true
+offset_left = -1.0
+offset_top = 6.0
+offset_right = 87.0
+offset_bottom = 72.0
+pivot_offset = Vector2(30, 30)
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "1x"
+horizontal_alignment = 1
+
+[node name="TotalScore" type="Label" parent="Score"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -15.0
+offset_top = 74.0
+offset_right = 101.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("27_27wp7")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 2
+
 [node name="Register" type="Sprite2D" parent="."]
 position = Vector2(562, 284)
 scale = Vector2(0.677546, 0.677546)
@@ -1356,6 +1519,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"RegisterLabel"
+theme_override_colors/font_color = Color(0.239216, 0.960784, 1, 0.831373)
 text = "$15.00"
 
 [node name="RegisterAudioPlayer" type="AudioStreamPlayer2D" parent="Register"]
@@ -1366,14 +1530,6 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_am416")
 }
-
-[node name="Label" type="Label" parent="Register"]
-offset_left = -494.0
-offset_top = -276.0
-offset_right = -316.0
-offset_bottom = -134.0
-text = "4 streak
-1x"
 
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(458, 488)
@@ -1412,7 +1568,7 @@ script = ExtResource("10_ujq3y")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_4rs8w")
-item_count = 14
+item_count = 15
 
 [node name="CouponManager" type="Node" parent="."]
 script = ExtResource("3_yx1u3")
@@ -2035,4 +2191,5 @@ max_polyphony = 3
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_okq6x")
+volume_db = -4.887
 autoplay = true

@@ -33,9 +33,9 @@ func _ready():
 	item_timer.timeout.connect(_on_item_timer_finished)
 	Events.coupon_used.connect(_on_coupon_used)
 	Events.game_started.connect(_on_game_started)
+	Events.reset.connect(_on_reset)
 
-
-func _on_game_started() -> void:
+func _on_reset() -> void:
 	for i in item_count:
 		var item := create_random_item()
 
@@ -48,6 +48,8 @@ func _on_game_started() -> void:
 		items_container.add_child(item)
 		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
 
+
+func _on_game_started() -> void:
 	await Events.coupons_replenished
 	await get_tree().create_timer(.7).timeout
 	current_item = items[0]

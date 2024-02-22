@@ -7,6 +7,7 @@ extends Node2D
 
 func _ready():
 	start_button.pressed.connect(func(): 
+		Events.reset.emit()
 		animation_player.play("start_game"))
 
 	instructions_button.pressed.connect(func(): 

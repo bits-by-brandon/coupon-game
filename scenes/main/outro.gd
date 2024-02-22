@@ -3,7 +3,7 @@ extends Node2D
 const print_sound = preload("res://assets/sfx/print.mp3")
 const receipt_list_item_scene = preload("res://scenes/receipt_list_item/receipt_list_item.tscn")
 
-@export var scroll_speed : float = 0.002
+@export var scroll_speed : float = 0.003
 
 @onready var audio_player : AudioStreamPlayer = %GameAudioPlayer
 @onready var animation_player : AnimationPlayer = %GameAnimationPlayer
