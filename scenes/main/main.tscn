@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=94 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/main/bag.gd" id="13_q0qxk"]
 [ext_resource type="AudioStream" uid="uid://cvdng6q6l7i8c" path="res://assets/sfx/trumpet.mp3" id="14_g0ae0"]
 [ext_resource type="AudioStream" uid="uid://3k1trd1ttpma" path="res://assets/sfx/register.mp3" id="16_1s6wl"]
+[ext_resource type="AudioStream" uid="uid://2d275wx66gsx" path="res://assets/sfx/bookOpen.ogg" id="16_lullm"]
 [ext_resource type="Texture2D" uid="uid://cqqx5lgn4a11" path="res://assets/sprites/stickers/sticker_full_price.png" id="18_uek0l"]
 [ext_resource type="Texture2D" uid="uid://dyn7kqj1lm6px" path="res://assets/sprites/stickers/sticker_great_deal.png" id="19_qt7ao"]
 [ext_resource type="Script" path="res://scenes/main/intro.gd" id="21_s3edp"]
@@ -32,7 +33,6 @@
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
 [ext_resource type="Texture2D" uid="uid://b621svpoe2xmb" path="res://assets/sprites/environment/binder-empty.png" id="30_6hsmy"]
 [ext_resource type="AudioStream" uid="uid://cnmpu26dpxs0y" path="res://assets/sfx/print.mp3" id="30_620xj"]
-[ext_resource type="AudioStream" uid="uid://x31qonveq04j" path="res://assets/sfx/premaster_new_pecan_snare_no_fx.wav" id="30_okq6x"]
 [ext_resource type="Texture2D" uid="uid://bfqul1rtvp4hm" path="res://assets/sprites/good_deal_example.png" id="33_4s0oc"]
 [ext_resource type="Texture2D" uid="uid://oen0dq34mte5" path="res://assets/sprites/stickers/stickerDEAL.png" id="34_1m0dr"]
 [ext_resource type="Texture2D" uid="uid://2sq7aj0bqalq" path="res://assets/sprites/great_deal_example.png" id="34_tmrtk"]
@@ -50,7 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://c8ocq6gl1ftqu" path="res://assets/sfx/door_open.wav" id="38_et4e5"]
 [ext_resource type="PackedScene" uid="uid://da62hbsm2m711" path="res://scenes/receipt_scroll/receipt_scroll.tscn" id="42_qdk0r"]
 [ext_resource type="AudioStream" uid="uid://cnbe3enp3pah7" path="res://assets/sfx/bookFlip3.ogg" id="43_3fykq"]
-[ext_resource type="AudioStream" uid="uid://bgnd522bbxkxb" path="res://assets/sfx/cackle_01.mp3" id="48_nolrj"]
+[ext_resource type="AudioStream" uid="uid://cc6jgsyn3leht" path="res://assets/sfx/master_v1.mp3" id="51_texum"]
 
 [sub_resource type="Animation" id="Animation_k7uj7"]
 length = 0.001
@@ -343,16 +343,21 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8x5pc"]
-bg_color = Color(0.835294, 0.145098, 0.227451, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+bg_color = Color(0.137255, 0.0392157, 0.00784314, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3wpi"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="Animation" id="Animation_75gw4"]
 length = 0.001
@@ -453,22 +458,62 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.8, 0.8)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BagFront:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_y3klf"]
 resource_name = "item_bagged"
+length = 1.5
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("BagBack:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.34, 0.42, 0.5, 0.59),
+"times": PackedFloat32Array(1.16, 1.24, 1.32, 1.41),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(0.89282, 0.771833), Vector2(0.741612, 0.887577), Vector2(0.8, 0.8)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BagFront:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.16, 1.24, 1.32, 1.41),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.89282, 0.771833), Vector2(0.741612, 0.887577), Vector2(0.8, 0.8)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_lullm")
+}],
+"times": PackedFloat32Array(1.17)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af0l2"]
 _data = {
@@ -478,7 +523,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_2g418"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -452.5, -90, -168.852, 0.662164, 168.852, -0.662164, -146.25, -203.75, 0, 0, 0, 0, 45, 268.75)
+"points": PackedVector2Array(-1.11488, 26.3855, 1.11488, -26.3855, -450, -90, -180.433, 1.50233, 180.433, -1.50233, -130, -252.5, -5.78116, -180.267, 5.78116, 180.267, 341.25, 453.75)
 }
 point_count = 3
 
@@ -844,7 +889,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.723929, 0.723929)]
+"values": [Vector2(7.24, 7.24)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -953,6 +998,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(625, 1030)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Score:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gaq4i"]
@@ -1234,6 +1291,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Score:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_raftw"]
 resource_name = "start_game"
@@ -1248,7 +1317,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.6),
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
-"values": [Vector2(0.7, 0.7), Vector2(0.723929, 0.723929)]
+"values": [Vector2(7, 7), Vector2(7.24, 7.24)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1346,21 +1415,18 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 tracks/7/use_blend = true
-tracks/8/type = "audio"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("GameAudioPlayer")
+tracks/8/path = NodePath("Score:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("48_nolrj")
-}],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlgew"]
 _data = {
@@ -1381,7 +1447,7 @@ self_modulate = Color(1, 1, 1, 0.784314)
 z_index = -2
 z_as_relative = false
 position = Vector2(792, 316)
-scale = Vector2(0.723929, 0.723929)
+scale = Vector2(7.24, 7.24)
 texture = ExtResource("2_1jvhu")
 
 [node name="Cashier" type="Node2D" parent="."]
@@ -1409,11 +1475,10 @@ libraries = {
 [node name="Score" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 207.0
-offset_top = 80.0
-offset_right = 305.0
-offset_bottom = 194.0
-rotation = -0.0837758
+offset_left = 114.0
+offset_top = 118.0
+offset_right = 212.0
+offset_bottom = 232.0
 pivot_offset = Vector2(50, 50)
 size_flags_horizontal = 0
 script = ExtResource("6_ylw6g")
@@ -1426,22 +1491,31 @@ libraries = {
 
 [node name="PanelContainer" type="PanelContainer" parent="Score"]
 layout_mode = 0
-offset_left = -23.0
+offset_left = -122.0
 offset_top = 4.0
-offset_right = 111.0
+offset_right = 158.0
 offset_bottom = 113.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8x5pc")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Score"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 14.0
+offset_right = 148.0
+offset_bottom = 103.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3wpi")
 
 [node name="Multiplier" type="Label" parent="Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -1.0
-offset_top = 6.0
-offset_right = 87.0
-offset_bottom = 72.0
-pivot_offset = Vector2(30, 30)
+offset_left = 60.0
+offset_top = 24.0
+offset_right = 148.0
+offset_bottom = 90.0
+rotation = 0.207694
+pivot_offset = Vector2(44, 33)
 theme_type_variation = &"HeaderMedium"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.137255, 0.0392157, 0.00784314, 1)
 theme_override_font_sizes/font_size = 50
 text = "1x"
 horizontal_alignment = 1
@@ -1449,14 +1523,14 @@ horizontal_alignment = 1
 [node name="TotalScore" type="Label" parent="Score"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = -15.0
-offset_top = 74.0
-offset_right = 101.0
-offset_bottom = 109.0
+offset_left = -86.0
+offset_top = 38.0
+offset_right = 30.0
+offset_bottom = 86.0
 theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 70
 text = "0"
-horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Register" type="Sprite2D" parent="."]
 position = Vector2(562, 284)
@@ -1573,7 +1647,7 @@ libraries = {
 
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(458, 488)
-scale = Vector2(0.45, 0.45)
+scale = Vector2(1.35, 1.35)
 texture = ExtResource("6_73cg8")
 
 [node name="Bag" type="Node2D" parent="."]
@@ -1585,24 +1659,40 @@ script = ExtResource("13_q0qxk")
 [node name="BagBack" type="Sprite2D" parent="Bag"]
 z_index = -1
 z_as_relative = false
+position = Vector2(103.75, 40)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_up0lp")
+
+[node name="BaggedItem" type="Sprite2D" parent="Bag"]
+unique_name_in_owner = true
+position = Vector2(-171.25, -270)
 
 [node name="BagFront" type="Sprite2D" parent="Bag"]
 z_as_relative = false
+position = Vector2(103.75, 40)
 texture = ExtResource("9_hchrb")
 
 [node name="BagAnimationPlayer" type="AnimationPlayer" parent="Bag"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_af0l2")
 }
 
 [node name="BagPath" type="Path2D" parent="Bag"]
-position = Vector2(-33.75, -111.25)
+position = Vector2(-36.25, -110)
 curve = SubResource("Curve2D_2g418")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Bag/BagPath"]
-position = Vector2(-452.5, -90)
-rotation = -0.355636
+[node name="BagPathFollow" type="PathFollow2D" parent="Bag/BagPath"]
+unique_name_in_owner = true
+position = Vector2(-450, -90)
+scale = Vector2(0.999999, 0.999999)
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Bag"]
+volume_db = 2.0
+panning_strength = 2.0
 
 [node name="Items" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -2148,9 +2238,10 @@ libraries = {
 
 [node name="GameAudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-max_polyphony = 3
+mix_target = 1
+max_polyphony = 4
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("30_okq6x")
-volume_db = -4.887
+stream = ExtResource("51_texum")
+volume_db = -12.175
 autoplay = true

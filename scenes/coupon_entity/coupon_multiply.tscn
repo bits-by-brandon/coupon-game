@@ -228,7 +228,9 @@ libraries = {
 [node name="CardSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_rlk3x")
+panning_strength = 3.0
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 max_polyphony = 2
+panning_strength = 3.0

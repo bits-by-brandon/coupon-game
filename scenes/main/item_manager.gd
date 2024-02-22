@@ -67,8 +67,8 @@ func cycle() -> void:
 
 	coupons_used.clear()
 
-	# TODO: Animate current_item to exit position
 	var finished_item := items.pop_front() as ItemEntity
+	Events.item_bagged.emit(finished_item)
 	finished_item.queue_free()
 
 	for i in range(items.size()):
@@ -105,7 +105,7 @@ func _on_coupon_used(coupon : CouponEntity) -> void:
 	coupons_used.append(coupon.data)
 	coupon.play_use()
 
-	if current_item.current_discount >= current_item.base_price || coupons_used.size() >= 5:
+	if current_item.current_discount >= current_item.base_price:
 		purchase_item()
 
 func purchase_item() -> void:

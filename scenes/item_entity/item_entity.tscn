@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://7k32wck23s3p"]
+[gd_scene load_steps=4 format=3 uid="uid://7k32wck23s3p"]
 
 [ext_resource type="Script" path="res://scenes/item_entity/item_entity.gd" id="1_hppjc"]
-[ext_resource type="Texture2D" uid="uid://x6kvb7ewkhki" path="res://assets/sprites/items/gun.png" id="2_tamsb"]
+[ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="2_27ccr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmg8i"]
+content_margin_left = 1.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 0.0
+bg_color = Color(0.909804, 0.909804, 0.909804, 1)
+border_width_bottom = 1
+border_color = Color(0.721569, 0.721569, 0.721569, 1)
+shadow_color = Color(0, 0, 0, 0.180392)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
 
 [node name="ItemEntity" type="Node2D"]
 script = ExtResource("1_hppjc")
@@ -14,5 +26,28 @@ scale = Vector2(0.4, 0.4)
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_tamsb")
 offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="StickerPrice" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = -3.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -92.0
+offset_right = 32.5
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0366519
+pivot_offset = Vector2(31, 11)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.137255, 0.0392157, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("2_27ccr")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_tmg8i")
+text = "$10.00"
+horizontal_alignment = 1
+vertical_alignment = 1

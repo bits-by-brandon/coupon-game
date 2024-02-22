@@ -326,11 +326,15 @@ libraries = {
 
 [node name="CardSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(70, 59)
 stream = SubResource("AudioStreamRandomizer_wuo8u")
+panning_strength = 4.0
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(70, 60)
 max_polyphony = 2
+panning_strength = 4.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
