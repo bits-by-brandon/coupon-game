@@ -42,7 +42,7 @@ theme_override_constants/margin_bottom = 60
 
 [node name="Receipt" type="VBoxContainer" parent="ReceiptScrollInner/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 
 [node name="Logo" type="TextureRect" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
@@ -78,7 +78,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nt4d3")
 theme_override_font_sizes/font_size = 45
-text = "savings"
+text = "Subtotal"
 
 [node name="Control" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer/Label2"]
 layout_mode = 2
@@ -91,23 +91,83 @@ offset_bottom = 160.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TotalSaved" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer"]
+[node name="Subtotal" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nt4d3")
 theme_override_font_sizes/font_size = 30
-text = "$10.00/$200"
+text = "$100.00"
 
-[node name="Control2" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 45
+text = "Discount"
+
+[node name="Control" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer2/Label2"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 160.0
+offset_right = 416.0
+offset_bottom = 160.0
+
+[node name="Control3" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalSaved" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 30
+text = "$82.00"
+
+[node name="Total" type="HBoxContainer" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/Total"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 45
+text = "Total"
+
+[node name="Control" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/Total/Label2"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 160.0
+offset_right = 416.0
+offset_bottom = 160.0
+
+[node name="Control3" type="Control" parent="ReceiptScrollInner/MarginContainer/Receipt/Total"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalPrice" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt/Total"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nt4d3")
+theme_override_font_sizes/font_size = 30
+text = "$8.00"
+
+[node name="ColorRect" type="ColorRect" parent="ReceiptScrollInner/MarginContainer/Receipt"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+color = Color(0, 0, 0, 0.505882)
 
 [node name="Label" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nt4d3")
-theme_override_font_sizes/font_size = 45
-text = "final score"
+theme_override_font_sizes/font_size = 60
+text = "Final score"
 
 [node name="FinalScore" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 unique_name_in_owner = true
@@ -115,7 +175,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nt4d3")
 theme_override_font_sizes/font_size = 100
-text = "$10.00"
+text = "1002"
 
 [node name="HaveANiceDay" type="Label" parent="ReceiptScrollInner/MarginContainer/Receipt"]
 layout_mode = 2

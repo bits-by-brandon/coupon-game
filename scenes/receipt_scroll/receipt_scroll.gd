@@ -25,7 +25,9 @@ func _on_game_over():
 		list_item.init(transaction)
 		total_base += transaction.item_price
 	
-	%TotalSaved.text = "$%.2f" % [total_base - State.total]
+	%Subtotal.text = "$%.2f" % [total_base]
+	%TotalSaved.text = "$-%.2f" % [total_base - State.total]
+	%TotalPrice.text = "$%.2f" % [State.total]
 	%FinalScore.text = str(State.score)
 
 func animate():

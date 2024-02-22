@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://dlw8n1vs5skqm"]
+[gd_scene load_steps=93 format=3 uid="uid://dlw8n1vs5skqm"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lq2ey"]
 [ext_resource type="Texture2D" uid="uid://2fkclbgvf0ga" path="res://assets/sprites/environment/bg.png" id="2_1jvhu"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://hgj2iqlyb1e1" path="res://assets/sprites/environment/binderBG.png" id="10_8deja"]
 [ext_resource type="Script" path="res://scenes/main/ExplosionManager.gd" id="10_ujq3y"]
 [ext_resource type="Script" path="res://scenes/main/sticker_manager.gd" id="11_p4v0v"]
+[ext_resource type="Script" path="res://scenes/main/bag.gd" id="13_q0qxk"]
 [ext_resource type="AudioStream" uid="uid://cvdng6q6l7i8c" path="res://assets/sfx/trumpet.mp3" id="14_g0ae0"]
 [ext_resource type="AudioStream" uid="uid://3k1trd1ttpma" path="res://assets/sfx/register.mp3" id="16_1s6wl"]
 [ext_resource type="Texture2D" uid="uid://cqqx5lgn4a11" path="res://assets/sprites/stickers/sticker_full_price.png" id="18_uek0l"]
@@ -26,7 +27,6 @@
 [ext_resource type="Script" path="res://scenes/main/outro.gd" id="23_4hygw"]
 [ext_resource type="AudioStream" uid="uid://cf2o5dsjdurxw" path="res://assets/sfx/720897__hyperglosss__gloss-stomp-sub-firm.wav" id="24_kste7"]
 [ext_resource type="Texture2D" uid="uid://d0b85s2vmuejh" path="res://assets/sprites/environment/printer.png" id="24_w8mhg"]
-[ext_resource type="Texture2D" uid="uid://bl6re81x7ee8c" path="res://assets/sprites/environment/door_right.png" id="26_6kwdt"]
 [ext_resource type="FontFile" uid="uid://mvkqagsi8xnd" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Bold.ttf" id="27_27wp7"]
 [ext_resource type="Texture2D" uid="uid://d3kf7bim4pgd6" path="res://assets/sprites/environment/door_left.png" id="27_dvchq"]
 [ext_resource type="FontFile" uid="uid://bx8d46um5g4ap" path="res://assets/fonts/Bitmap Fonts/PPNeueBit-Regular.ttf" id="28_8puqr"]
@@ -439,6 +439,49 @@ _data = {
 "scan": SubResource("Animation_tcbgd")
 }
 
+[sub_resource type="Animation" id="Animation_y3klf"]
+resource_name = "item_bagged"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.34, 0.42, 0.5, 0.59),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.89282, 0.771833), Vector2(0.741612, 0.887577), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_6lypk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af0l2"]
+_data = {
+"RESET": SubResource("Animation_6lypk"),
+"item_bagged": SubResource("Animation_y3klf")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_2g418"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -452.5, -90, -168.852, 0.662164, 168.852, -0.662164, -146.25, -203.75, 0, 0, 0, 0, 45, 268.75)
+}
+point_count = 3
+
 [sub_resource type="Animation" id="Animation_05npn"]
 length = 0.001
 tracks/0/type = "value"
@@ -786,6 +829,9 @@ hue_variation_max = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0iycj"]
 bg_color = Color(1, 1, 1, 0.772549)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c0o4"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="Animation" id="Animation_qr5by"]
 length = 0.001
 tracks/0/type = "value"
@@ -875,58 +921,34 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Intro/DoorRight:scale")
+tracks/7/path = NodePath("Intro/Grandma:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.55, 0.55)]
+"values": [Vector2(1641, 394)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Intro/DoorLeft:scale")
+tracks/8/path = NodePath("Outro/Printer/ReceiptScroll:scroll_vertical")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.55, 0.55)]
+"update": 1,
+"values": [0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Intro/Grandma:position")
+tracks/9/path = NodePath("Intro/Instructions:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1641, 394)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Outro/Printer/ReceiptScroll:scroll_vertical")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Intro/Instructions:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1280,46 +1302,22 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Intro/DoorRight:scale")
+tracks/5/path = NodePath("Intro/Grandma:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [Vector2(0.55, 0.55), Vector2(0.57, 0.57)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Intro/DoorLeft:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(0.574349, 1),
-"update": 0,
-"values": [Vector2(0.55, 0.55), Vector2(0.57, 0.57)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Intro/Grandma:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 1.1),
 "transitions": PackedFloat32Array(2.46229, 1),
 "update": 0,
 "values": [Vector2(1046, 394), Vector2(1548, 394)]
 }
-tracks/8/type = "audio"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("GameAudioPlayer")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GameAudioPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -1327,14 +1325,14 @@ tracks/8/keys = {
 }],
 "times": PackedFloat32Array(0.4)
 }
-tracks/8/use_blend = true
-tracks/9/type = "audio"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("GameAudioPlayer")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GameAudioPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "clips": [{
 "end_offset": 0.269802,
 "start_offset": 0.435834,
@@ -1346,14 +1344,14 @@ tracks/9/keys = {
 }],
 "times": PackedFloat32Array(0, 1)
 }
-tracks/9/use_blend = true
-tracks/10/type = "audio"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("GameAudioPlayer")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GameAudioPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -1361,7 +1359,7 @@ tracks/10/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/10/use_blend = true
+tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlgew"]
 _data = {
@@ -1379,6 +1377,8 @@ script = ExtResource("1_lq2ey")
 
 [node name="BG" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
+z_index = -2
+z_as_relative = false
 position = Vector2(792, 316)
 scale = Vector2(0.723929, 0.723929)
 texture = ExtResource("2_1jvhu")
@@ -1579,20 +1579,38 @@ texture = ExtResource("6_73cg8")
 unique_name_in_owner = true
 position = Vector2(1174, 585)
 scale = Vector2(0.8, 0.8)
+script = ExtResource("13_q0qxk")
 
 [node name="BagBack" type="Sprite2D" parent="Bag"]
+z_index = -1
+z_as_relative = false
 texture = ExtResource("8_up0lp")
 
 [node name="BagFront" type="Sprite2D" parent="Bag"]
+z_as_relative = false
 texture = ExtResource("9_hchrb")
+
+[node name="BagAnimationPlayer" type="AnimationPlayer" parent="Bag"]
+libraries = {
+"": SubResource("AnimationLibrary_af0l2")
+}
+
+[node name="BagPath" type="Path2D" parent="Bag"]
+position = Vector2(-33.75, -111.25)
+curve = SubResource("Curve2D_2g418")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Bag/BagPath"]
+position = Vector2(-452.5, -90)
+rotation = -0.355636
 
 [node name="Items" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Binder" type="Sprite2D" parent="."]
 position = Vector2(575.795, 593.914)
-scale = Vector2(0.459022, 0.459022)
+scale = Vector2(1.8606, 1.8606)
 texture = ExtResource("10_8deja")
+offset = Vector2(2.08165e-12, 51)
 
 [node name="ScanPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -1720,103 +1738,100 @@ script = ExtResource("21_s3edp")
 
 [node name="DoorRight" type="Sprite2D" parent="Intro"]
 position = Vector2(969.55, 360)
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("26_6kwdt")
-region_enabled = true
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("27_dvchq")
+flip_h = true
 region_rect = Rect2(1200, 0, 1200, 1400)
 
 [node name="DoorLeft" type="Sprite2D" parent="Intro"]
 position = Vector2(310.55, 362)
-scale = Vector2(0.55, 0.55)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("27_dvchq")
-region_enabled = true
-region_rect = Rect2(0, 0, 1202, 1400)
 
 [node name="Poster" type="Sprite2D" parent="Intro/DoorLeft"]
-position = Vector2(15.3637, 16.3636)
-scale = Vector2(0.8966, 0.8966)
+position = Vector2(5, 5.00001)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("37_qg2kh")
-region_enabled = true
 region_rect = Rect2(233, 198, 746, 1052)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Intro/DoorLeft"]
-offset_left = -210.091
-offset_top = 43.6364
-offset_right = 17.9091
-offset_bottom = 167.636
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/DoorLeft/Poster"]
+offset_left = -100.758
+offset_top = 7.57575
+offset_right = 127.243
+offset_bottom = 131.575
 rotation = -0.0380253
-scale = Vector2(2, 2)
+scale = Vector2(0.9, 0.9)
 theme_override_constants/separation = 30
 
-[node name="StartButton" type="Button" parent="Intro/DoorLeft/VBoxContainer"]
+[node name="StartButton" type="Button" parent="Intro/DoorLeft/Poster/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start Game"
 
-[node name="InstructionsButton" type="Button" parent="Intro/DoorLeft/VBoxContainer"]
+[node name="InstructionsButton" type="Button" parent="Intro/DoorLeft/Poster/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "How to play"
 
 [node name="Grandma" type="Sprite2D" parent="Intro"]
+texture_filter = 1
 position = Vector2(1641, 394)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("36_wqr2w")
-region_enabled = true
 region_rect = Rect2(1372, 48, 1028, 1352)
 
 [node name="Instructions" type="Sprite2D" parent="Intro"]
 position = Vector2(625, 1030)
-scale = Vector2(0.455714, 0.455714)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("30_6hsmy")
 
 [node name="PanelContainer" type="PanelContainer" parent="Intro/Instructions"]
-offset_left = -936.991
-offset_top = -524.452
-offset_right = -172.991
-offset_bottom = 529.548
+offset_left = -311.429
+offset_top = -178.571
+offset_right = -62.4286
+offset_bottom = 179.429
 rotation = -0.0174533
 theme_override_styles/panel = SubResource("StyleBoxFlat_0iycj")
 
 [node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 35
 text = "How to play"
 
 [node name="Title2" type="RichTextLabel" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = 10
+theme_override_constants/line_separation = 3
 theme_override_fonts/normal_font = ExtResource("28_8puqr")
 theme_override_fonts/bold_font = ExtResource("27_27wp7")
-theme_override_font_sizes/normal_font_size = 70
-theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
 text = "Use coupons to get the item for free. [b]Don't go over the price[/b], or you will loose all discounts."
 fit_content = true
 
 [node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 30)
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 2.08165e-12)
+custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("33_4s0oc")
 expand_mode = 5
@@ -1824,11 +1839,16 @@ stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 show_behind_parent = true
-layout_mode = 2
-offset_left = -7.0
-offset_top = -6.0
-offset_right = 257.0
-offset_bottom = 231.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 2.69231
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 1
@@ -1837,22 +1857,23 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -140.288
-offset_top = -128.309
-offset_right = 30.7119
-offset_bottom = 42.6914
+offset_left = -50.0
+offset_top = -54.3462
+offset_right = 18.0
+offset_bottom = 36.6538
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("34_1m0dr")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect2" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 2.08165e-12)
+custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("34_tmrtk")
 expand_mode = 5
@@ -1860,11 +1881,16 @@ stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
 show_behind_parent = true
-layout_mode = 2
-offset_left = -7.0
-offset_top = -6.0
-offset_right = 257.0
-offset_bottom = 231.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 2.69231
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
 layout_mode = 1
@@ -1873,10 +1899,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -140.288
-offset_top = -128.309
-offset_right = 30.7119
-offset_bottom = 42.6914
+offset_left = -50.0
+offset_top = -54.3462
+offset_right = 18.0
+offset_bottom = 36.6538
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("19_qt7ao")
@@ -1884,74 +1910,85 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Control2" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 50)
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(250, 2.08165e-12)
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("35_tvgfa")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureRect"]
 show_behind_parent = true
-layout_mode = 2
-offset_left = -7.0
-offset_top = -6.0
-offset_right = 257.0
-offset_bottom = 231.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 2.69231
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureRect"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -140.288
-offset_top = -128.309
-offset_right = 30.7119
-offset_bottom = 42.6914
+offset_left = -50.0
+offset_top = -54.3462
+offset_right = 18.0
+offset_bottom = 36.6538
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("37_2yuck")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Spacer" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(250, 2.08165e-12)
+[node name="TextureRect2" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("36_406u4")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect2"]
+[node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureRect2"]
 show_behind_parent = true
-layout_mode = 2
-offset_left = -7.0
-offset_top = -6.0
-offset_right = 257.0
-offset_bottom = 231.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 2.69231
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect2"]
+[node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureRect2"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -122.0
-offset_top = -109.962
-offset_right = 12.0
-offset_bottom = 24.0385
+offset_left = -40.0
+offset_top = -40.3462
+offset_right = 7.0
+offset_bottom = 22.6538
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("18_uek0l")
@@ -1959,37 +1996,37 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="PanelContainer2" type="PanelContainer" parent="Intro/Instructions"]
-offset_left = 204.075
-offset_top = -548.59
-offset_right = 968.075
-offset_bottom = 505.41
+offset_left = 66.4286
+offset_top = -187.143
+offset_right = 326.429
+offset_bottom = 169.857
 rotation = 0.0349066
 theme_override_styles/panel = SubResource("StyleBoxFlat_0iycj")
 
 [node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer2"]
 layout_mode = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 35
 text = "Controls"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(81, 2.08165e-12)
+custom_minimum_size = Vector2(27, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("37_lp0ax")
 expand_mode = 5
@@ -2002,30 +2039,28 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 25
 text = "Use coupon"
 
 [node name="Title3" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("28_8puqr")
-theme_override_font_sizes/font_size = 70
-text = "Increases your discount.
-You will get a new coupon
-on the next item."
+theme_override_font_sizes/font_size = 25
+text = "Increases your discount."
 
 [node name="ColorRect" type="ColorRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(491, 4)
+custom_minimum_size = Vector2(200, 4)
 layout_mode = 2
 size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.823529)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(81, 2.08165e-12)
+custom_minimum_size = Vector2(27, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("38_58f3g")
 expand_mode = 5
@@ -2038,54 +2073,47 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("27_27wp7")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 25
 text = "Replace coupon"
 
 [node name="Title3" type="Label" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
 theme_override_fonts/font = ExtResource("28_8puqr")
-theme_override_font_sizes/font_size = 70
-text = "Immediately receive
-a new random coupon."
+theme_override_font_sizes/font_size = 25
+text = "Receive a
+random coupon."
 
-[node name="ColorRect2" type="ColorRect" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 270)
+[node name="PanelContainer" type="PanelContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c0o4")
 
-[node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/ColorRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+[node name="MarginContainer" type="MarginContainer" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Title3" type="RichTextLabel" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/ColorRect2/MarginContainer"]
+[node name="Title3" type="RichTextLabel" parent="Intro/Instructions/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = 10
+theme_override_constants/line_separation = 3
 theme_override_fonts/normal_font = ExtResource("28_8puqr")
 theme_override_fonts/bold_font = ExtResource("27_27wp7")
-theme_override_font_sizes/normal_font_size = 60
-theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "[b]Tip:[/b] Replacing a coupon is free! If you're stuck, you can always replace an unhelpful coupon."
 fit_content = true
 
 [node name="CloseInstructionsButton" type="Button" parent="Intro/Instructions"]
 unique_name_in_owner = true
-offset_left = 785.58
-offset_top = 509.091
-offset_right = 926.58
-offset_bottom = 554.091
+offset_left = 196.429
+offset_top = 149.286
+offset_right = 337.429
+offset_bottom = 194.286
 rotation = -0.122173
-scale = Vector2(2, 2)
 text = "Close"
 
 [node name="Outro" type="Node2D" parent="."]
@@ -2095,7 +2123,7 @@ script = ExtResource("23_4hygw")
 position = Vector2(583, 1119)
 
 [node name="PrinterBack" type="Sprite2D" parent="Outro/Printer"]
-scale = Vector2(0.42, 0.42)
+scale = Vector2(1.68, 1.68)
 texture = ExtResource("24_w8mhg")
 metadata/_edit_lock_ = true
 
@@ -2104,12 +2132,12 @@ unique_name_in_owner = true
 offset_bottom = 344.0
 
 [node name="PrinterFront" type="Sprite2D" parent="Outro/Printer"]
-position = Vector2(0, 103)
-scale = Vector2(0.42, 0.42)
+position = Vector2(14, 73)
+scale = Vector2(1.68, 1.68)
 texture = ExtResource("24_w8mhg")
+offset = Vector2(2.08165e-12, 6)
 region_enabled = true
-region_rect = Rect2(0, 488.251, 2470, 1478.75)
-metadata/_edit_lock_ = true
+region_rect = Rect2(50, 124, 533, 341)
 
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
