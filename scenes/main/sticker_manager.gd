@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	Events.item_purchased.connect(_on_item_purchased)
 
-func _on_item_purchased(item : ItemEntity, _coupons):
+func _on_item_purchased(item: ItemEntity, _coupons):
 	await get_tree().create_timer(.2).timeout
 
 	match item.get_discount_rating():

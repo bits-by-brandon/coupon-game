@@ -5,17 +5,17 @@ var score := 0.0
 var total := 0.0
 
 @export var streak_threshold := 2
-@export var streak_multiplier_max := 5 
+@export var streak_multiplier_max := 5
 var streak := 0
 var streak_multiplier = 1
 
-var transactions : Array[Transaction] = []
+var transactions: Array[Transaction] = []
 
 func _ready():
   Events.game_started.connect(reset)
   Events.item_purchased.connect(_on_item_purchased)
 
-func _on_item_purchased(item : ItemEntity, coupons : Array[CouponData]) -> void:
+func _on_item_purchased(item: ItemEntity, coupons: Array[CouponData]) -> void:
   var discount_rating := item.get_discount_rating()
   var is_full_price := discount_rating == ItemEntity.DISCOUNT_RATING.FULL_PRICE
 
@@ -25,7 +25,7 @@ func _on_item_purchased(item : ItemEntity, coupons : Array[CouponData]) -> void:
     Events.streak_lost.emit()
   else:
     streak += 1
-    if streak % streak_threshold == 0 && streak_multiplier < streak_multiplier_max:
+    if streak % streak_threshold == 0&&streak_multiplier < streak_multiplier_max:
       streak_multiplier += 1
       Events.streak_increased.emit(streak_multiplier)
 
@@ -43,8 +43,7 @@ func _on_item_purchased(item : ItemEntity, coupons : Array[CouponData]) -> void:
   transactions.append(transaction)
   Events.score_updated.emit(score)
 
-
-func calculate_score(item : ItemEntity) -> float:
+func calculate_score(item: ItemEntity) -> float:
   match item.get_discount_rating():
     ItemEntity.DISCOUNT_RATING.FREE:
       return 20.0 * streak_multiplier
@@ -55,7 +54,6 @@ func calculate_score(item : ItemEntity) -> float:
     ItemEntity.DISCOUNT_RATING.FULL_PRICE, _:
       return 0.0
 
-
 func reset() -> void:
   total = 0
   streak = 0
@@ -63,12 +61,11 @@ func reset() -> void:
   score = 0
   transactions.clear()
 
-
 class Transaction:
-  var item : ItemData
-  var item_price : float
-  var total : float
-  var coupons_used : Array[CouponData]
-  var full_price : bool
-  var score : float
-  var discount_rating : ItemEntity.DISCOUNT_RATING
+  var item: ItemData
+  var item_price: float
+  var total: float
+  var coupons_used: Array[CouponData]
+  var full_price: bool
+  var score: float
+  var discount_rating: ItemEntity.DISCOUNT_RATING

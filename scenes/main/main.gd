@@ -1,10 +1,10 @@
 class_name Main
 extends Node
 
-const down = preload("res://assets/sprites/cursorDown.png")
-const up = preload("res://assets/sprites/cursor.png")
+const down = preload ("res://assets/sprites/cursorDown.png")
+const up = preload ("res://assets/sprites/cursor.png")
 
-@onready var animation_player : AnimationPlayer = %GameAnimationPlayer
+@onready var animation_player: AnimationPlayer = %GameAnimationPlayer
 
 func _ready():
 	Input.set_custom_mouse_cursor(up)

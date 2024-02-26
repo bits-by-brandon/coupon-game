@@ -1,24 +1,24 @@
 class_name ItemManager
 extends Node
 
-const item_entity := preload("res://scenes/item_entity/item_entity.tscn")	
-const database := preload("res://data/main_database.tres")
+const item_entity := preload ("res://scenes/item_entity/item_entity.tscn")
+const database := preload ("res://data/main_database.tres")
 
 @export var item_offset := 300
 @export var item_count := 12
 @export var belt_duration := 1.0
-@onready var item_timer : Timer = %ItemTimer
-@onready var items_container : Node2D = %Items
+@onready var item_timer: Timer = %ItemTimer
+@onready var items_container: Node2D = %Items
 
-var ready_to_play : bool = false
+var ready_to_play: bool = false
 
-var items : Array[ItemEntity]= []
-@onready var scan_pos : Node2D = %ScanPosition
-@onready var exit_pos : Node2D =	%ExitPosition
+var items: Array[ItemEntity] = []
+@onready var scan_pos: Node2D = %ScanPosition
+@onready var exit_pos: Node2D = %ExitPosition
 # Positions go right to left
-var current_item : ItemEntity :
+var current_item: ItemEntity:
 	set(value):
-		if value == current_item: 
+		if value == current_item:
 			return
 		
 		current_item = value
@@ -26,7 +26,7 @@ var current_item : ItemEntity :
 		if current_item != null:
 			current_item.activate()
 			Events.item_scanned.emit(value)
-var coupons_used : Array[CouponData] = []
+var coupons_used: Array[CouponData] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,7 +39,7 @@ func _on_reset() -> void:
 	for i in item_count:
 		var item := create_random_item()
 
-		if i < 3 && item.data.base_price > 15.0:
+		if i < 3&&item.data.base_price > 15.0:
 			# Ensure the first 5 items are not expensive items
 			while item.data.base_price > 15.0:
 				item.data = database.items.pick_random()
@@ -48,13 +48,11 @@ func _on_reset() -> void:
 		items_container.add_child(item)
 		item.global_position = scan_pos.global_position - Vector2(i * item_offset, 0)
 
-
 func _on_game_started() -> void:
 	await Events.coupons_replenished
 	await get_tree().create_timer(.7).timeout
 	current_item = items[0]
 	play()
-
 
 func create_random_item() -> ItemEntity:
 	var item = item_entity.instantiate()
@@ -85,10 +83,10 @@ func cycle() -> void:
 		Events.game_over.emit()
 		return
 
-func tween_item(item : ItemEntity, target : Vector2) -> void:
+func tween_item(item: ItemEntity, target: Vector2) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(item, "global_position", target, belt_duration)\
-		.set_ease(Tween.EASE_IN_OUT)\
+	tween.tween_property(item, "global_position", target, belt_duration) \
+		.set_ease(Tween.EASE_IN_OUT) \
 		.set_trans(Tween.TRANS_SPRING)
 
 	tween.play()
@@ -96,7 +94,7 @@ func tween_item(item : ItemEntity, target : Vector2) -> void:
 func _on_item_timer_finished() -> void:
 		purchase_item()
 
-func _on_coupon_used(coupon : CouponEntity) -> void:
+func _on_coupon_used(coupon: CouponEntity) -> void:
 	if not ready_to_play:
 		return
 

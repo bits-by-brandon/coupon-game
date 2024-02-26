@@ -2,7 +2,7 @@ extends Control
 
 @onready var score_label: Label = %TotalScore
 @onready var multiplier_label: Label = %Multiplier
-@onready var animation_player : AnimationPlayer = %ScoreAnimationPlayer
+@onready var animation_player: AnimationPlayer = %ScoreAnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -9,5 +9,5 @@ enum DiscountType {
   BOGO,
 }
 
-@export var filters : Array[Filter] = []
-@export var discount : Discount
+@export var filters: Array[Filter] = []
+@export var discount: Discount

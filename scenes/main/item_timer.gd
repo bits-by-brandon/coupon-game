@@ -1,7 +1,7 @@
 extends Control
 
-@onready var timer : Timer = %ItemTimer
-@onready var bar : ProgressBar = %ItemTimerBar
+@onready var timer: Timer = %ItemTimer
+@onready var bar: ProgressBar = %ItemTimerBar
 
 func _ready():
 	bar.value = 0.0

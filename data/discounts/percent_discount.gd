@@ -7,9 +7,9 @@ static func create_random() -> Discount:
   return discount
 
 func get_entity() -> CouponEntity:
-  return preload("res://scenes/coupon_entity/coupon_half.tscn").instantiate()
+  return preload ("res://scenes/coupon_entity/coupon_half.tscn").instantiate()
 
-func apply(item : ItemEntity) -> void:
+func apply(item: ItemEntity) -> void:
   item.current_discount += (item.base_price * value * .01)
 
 func get_primary() -> String:

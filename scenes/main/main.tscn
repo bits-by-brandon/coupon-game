@@ -1911,7 +1911,7 @@ theme_override_fonts/bold_font = ExtResource("27_27wp7")
 theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
-text = "Use coupons to get the item for free. [b]Don't go over the price[/b], or you will loose all discounts."
+text = "Use coupons to get the item for free. [b]Don't go over the price[/b], or you will lose all discounts."
 fit_content = true
 
 [node name="Control" type="Control" parent="Intro/Instructions/PanelContainer/MarginContainer/VBoxContainer"]
@@ -2244,4 +2244,3 @@ max_polyphony = 4
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("51_texum")
 volume_db = -12.175
-autoplay = true

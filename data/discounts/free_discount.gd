@@ -5,7 +5,7 @@ static func create_random() -> Discount:
   var discount = FreeDiscount.new()
   return discount
 
-func apply(item : ItemEntity) -> void:
+func apply(item: ItemEntity) -> void:
   item.current_discount += item.base_price
 
 func get_primary() -> String:
